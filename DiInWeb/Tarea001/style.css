@@ -1,0 +1,15 @@
+*{
+    margin: 10px;
+}
+
+.code{
+    background-color: blue;
+    color: gray;
+}
+
+footer {
+    text-align: left right;
+    font-size: 0.8em;
+    color: gray;
+    margin-top: 20px;
+}

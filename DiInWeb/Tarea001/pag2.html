@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Tarea001</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section>
+        <header>
+        <h1>Vargrant</h1>
+        <h2>Página Número 2</h2>
+        <h3>Primeros pasos</h3>
+        </header>
+        <main>
+            <p>Ahora podemos crear una virtualización basada en la box descargada en el paso anterior. Para ello lo ideal es crear un directorio de trabajo y situarnos en él.</p>
+
+            <p id="code"><code>mkdir vagrant-iniciacion</code></p>
+            <p id="code"><code>cd vagrant-iniciacion</code></p>
+
+            Luego lanzamos el comando para crear el archivo de configuración de nuestra virtualización:
+
+            <p id="code"><code>vagrant init ubuntu/xenial64</code></p>
+
+            <p>Esto nos producirá la siguiente salida por consola.</p>
+
+            <img src="vagrant3.png" alt="zzz">
+
+            <p>Nos están informando que se ha creado en esta carpeta es un archivo Vagrantfile, que es donde se deben especificar los detalles de la máquina virtual que se va a generar en nuestro espacio de trabajo. En el archivo  Vagrantfile podemos especificar cosas como la cantidad de recursos de la máquina, su dirección IP, los puertos que tiene abiertos y un largo etc.</p>
+
+            <button onclick="location.href='pag1.html'">Retroceder</button>
+            <button onclick="location.href='pag3.html'">Ir a la página 3</button>
+        </main>
+        <footer>
+            &copy; 2025 Antonio Gat Fernández
+        </footer>
+    </section>
+</body>
+</html>
