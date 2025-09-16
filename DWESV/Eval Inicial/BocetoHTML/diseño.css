@@ -1,0 +1,173 @@
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+
+body > div {
+  
+  height: calc(100vh - 56px);
+  display: grid;
+  grid-template-columns: 200px 1fr; 
+  grid-template-rows: 1fr;                       
+  gap: 0;
+  align-items: start;
+}
+
+aside {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 20px;
+  background: #f6f6f6;
+  
+  height: 100%;
+}
+
+aside > div {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+aside nav ul {
+  list-style: none;
+}
+
+aside nav ul li {
+  margin: 10px 0;
+}
+
+aside nav ul li a {
+  display: block;
+  padding: 6px 8px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid transparent;
+}
+
+aside nav ul li a:hover {
+  border-color: black;
+  background: white;
+}
+
+main {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 20px;
+  overflow: auto;
+  min-height: 0;
+}
+
+
+main h1 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  padding-bottom: 6px;
+}
+
+
+main input[type="text"] {
+  width: 40%;
+  max-width: 225px;
+  padding: 6px 8px;
+  background: white;
+}
+
+main button {
+  padding: 6px 12px;
+  margin-left: 8px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+}
+
+section {
+  margin-top: 18px;
+}
+
+section > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+section > div:first-child strong {
+  font-size: 14px;
+}
+
+section > div:first-child div {
+  font-size: 12px;
+  color: #333;
+}
+
+section > div:first-child button {
+  border: 1px solid black;
+  padding: 6px 10px;
+  background: white;
+  cursor: pointer;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  background: white;
+}
+
+thead th {
+  text-align: left;
+  padding: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+}
+
+tbody td {
+  padding: 8px;
+  font-size: 13px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+td span {
+  margin-right: 10px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  user-select: none;
+}
+
+
+button, input, table, aside, footer {
+  color: black;
+  background: white;
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 200px;  
+  right: 0;
+  height: 56px;
+  border-top: 1px solid black;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 10;
+}
+
