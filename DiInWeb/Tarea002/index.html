@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+  "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+  <title>002 - Frames</title>
+</head>
+
+<!-- Definimos una cabecera arriba (20%) y el resto dividido en menú y contenido -->
+<frameset rows="20%,80%">
+  <frame src="cabecera.html" name="cabecera" scrolling="no" noresize>
+
+  <frameset cols="25%,75%">
+    <frame src="menu.html" name="menu" scrolling="auto">
+    <frame src="contenido.html" name="principal">
+  </frameset>
+</frameset>
+
+<noframes>
+  <body>
+    Tu navegador no soporta frames.  
+    <a href="contenido.html">Ir al contenido</a>
+  </body>
+</noframes>
+</html>
