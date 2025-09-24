@@ -2,18 +2,20 @@
 const prompt = require('prompt-sync')();
 const valMax = 200;
 const numeroRandom = Math.floor(Math.random() * (valMax + 1));
+const intentosMax = 3;
     
-let intentosRestantes = 3;
+let intentosRestantes = intentosMax;
 let adivinado = false;
 
 console.info(`Adivina un número entre 0 y ${valMax}. Tienes ${intentosRestantes} intentos.`);
 
 while (intentosRestantes > 0 && !adivinado) {
     
-    let numero = prompt(`Intento ${intentosMax - intentosRestantes + 1}: Introduce un número entre 0 y ${valMax}`);
+    let numero = parseInt(prompt(`Intento ${intentosMax - intentosRestantes + 1}: Introduce un número entre 0 y ${valMax}`));
 
     if (isNaN(numero)) {
         console.error("Por favor, introduce un número válido.");
+        continue;
     }
 
     intentosRestantes--;
