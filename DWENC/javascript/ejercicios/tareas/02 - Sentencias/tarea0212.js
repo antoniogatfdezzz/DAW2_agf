@@ -1,0 +1,18 @@
+function ejercicio0212() {
+            let texto = prompt("Introduce un texto:");
+            if (texto !== null) {
+                let vocales = "aeiouAEIOU";
+                let posicion = -1;
+                for (let i = 0; i < texto.length; i++) {
+                    if (vocales.indexOf(texto[i]) !== -1) {
+                        posicion = i;
+                        break;
+                    }
+                }
+                let resultado = posicion !== -1 ? 
+                    `Primera vocal '${texto[posicion]}' encontrada en posición ${posicion}` :
+                    "No se encontraron vocales";
+                document.getElementById("resultado0212").innerHTML = resultado;
+            }
+            document.getElementById("resultado0212").style.display = "block";
+        }
