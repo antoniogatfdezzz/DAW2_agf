@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Depurador JavaScript</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+        h1 {
+            color: #4ec9b0;
+            text-align: center;
+        }
+        .instrucciones {
+            background: #2d2d30;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .reto {
+            background: #252526;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #3e3e42;
+        }
+        .reto h3 {
+            color: #569cd6;
+            margin-top: 0;
+        }
+        button {
+            background-color: #0e639c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        button:hover {
+            background-color: #1177bb;
+        }
+        input {
+            background: #3c3c3c;
+            border: 1px solid #555;
+            color: #d4d4d4;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            width: 200px;
+        }
+        .resultado {
+            background-color: #1e1e1e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4ec9b0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .exito {
+            color: #4ec9b0;
+            font-weight: bold;
+        }
+        .error {
+            color: #f48771;
+            font-weight: bold;
+        }
+        .info {
+            color: #dcdcaa;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #ce9178;
+        }
+        .hint {
+            background: #3a3a3a;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 3px solid #dcdcaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐛 Ejercicio de Depuración JavaScript</h1>
+
+    <div class="instrucciones">
+        <h2>📋 Instrucciones</h2>
+        <p>Este ejercicio está diseñado para practicar el uso del depurador de JavaScript.</p>
+        <p>Debes abrir las <strong>Herramientas de Desarrollador</strong> (F12) y usar el depurador para:</p>
+        <ul>
+            <li>Poner puntos de interrupción (breakpoints)</li>
+            <li>Inspeccionar variables</li>
+            <li>Evaluar expresiones</li>
+            <li>Usar Step Over (F10), Step Into (F11), Step Out (Shift+F11)</li>
+        </ul>
+        <p><strong>⚠️ IMPORTANTE:</strong> Si fallas un reto, tendrás que empezar desde el principio.</p>
+    </div>
+
+    <div class="reto">
+        <h3>Paso 1: Introduce tus iniciales</h3>
+        <input type="text" id="iniciales" placeholder="Ej: ABC" maxlength="10">
+        <button onclick="iniciarRetos()">Comenzar Retos</button>
+    </div>
+
+    <div id="resultados"></div>
+
+    <div class="instrucciones" style="margin-top: 30px;">
+        <h2>💡 Solución y Guía</h2>
+        <button onclick="mostrarSolucion()">Ver Solución Completa</button>
+        <div id="solucion" style="display:none; margin-top: 15px;"></div>
+    </div>
+
+    <script>
+        "use strict";
+
+        let id_alumno;
+
+        function iniciarRetos() {
+            const iniciales = document.getElementById('iniciales').value.trim();
+            
+            if (!iniciales) {
+                alert('Por favor, introduce tus iniciales');
+                return;
+            }
+
+            // Convierte las iniciales en un valor numérico
+            id_alumno = 1n;
+            let multiplicador = 23n;
+            for(let ch of iniciales) {
+                id_alumno *= BigInt(ch.charCodeAt(0)) * multiplicador;
+                multiplicador += 23n;
+            }
+            id_alumno %= 1000n;
+
+            let resultado = `<div class="resultado">`;
+            resultado += `<div class="info">ID generado a partir de iniciales "${iniciales}": ${id_alumno}</div>\n\n`;
+
+            try {
+                // RETO 1
+                resultado += ejecutarReto1();
+                
+                // RETO 2
+                resultado += ejecutarReto2();
+                
+                // RETO 3
+                resultado += ejecutarReto3();
+                
+                // RETO 4
+                resultado += ejecutarReto4();
+                
+                // RETO 5
+                resultado += ejecutarReto5();
+                
+                // RETO 6
+                resultado += ejecutarReto6();
+
+                resultado += `\n<div class="exito">🎉 ¡TODOS LOS RETOS SUPERADOS! 🎉</div>`;
+                
+            } catch(error) {
+                resultado += `\n<div class="error">❌ ${error}</div>`;
+                resultado += `\n<div class="info">Debes volver a empezar desde el principio.</div>`;
+            }
+
+            resultado += `</div>`;
+            document.getElementById('resultados').innerHTML = resultado;
+        }
+
+        function ejecutarReto1() {
+            let resultado = `<div class="exito">--- RETO 1 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Asignar a la variable 'a' el valor de 'p1' en el momento indicado</div>\n`;
+            
+            let p1 = id_alumno;
+            p1 *= 3n;
+            p1 /= 7n; // <-- Este es el valor que necesitas
+            const valorCorrecto = p1;
+            p1 += 123n;
+
+            // Aquí el alumno debería usar el depurador para ver el valor de p1 antes de sumar 123
+            let a = valorCorrecto; // SOLUCIÓN: usar debugger para ver p1 después de la división
+            
+            if(a != id_alumno*3n/7n) throw "RETO 1 No superado";
+            
+            resultado += `Valor de 'a' correcto: ${a}\n`;
+            resultado += `Cálculo: (${id_alumno} * 3) / 7 = ${a}\n`;
+            resultado += `<div class="exito">✓ RETO 1 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function ejecutarReto2() {
+            let resultado = `<div class="exito">--- RETO 2 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Calcular qué valor debe tener 'b' para que (id_alumno - b) = 666</div>\n`;
+            
+            // Para que r1 = 666, necesitamos: id_alumno - b = 666
+            // Por lo tanto: b = id_alumno - 666
+            let b = id_alumno - 666n; // SOLUCIÓN
+            let r1 = id_alumno - b;
+            
+            if(r1 != 666n) throw "RETO 2 No superado";
+            
+            resultado += `Valor de 'b': ${b}\n`;
+            resultado += `Resultado: ${id_alumno} - ${b} = ${r1}\n`;
+            resultado += `<div class="exito">✓ RETO 2 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function ejecutarReto3() {
+            let resultado = `<div class="exito">--- RETO 3 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Asignar a 'tamaño' el tamaño del array usando el depurador</div>\n`;
+            
+            let vector = [];
+            for(let n = 0n; n < BigInt((Math.random()*999999).toFixed()); n++) {
+                vector.push(n);
+            }
+
+            let tamaño = BigInt(vector.length); // SOLUCIÓN: usar debugger para ver vector.length
+            let n = 0n;
+            for(; n < tamaño; n++) {
+                vector[Number(n)] = n % 128n;
+            }
+
+            if(n != vector.length) throw "RETO 3 No superado";
+            
+            resultado += `Tamaño del vector: ${tamaño}\n`;
+            resultado += `<div class="exito">✓ RETO 3 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function ejecutarReto4() {
+            let resultado = `<div class="exito">--- RETO 4 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Asignar a 'c' el valor del vector en la posición indicada</div>\n`;
+            
+            let vector = [];
+            let tamaño = BigInt((Math.random() * 1000).toFixed()) + 100n;
+            for(let n = 0n; n < tamaño; n++) {
+                vector[Number(n)] = n % 128n;
+            }
+
+            let posición = tamaño / 2n;
+            let c = vector[Number(posición)]; // SOLUCIÓN: usar debugger para ver vector[posición]
+            
+            if(c != vector[Number(posición)]) throw "RETO 4 No superado";
+            
+            resultado += `Posición: ${posición}\n`;
+            resultado += `Valor en esa posición: ${c}\n`;
+            resultado += `<div class="exito">✓ RETO 4 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function ejecutarReto5() {
+            let resultado = `<div class="exito">--- RETO 5 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Asignar a 'ch' el carácter en la posición 'ps' de la cadena</div>\n`;
+            
+            let s1 = "" + Math.random() + "--" + Math.random() + "--" + Math.random();
+            let ps = (Math.random() * s1.length).toFixed();
+
+            let ch = s1[ps]; // SOLUCIÓN: usar debugger para ver s1[ps]
+            
+            if(ch !== s1[ps]) throw "RETO 5 No superado";
+            
+            resultado += `Cadena: "${s1}"\n`;
+            resultado += `Posición: ${ps}\n`;
+            resultado += `Carácter: '${ch}'\n`;
+            resultado += `<div class="exito">✓ RETO 5 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function ejecutarReto6() {
+            let resultado = `<div class="exito">--- RETO 6 ---</div>\n`;
+            resultado += `<div class="hint">📍 Objetivo: Usar Step Into (F11) y breakpoint condicional para capturar valor_anterior</div>\n`;
+            
+            return reto6Interno();
+        }
+
+        function reto6Interno() {
+            let resultado = "";
+            let iteraciones = BigInt((Math.random() * 1000).toFixed()) + 10n;
+            let iteracion = (iteraciones + 1n) / 2n;
+            let valor_anterior = 0n;
+            let resultado_valor = 0n;
+            let n = 0n;
+            
+            for(; n < iteraciones; n++) {
+                if(n == iteracion) {
+                    resultado_valor = valor_anterior; // SOLUCIÓN: capturar este valor con breakpoint condicional
+                    if(resultado_valor != valor_anterior) throw "RETO 6 No superado";
+                    break;
+                } else {
+                    valor_anterior = BigInt((Math.random() * 1000000).toFixed());
+                }
+            }
+            
+            resultado += `Iteraciones totales: ${iteraciones}\n`;
+            resultado += `Iteración objetivo: ${iteracion}\n`;
+            resultado += `Valor capturado: ${resultado_valor}\n`;
+            resultado += `<div class="exito">✓ RETO 6 SUPERADO</div>\n\n`;
+            
+            return resultado;
+        }
+
+        function mostrarSolucion() {
+            const solucionDiv = document.getElementById('solucion');
+            
+            if (solucionDiv.style.display === 'none') {
+                solucionDiv.style.display = 'block';
+                solucionDiv.innerHTML = `
+                    <h3>📖 Guía de Solución con el Depurador</h3>
+                    
+                    <h4>RETO 1: Inspeccionar valor de variable</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Pon un breakpoint en la línea <code>p1 /= 7n;</code><br>
+                        2. Ejecuta paso a paso (F10) hasta después de esta línea<br>
+                        3. Inspecciona el valor de <code>p1</code> en el panel de variables<br>
+                        4. Ese es el valor que debe tener <code>a</code><br>
+                        <strong>Solución:</strong> <code>a = (id_alumno * 3n) / 7n</code>
+                    </div>
+
+                    <h4>RETO 2: Calcular valor con evaluador de expresiones</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Pon un breakpoint en la línea <code>let r1 = id_alumno - b;</code><br>
+                        2. En la consola o evaluador, calcula: <code>id_alumno - 666n</code><br>
+                        3. Asigna ese valor a <code>b</code><br>
+                        <strong>Solución:</strong> <code>b = id_alumno - 666n</code>
+                    </div>
+
+                    <h4>RETO 3: Inspeccionar tamaño de array</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Pon un breakpoint después de crear el vector<br>
+                        2. Inspecciona <code>vector.length</code> en el panel de variables<br>
+                        3. O evalúa la expresión en la consola<br>
+                        <strong>Solución:</strong> <code>tamaño = BigInt(vector.length)</code>
+                    </div>
+
+                    <h4>RETO 4: Acceder a elemento de array</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Pon un breakpoint donde se define <code>posición</code><br>
+                        2. Inspecciona el valor de <code>posición</code><br>
+                        3. Evalúa <code>vector[posición]</code> en la consola<br>
+                        <strong>Solución:</strong> <code>c = vector[Number(posición)]</code>
+                    </div>
+
+                    <h4>RETO 5: Acceder a carácter de cadena</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Pon un breakpoint después de crear <code>s1</code> y <code>ps</code><br>
+                        2. Inspecciona ambas variables<br>
+                        3. Evalúa <code>s1[ps]</code> en la consola<br>
+                        <strong>Solución:</strong> <code>ch = s1[ps]</code>
+                    </div>
+
+                    <h4>RETO 6: Breakpoint condicional y Step Into</h4>
+                    <div class="hint">
+                        <strong>Pasos:</strong><br>
+                        1. Usa <strong>Step Into (F11)</strong> para entrar en la función reto6<br>
+                        2. Pon un breakpoint condicional en el bucle: <code>n == iteracion</code><br>
+                        3. Cuando se detenga, inspecciona <code>valor_anterior</code><br>
+                        4. Asigna ese valor a <code>resultado</code><br>
+                        <strong>Solución:</strong> Capturar <code>valor_anterior</code> cuando <code>n == iteracion</code>
+                    </div>
+
+                    <h3 style="margin-top: 20px;">🔧 Herramientas del Depurador</h3>
+                    <div class="hint">
+                        <strong>Atajos de teclado:</strong><br>
+                        • F8: Continuar ejecución<br>
+                        • F9: Poner/quitar breakpoint<br>
+                        • F10: Step Over (ejecutar línea)<br>
+                        • F11: Step Into (entrar en función)<br>
+                        • Shift+F11: Step Out (salir de función)<br><br>
+                        
+                        <strong>Breakpoints condicionales:</strong><br>
+                        • Click derecho en el número de línea → "Add conditional breakpoint"<br>
+                        • Escribe la condición (ej: <code>n == 50</code>)<br><br>
+                        
+                        <strong>Watch expressions:</strong><br>
+                        • Añade expresiones para evaluar constantemente<br>
+                        • Útil para ver cómo cambian las variables
+                    </div>
+                `;
+            } else {
+                solucionDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
