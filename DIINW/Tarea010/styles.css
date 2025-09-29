@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    background-color: #7FCFDF;
+    padding: 15px;
+    clear: both;
+}
+
+.header h1 {
+    color: #000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Navegación */
+.nav {
+    background-color: #F4E4A6;
+    padding: 12px 15px;
+    clear: both;
+}
+
+.nav p {
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.main-content {
+    overflow: hidden;
+    height: calc(100vh - 120px);
+}
+
+.article {
+    background-color: #8BAEE8;
+    width: 70%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+}
+
+.article h2 {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.section {
+    background-color: #E8935A;
+    margin-bottom: 5px;
+    padding: 50px 20px;
+    height: calc((100% - 60px) / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section h3 {
+    color: #000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.aside {
+    background-color: #B19CD9;
+    width: 30%;
+    float: right;
+    padding: 10px;
+    height: 100%;
+}
+
+.aside h2 {
+    color: #000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer {
+    background-color: #7FCFDF;
+    padding: 12px 15px;
+    clear: both;
+}
+
+.footer p {
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Media queries para responsividad básica */
+@media screen and (max-width: 768px) {
+    .article,
+    .aside {
+        width: 100%;
+        float: none;
+    }
+    
+    .aside {
+        margin-top: 20px;
+    }
+}

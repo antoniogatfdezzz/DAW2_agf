@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    border: 2px solid #ccc;
+}
+
+/* Header */
+header {
+    background-color: #D4A574;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigation */
+nav {
+    background-color: #A8D4D4;
+    padding: 40px 20px;
+    float: left;
+    width: 20%;
+    min-height: 300px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Main content area */
+main {
+    float: left;
+    width: 80%;
+    background-color: #B8B8B8;
+    padding: 20px;
+    min-height: 300px;
+}
+
+/* Article section */
+.main-content {
+    float: left;
+    width: 70%;
+    background-color: #7B9BD1;
+    padding: 60px 20px;
+    margin-right: 2%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-height: 200px;
+}
+
+/* Sidebar with aside elements */
+.sidebar {
+    float: right;
+    width: 28%;
+}
+
+.aside-item {
+    background-color: #D17B7B;
+    margin-bottom: 10px;
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-height: 95px;
+}
+
+.aside-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Bottom section */
+.bottom-section {
+    clear: both;
+    background-color: #B8B8B8;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.bottom-content {
+    float: left;
+    width: 70%;
+    background-color: #B8B8B8;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-height: 120px;
+    margin-right: 2%;
+}
+
+.bottom-aside {
+    float: right;
+    width: 28%;
+    background-color: #D17B7B;
+    padding: 40px 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-height: 120px;
+}
+
+/* Footer */
+footer {
+    clear: both;
+    background-color: #B8C4A8;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Clearfix para contener los elementos flotantes */
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bottom-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
