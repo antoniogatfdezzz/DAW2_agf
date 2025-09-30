@@ -7,7 +7,6 @@
 </head>
 <body>
     <?php
-     // Sacar todos los primos entre 1 y 100
     echo "<h2>Números primos entre 1 y 100</h2>";
     for ($num = 2; $num <= 100; $num++) {
         $esPrimo = true;
