@@ -32,7 +32,7 @@ p1 *= 3n;
 p1 /= 7n; // Asigna este valor a la variable a más abajo
 p1 += 123n;
 
-let a = 0n; // <-- A esta variable.
+let a = 42n; // <-- A esta variable.
 if(a != id_alumno*3n/7n) throw "RETO 1 No superado";
 console.log("RETO 1 = "+a);
 
@@ -42,7 +42,7 @@ console.log("RETO 1 = "+a);
 // Puedes utilizar el evaluador de expresiones o crear una inpección para
 // calcular el valor que tienes que asignar.
 //----------------------------------------------------------------------
-let b = 0n;
+let b = -566n;
 let r1 = id_alumno - b; // Asigna el valor a b antes de ejecutar esta sentencia
 if(r1 != 666) throw "RETO 2 No superado";
 console.log("RETO 2: "+r1);
@@ -57,7 +57,7 @@ console.log("RETO 2: "+r1);
 let vector = [];
 for(let n = 0n;n < BigInt((Math.random()*999999).toFixed());n++) vector[n] = n;
 
-let tamaño = 0n; // <-- Esta variable tiene que ser el tamaño del array
+let tamaño = BigInt(vector.length); // <-- Esta variable tiene que ser el tamaño del array
 let n = 0n;
 for(;n < tamaño;n++) {
     vector[n] = n%128n;
@@ -74,7 +74,7 @@ console.log("RETO 3: "+n);
 // Y desde el mismo visor de variables asigna el valor.
 //----------------------------------------------------------------------
 let posición = tamaño / 2n; // <--- Posición
-let c = 0n;
+let c = vector[posición];
 if(c != vector[posición])
     throw "RETO 4 No superado";
 
@@ -92,7 +92,7 @@ console.log("RETO 4: " + c);
 let s1 = "" + Math.random()+"--"+Math.random()+"--"+Math.random();
 let ps = (Math.random()*s1.length).toFixed();
 
-let ch = "0";
+let ch = s1[ps];
 if(ch !== s1[ps])
     throw new "RETO 5 No superado";
 console.log("RETO 5: " + ch);
@@ -117,7 +117,15 @@ function reto6() {
     let resultado = 0n;
     let n = 0n;
     
-    for(;n < iteraciones;n++) { if(n == iteracion && resultado != valor_anterior) throw "RETO 6 No superado"; else if(n == iteracion) break; else valor_anterior = BigInt(Math.random().toFixed()); }
+    for(;n < iteraciones;n++) { 
+        if(n == iteracion) {
+            resultado = valor_anterior;
+            if(resultado != valor_anterior) throw "RETO 6 No superado"; 
+            else break;
+        } else {
+            valor_anterior = BigInt((Math.random()*1000000).toFixed()); 
+        }
+    }
     console.log("RETO 6: " + resultado);
 }
 
