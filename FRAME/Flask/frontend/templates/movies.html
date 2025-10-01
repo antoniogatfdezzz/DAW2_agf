@@ -28,7 +28,7 @@
                                 <i class="fas fa-star text-warning"></i>
                                 <span class="fw-bold">{{ "%.1f"|format(movie.rating) }}</span>
                             </div>
-                            <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary btn-sm">
+                            <a href="{{ url_for('movie_detail', mid=movie.id) }}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-eye me-1"></i>Ver detalles
                             </a>
                         </div>
