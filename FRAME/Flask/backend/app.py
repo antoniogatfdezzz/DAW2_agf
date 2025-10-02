@@ -1,32 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, redirect, url_for, abort
+from models import save_contact, get_movies
 
 app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
+app.config ['SECRET_KEY'] = 'ramdom- key'
 
-movies = [
-    {'id': 1, 
-     'title': 'The Shawshank Redemption',
-     'director': 'Frank Darabont',
-     'year': 1994,
-     'genre': 'Drama',
-     'description': 'Two imprisoned',
-     'rating': 9.3,
-     'poster_url': 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_FMjpg_UX1000_.jpg'
-     },
-
-    {'id': 2, 
-     'title': 'The Godfather',
-     'director': 'Francis Ford Coppola',
-     'year': 1972,
-     'genre': 'Crime',
-     'description': 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-     'rating': 9.2,
-     'poster_url': 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_FMjpg_UX1000_.jpg'
-     }
-]
+movie_list = get_movies()
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+        
+        
 
 def get_movie_by_id(movie_id: int):
     return next((movie for movie in movies if movie['id'] == movie_id), None)
@@ -37,7 +25,7 @@ def movie_detail(mid):
     if not movie:
         from flask import redirect, url_for
         return redirect(url_for("movies"))
-     return render_template("movie_detail.html", movie=movie)
+        return render_template("movie_detail.html", movie=movie)
 
 
 @app.route("/movies", endpoint="movies")
