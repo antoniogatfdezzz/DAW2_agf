@@ -1,7 +1,11 @@
+"use strict";
+
 const prompt = require('prompt-sync')();
 
-let lista = [];
+const mapaElementos = new Map();
 let elemento;
+
+console.log("Introduce elementos (presiona Enter para terminar):");
 
 while (true) {
     elemento = prompt("Introduce un elemento: ");
@@ -10,25 +14,31 @@ while (true) {
         break;
     }
     
-    let existe = false;
-    for (let i = 0; i < lista.length; i++) {
-        if (lista[i].toLowerCase() === elemento.toLowerCase()) {
-            existe = true;
-            break;
-        }
-    }
+    const elementoNormalizado = elemento.toLowerCase();
     
-    if (existe) {
-        console.log("El elemento ya existe");
+    if (mapaElementos.has(elementoNormalizado)) {
+        const conteoActual = mapaElementos.get(elementoNormalizado);
+        mapaElementos.set(elementoNormalizado, conteoActual + 1);
+        console.log(`El elemento '${elemento}' ya existe. Apariciones: ${conteoActual + 1}`);
     } else {
-        lista.push(elemento);
-        console.log("Elemento añadido");
+        mapaElementos.set(elementoNormalizado, 1);
+        console.log(`Elemento '${elemento}' añadido`);
     }
 }
 
-lista.sort();
+const elementosOrdenados = Array.from(mapaElementos.keys()).sort();
 
-console.log("Lista final:");
-for (let i = 0; i < lista.length; i++) {
-    console.log(lista[i]);
+console.log("\n=== LISTA FINAL ===");
+console.log("Elementos únicos ordenados:");
+for (const elemento of elementosOrdenados) {
+    const contador = mapaElementos.get(elemento);
+    console.log(`${elemento} (apariciones: ${contador})`);
 }
+
+console.log(`\nTotal de elementos únicos: ${mapaElementos.size}`);
+
+let totalApariciones = 0;
+for (const contador of mapaElementos.values()) {
+    totalApariciones += contador;
+}
+console.log(`Total de elementos introducidos: ${totalApariciones}`);
