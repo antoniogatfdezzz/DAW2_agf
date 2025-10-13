@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom0104 Cambia texto</title>
+    <link rel="stylesheet" href="dom0104.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cambia Texto</h1>
+        
+        <p id="texto">Este es un párrafo de ejemplo que cambiará su tamaño y tipo de letra según tus preferencias.</p>
+        
+        <div class="controles">
+            <div class="control-group">
+                <label for="tamano">Tamaño de letra (puntos):</label>
+                <input type="number" id="tamano" min="8" max="72" value="16">
+            </div>
+            
+            <div class="control-group">
+                <label for="fuente">Tipo de letra:</label>
+                <select id="fuente">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Impact">Impact</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dom0104.js"></script>
+</body>
+</html>

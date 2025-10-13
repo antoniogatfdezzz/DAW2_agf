@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom0110</title>
+    <link rel="stylesheet" href="dom0110.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Validación</h1>
+        <form id="miFormulario">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre">
+                <span class="error-message" id="errorNombre"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="numero">Número par:</label>
+                <input type="text" id="numero" name="numero" placeholder="Introduce un número par">
+                <span class="error-message" id="errorNumero"></span>
+            </div>
+        </form>
+    </div>
+    
+    <script src="dom0110.js"></script>
+</body>
+</html>

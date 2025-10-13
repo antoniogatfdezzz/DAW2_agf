@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom0106</title>
+    <link rel="stylesheet" href="dom0106.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tabla de Frutas</h1>
+        
+        <div class="form-container">
+            <h2>Añadir Nueva Fruta</h2>
+            <div class="input-group">
+                <label for="nombreFruta">Nombre de la fruta:</label>
+                <input type="text" id="nombreFruta" placeholder="Ej: Manzana">
+            </div>
+            <div class="input-group">
+                <label for="colorFruta">Color:</label>
+                <input type="text" id="colorFruta" placeholder="Ej: Rojo">
+            </div>
+            <button id="btnAnadir">Añadir Fruta</button>
+        </div>
+
+        <table id="tablaFrutas">
+            <thead>
+                <tr>
+                    <th>Fruta</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Manzana</td>
+                    <td>Rojo</td>
+                </tr>
+                <tr>
+                    <td>Plátano</td>
+                    <td>Amarillo</td>
+                </tr>
+                <tr>
+                    <td>Naranja</td>
+                    <td>Naranja</td>
+                </tr>
+                <tr>
+                    <td>Uva</td>
+                    <td>Morado</td>
+                </tr>
+                <tr>
+                    <td>Kiwi</td>
+                    <td>Verde</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="dom0106.js"></script>
+</body>
+</html>
