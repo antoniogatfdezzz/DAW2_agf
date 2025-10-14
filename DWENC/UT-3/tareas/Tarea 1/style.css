@@ -1,0 +1,85 @@
+* {
+  font-family: Helvetica;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.botones {
+  background-color: #2A2A2A;
+  margin: 0;
+  width: 400px;
+  text-align: left;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.botones > button, .botones > .negro, .botones > .naranja, .botones > .gris, .botones > .span-2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.rojo {
+  background-color: #FF5F57;
+}
+
+.amarillo {
+  background-color: #FFBD2E;
+}
+
+.verde {
+  background-color: #2CC73E;
+}
+
+.calculadora {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 500px;
+}
+
+#input {
+  background-color: #2A2A2A;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  color: white;
+  height: 100px;
+  border: none;
+}
+
+button, .negro, .naranja, .gris, .span-2 {
+  width: 100px;
+  height: 100px;
+}
+
+.negro {
+  background-color: #3E3E3E;
+}
+
+.naranja {
+  background-color: #FF9F04;
+}
+
+.gris, .span-2 {
+  background-color: #5E5E5E;
+  width: 100px;
+  height: 100px;
+}
+
+.span-2 {
+  width: 200px;
+  border-radius: 0px 0px 0px 10px;
+}
+
+#igual {
+  border-radius: 0px 0px 10px 0px;
+}

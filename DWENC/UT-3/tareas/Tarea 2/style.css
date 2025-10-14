@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+fieldset {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #555;
+    padding: 0 10px;
+    font-size: 1.1em;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Estilo para campos con error */
+input.error {
+    border-color: #f44336 !important;
+    background-color: #ffe6e6 !important;
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.3) !important;
+}
+
+.botones {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button[type="button"] {
+    background-color: #f44336;
+    color: white;
+}
+
+button[type="button"]:hover {
+    background-color: #da190b;
+}
+
+#mensajes {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    min-height: 50px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+#mensaje-contenido {
+    margin: 0;
+    color: #666;
+    font-style: italic;
+}
+
+/* Estilo para mensajes de error */
+#mensajes.error {
+    background-color: #ffe6e6;
+    border-color: #f44336;
+    color: #f44336;
+}
+
+#mensajes.error #mensaje-contenido {
+    color: #f44336;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Estilo para mensajes de ayuda */
+#mensajes.ayuda {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+    color: #1976D2;
+}
+
+#mensajes.ayuda #mensaje-contenido {
+    color: #1976D2;
+}
