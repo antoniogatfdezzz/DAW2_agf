@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Cliente</h1>
+        
+        <form id="formulario-cliente" novalidate>
+            <h2>Datos Personales</h2>
+            
+            <div class="form-group">
+                <label for="nombre">Nombre <span class="obligatorio">*</span></label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    data-ayuda="Introduce tu nombre" 
+                    data-validacion="obligatorio">
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos <span class="obligatorio">*</span></label>
+                <input 
+                    type="text" 
+                    id="apellidos" 
+                    name="apellidos" 
+                    data-ayuda="Introduce tus apellidos completos" 
+                    data-validacion="obligatorio">
+            </div>
+
+            <div class="form-group">
+                <label for="dni">DNI <span class="obligatorio">*</span></label>
+                <input 
+                    type="text" 
+                    id="dni" 
+                    name="dni" 
+                    data-ayuda="Introduce tu DNI con letra (ejemplo: 12345678Z)" 
+                    data-validacion="dni"
+                    placeholder="12345678Z">
+            </div>
+
+            <h2>Cuenta</h2>
+
+            <div class="form-group">
+                <label for="email">Email <span class="obligatorio">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    data-ayuda="Introduce tu dirección de correo electrónico" 
+                    data-validacion="email"
+                    placeholder="ejemplo@correo.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password1">Contraseña <span class="obligatorio">*</span></label>
+                <input 
+                    type="password" 
+                    id="password1" 
+                    name="password1" 
+                    data-ayuda="Introduce una contraseña segura" 
+                    data-validacion="obligatorio">
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Repetir Contraseña <span class="obligatorio">*</span></label>
+                <input 
+                    type="password" 
+                    id="password2" 
+                    name="password2" 
+                    data-ayuda="Vuelve a introducir la misma contraseña" 
+                    data-validacion="passwordMatch">
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Aceptar</button>
+                <button type="button" id="btn-limpiar">Limpiar</button>
+            </div>
+        </form>
+
+        <div id="ayuda-container">
+            <p id="ayuda-texto"></p>
+        </div>
+    </div>
+
+    <!-- jQuery desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="module" src="formulario.mjs"></script>
+</body>
+</html>

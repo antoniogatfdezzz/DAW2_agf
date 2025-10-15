@@ -66,7 +66,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #ebee8c;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
@@ -93,21 +93,23 @@ button {
 }
 
 button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ffffff;
+    color: black;
 }
 
 button[type="submit"]:hover {
     background-color: #45a049;
+    color: white;
 }
 
 button[type="button"] {
-    background-color: #f44336;
-    color: white;
+    background-color: #ffffff;
+    color: black;
 }
 
 button[type="button"]:hover {
     background-color: #da190b;
+    color: white;
 }
 
 #mensajes {
@@ -125,7 +127,6 @@ button[type="button"]:hover {
     font-style: italic;
 }
 
-/* Estilo para mensajes de error */
 #mensajes.error {
     background-color: #ffe6e6;
     border-color: #f44336;
@@ -138,7 +139,6 @@ button[type="button"]:hover {
     font-weight: bold;
 }
 
-/* Estilo para mensajes de ayuda */
 #mensajes.ayuda {
     background-color: #e3f2fd;
     border-color: #2196F3;

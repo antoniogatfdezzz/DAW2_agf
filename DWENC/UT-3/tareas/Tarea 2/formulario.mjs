@@ -1,3 +1,5 @@
+"use strict";
+
 import { 
     validarObligatorio, 
     validarEmail, 
@@ -38,10 +40,8 @@ function mostrarError(campo, mensaje) {
     const divMensajes = document.getElementById('mensajes');
     const contenido = document.getElementById('mensaje-contenido');
     
-    // Marcar el campo con error
     campo.classList.add('error');
     
-    // Mostrar mensaje de error
     divMensajes.className = 'error';
     contenido.textContent = mensaje;
 }
