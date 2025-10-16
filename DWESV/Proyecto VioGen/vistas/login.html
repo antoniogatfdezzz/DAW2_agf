@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VioGén - Inicio de Sesión</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">
+                <h1>🛡️ VioGén</h1>
+                <p>Sistema de Valoración Policial del Riesgo</p>
+            </div>
+        </div>
+
+        <div class="login-tabs">
+            <button class="tab-button active" onclick="showTab('policia')">
+                👮 Acceso Policía
+            </button>
+            <button class="tab-button" onclick="showTab('victima')">
+                👤 Acceso Víctima
+            </button>
+        </div>
+
+        <!-- Formulario Policía -->
+        <div id="tab-policia" class="tab-content active">
+            <form action="../procesar_login.php" method="POST" class="login-form">
+                <input type="hidden" name="tipo_usuario" value="policia">
+                
+                <h2>Acceso para Policías/Evaluadores</h2>
+                
+                <div class="form-group">
+                    <label for="usuario_policia">
+                        <span class="icon">👤</span>
+                        Usuario
+                    </label>
+                    <input 
+                        type="text" 
+                        id="usuario_policia" 
+                        name="usuario" 
+                        placeholder="Nombre de usuario"
+                        required
+                        autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password_policia">
+                        <span class="icon">🔒</span>
+                        Contraseña
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password_policia" 
+                        name="password" 
+                        placeholder="Contraseña"
+                        required
+                        autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Iniciar Sesión
+                </button>
+
+                <div class="help-text">
+                    <p><strong>Usuarios de prueba:</strong></p>
+                    <p>👮 Policía: <code>mgarcia</code> / <code>policia123</code></p>
+                    <p>🔧 Admin: <code>admin</code> / <code>admin123</code></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario Víctima -->
+        <div id="tab-victima" class="tab-content">
+            <form action="../procesar_login.php" method="POST" class="login-form">
+                <input type="hidden" name="tipo_usuario" value="victima">
+                
+                <h2>Acceso para Víctimas</h2>
+                
+                <div class="alert alert-info">
+                    <strong>ℹ️ Información:</strong>
+                    <p>Este acceso es para víctimas que han sido registradas en el sistema y tienen usuario asignado.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="usuario_victima">
+                        <span class="icon">👤</span>
+                        Usuario
+                    </label>
+                    <input 
+                        type="text" 
+                        id="usuario_victima" 
+                        name="usuario" 
+                        placeholder="Usuario asignado"
+                        required
+                        autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password_victima">
+                        <span class="icon">🔒</span>
+                        Contraseña
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password_victima" 
+                        name="password" 
+                        placeholder="Contraseña"
+                        required
+                        autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Iniciar Sesión
+                </button>
+
+                <div class="help-links">
+                    <a href="ayuda.html">¿No tienes usuario?</a>
+                    <a href="contacto.html">Contactar con Unidad VioGén</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="emergency-banner">
+            <p><strong>🚨 EN CASO DE EMERGENCIA LLAMA AL 016</strong></p>
+            <p>No deja rastro en la factura telefónica</p>
+        </div>
+    </div>
+
+    <footer class="login-footer">
+        <p>&copy; 2025 Proyecto VioGén - Sistema de Protección a Víctimas de Violencia de Género</p>
+        <p>Desarrollado conforme a VPR 5.0-H y VPER</p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Ocultar todos los tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Mostrar el tab seleccionado
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Mostrar mensajes de error si existen
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            const errorMsg = urlParams.get('error');
+            alert('❌ Error: ' + decodeURIComponent(errorMsg));
+        }
+        if (urlParams.has('mensaje')) {
+            const msg = urlParams.get('mensaje');
+            alert('✅ ' + decodeURIComponent(msg));
+        }
+    </script>
+</body>
+</html>

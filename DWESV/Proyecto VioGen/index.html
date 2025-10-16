@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VioGén - Sistema de Protección</title>
+    <link rel="stylesheet" href="vistas/estilos.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .btn-hero {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .btn-hero:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary-hero {
+            background: #D32F2F;
+            color: white;
+        }
+        .btn-secondary-hero {
+            background: white;
+            color: #667eea;
+        }
+        .info-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .info-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .emergency-banner {
+            background: #D32F2F;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.25rem;
+        }
+        .emergency-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>🛡️ Proyecto VioGén</h1>
+        <p>Sistema de Valoración Policial del Riesgo (VPR) para la protección integral de víctimas de violencia de género</p>
+        
+        <div>
+            <a href="vistas/login.html" class="btn-hero btn-primary-hero">🔐 Acceder al Sistema</a>
+            <a href="#info" class="btn-hero btn-secondary-hero">ℹ️ Más Información</a>
+        </div>
+    </div>
+
+    <div class="emergency-banner">
+        <strong>🚨 EN CASO DE EMERGENCIA</strong>
+        <div class="emergency-number">016</div>
+        <p style="margin: 0;">Atención 24h · Llamada gratuita · No deja rastro en factura</p>
+    </div>
+
+    <div class="info-section" id="info">
+        <h2 style="text-align: center; color: #333; margin-bottom: 2rem;">¿Qué es el Sistema VioGén?</h2>
+        
+        <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto 3rem auto; line-height: 1.8;">
+            El Sistema VioGén es una herramienta profesional desarrollada para las Fuerzas y Cuerpos de Seguridad del Estado, 
+            que permite realizar una valoración objetiva del riesgo que sufren las víctimas de violencia de género 
+            mediante el protocolo oficial VPR 5.0-H con 35 indicadores especializados.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📊 Valoración Objetiva</h3>
+                <p>Algoritmo actuarial basado en 35 indicadores oficiales del protocolo VPR 5.0-H que determina 5 niveles de riesgo.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🛡️ Protección Integral</h3>
+                <p>Sistema completo que incluye gestión de víctimas, agresores, valoraciones y medidas de protección.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📋 Seguimiento Continuo</h3>
+                <p>Valoraciones periódicas (VPER) que permiten evaluar la evolución del riesgo en el tiempo.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>👮 Para Profesionales</h3>
+                <p>Herramienta diseñada para uso exclusivo de policías y evaluadores especializados.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>👤 Área de Víctimas</h3>
+                <p>Panel informativo donde las víctimas pueden consultar su nivel de riesgo y medidas de protección.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📈 Gestión Completa</h3>
+                <p>Sistema integral con estadísticas, alertas, casos pendientes y documentación completa.</p>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; color: #333; margin: 3rem 0 2rem 0;">Niveles de Riesgo</h2>
+        
+        <div class="info-grid">
+            <div class="info-card" style="border-left: 4px solid #4CAF50;">
+                <h3 style="color: #4CAF50;">No Apreciado</h3>
+                <p><strong>0-9 puntos</strong> · No se detectan indicadores significativos de riesgo.</p>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid #8BC34A;">
+                <h3 style="color: #8BC34A;">Bajo</h3>
+                <p><strong>10-19 puntos</strong> · Presencia de algunos indicadores de riesgo leve.</p>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid #FFC107;">
+                <h3 style="color: #FFC107;">Medio</h3>
+                <p><strong>20-29 puntos</strong> · Riesgo moderado que requiere medidas de protección.</p>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid #FF5722;">
+                <h3 style="color: #FF5722;">Alto</h3>
+                <p><strong>30-44 puntos</strong> · Riesgo importante con medidas urgentes.</p>
+            </div>
+
+            <div class="info-card" style="border-left: 4px solid #D32F2F;">
+                <h3 style="color: #D32F2F;">Extremo</h3>
+                <p><strong>45+ puntos</strong> · Riesgo extremo de violencia grave o letal.</p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); padding: 2rem; border-radius: 8px; margin-top: 3rem;">
+            <h3 style="color: #1976D2; margin-top: 0; text-align: center;">📞 Recursos de Ayuda</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li><strong>016</strong> - Teléfono contra la violencia de género (24h, gratuito)</li>
+                <li><strong>112</strong> - Emergencias (Policía, bomberos, ambulancia)</li>
+                <li><strong>091</strong> - Policía Nacional</li>
+                <li><strong>062</strong> - Guardia Civil</li>
+                <li><strong>WhatsApp: 600 000 016</strong> - Atención vía mensaje</li>
+                <li><strong>Email: 016-online@igualdad.gob.es</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p style="margin: 0;"><strong>Proyecto VioGén</strong> - Sistema de Valoración Policial del Riesgo</p>
+        <p style="margin: 0.5rem 0 0 0; color: #999;">Desarrollado para la protección integral de víctimas de violencia de género</p>
+        <p style="margin: 1rem 0 0 0; font-size: 0.875rem;">
+            <a href="vistas/login.html" style="color: white; text-decoration: underline;">Acceso al Sistema</a>
+        </p>
+    </footer>
+</body>
+</html>
