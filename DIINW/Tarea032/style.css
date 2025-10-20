@@ -1,0 +1,85 @@
+.grid-container {
+  display: grid;
+  /* El diseño de la imagen no es de 4x5, es de 4 columnas y 5 filas */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: #424242;
+  color: white;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Posiciones correctas de los elementos */
+.item-a {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.item-b {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.item-c {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.item-d {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.item-e {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.item-f {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.item-g {
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.item-h {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.item-i {
+  grid-column: 4;
+  grid-row: 3 / span 1;
+}
+
+.item-m {
+  grid-column: 1;
+  grid-row: 6;
+}
+
+.item-j {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+.item-k {
+  grid-column: 1 / span 3;
+  grid-row: 5;
+}
+
+.item-l {
+  grid-column: 4;
+  grid-row: 5;
+}
