@@ -1,23 +1,17 @@
 "use strict";
 
-/** Carga el módulo. Función de node.js para cargar módulos  */
     const prompt = require('prompt-sync')();
 
-/** Contiene el valor actual en la memoria de la calculadora */
 let pantalla = 0;
 
-/** Permite almacenar el valor actual de la pantalla de la calculadora*/
 let memoria = 0;
 
 let fin = false;
 while (!fin) {
-    /* Mostar el contenido de la pantalla */
     console.log(`Valor actual: ${pantalla}`);
 
-    /* Mostrar el menú */
     mostrarMenu();
 
-    /* Leer la entrada del usuario */
     const operacion = prompt('Elige una opción: ');
 
     /* Ejecutar la operación seleccionada */

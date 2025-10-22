@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>DOM 0111 - Validación de formulario</title>
+		<link rel="stylesheet" href="./dom0111.css" />
+	</head>
+	<body>
+		<main class="container">
+			<h1>Formulario de validación</h1>
+
+			<form id="miFormulario" novalidate>
+				<div class="form-control">
+					<label for="nombre">Nombre</label>
+					<input
+						type="text"
+						id="nombre"
+						name="nombre"
+						autocomplete="name"
+						aria-describedby="error-nombre"
+					/>
+					<small id="error-nombre" class="error-message" aria-live="polite"></small>
+				</div>
+
+				<div class="form-control">
+					<label for="numero">Número par</label>
+					<input
+						type="number"
+						id="numero"
+						name="numero"
+						inputmode="numeric"
+						step="1"
+						aria-describedby="error-numero"
+					/>
+					<small id="error-numero" class="error-message" aria-live="polite"></small>
+				</div>
+
+				<div class="actions">
+					<button type="submit">Enviar</button>
+					<button type="reset">Limpiar</button>
+				</div>
+			</form>
+		</main>
+
+		<script src="./dom0111.js" defer></script>
+	</body>
+	</html>

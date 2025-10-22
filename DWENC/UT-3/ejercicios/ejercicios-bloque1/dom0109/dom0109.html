@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang=es>
+    <head>
+        <!-- La codificación. Considéralo una buena práctica -->
+        <meta charset=utf-8>
+
+        <!-- Información adicional para buscadores y navegadores -->
+        <meta name="author" content="jjperera">
+        <meta name="description" content="Ejemplo de posicionamiento">
+
+        <!-- Título de la página -->
+        <title>Ejemplo de posicionamiento</title>
+                
+        <!-- Carga la hoja de estilos -->
+        <link rel="stylesheet" href="posiciona.css">
+
+        <!-- Carga el script en diferido -->
+        <script src="posiciona.js" defer></script>        
+    </head>
+
+    <body>
+        <h1>Prueba de posicionamiento</h1>
+
+        <!-- Panel de coordenadas del ratón -->
+        <div id="panel-coords" aria-live="polite">
+            <span>Posición ratón: </span>
+            <span id="coords-global">X: -, Y: -</span>
+            <span class="sep">|</span>
+            <span>En zona: </span>
+            <span id="coords-zona">fuera</span>
+        </div>
+
+        <!-- Si identifico el form de este modo, puedo acceder directamente con . -->
+        <div id="zona">            
+            <div id="cosa"></div>
+        </div>
+    </body>   
+</html>

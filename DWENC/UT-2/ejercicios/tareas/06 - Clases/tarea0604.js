@@ -1,4 +1,6 @@
-class CuentaGallifantes extends Cuenta {
+const tarea0603 = require('./tarea0603.js');
+
+class CuentaGallifantes extends tarea0603.Cuenta {
             constructor(titular, saldoInicial = 0, valorGallifante = 0.5) {
                 super(titular, saldoInicial);
                 this._valorGallifante = valorGallifante > 0 ? valorGallifante : 0.5;

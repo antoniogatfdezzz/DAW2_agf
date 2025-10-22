@@ -1,0 +1,49 @@
+:root {
+	color-scheme: light dark;
+	--gap: 0.75rem;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+	max-width: 720px;
+	margin: 4rem auto;
+	padding: 0 1rem;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+}
+
+label {
+	min-width: 11rem;
+}
+
+input[type="text"] {
+	flex: 1 1 240px;
+	padding: 0.5rem 0.6rem;
+	border: 1px solid #9997;
+	border-radius: 6px;
+}
+
+button {
+	padding: 0.55rem 0.9rem;
+	border: 1px solid #6666;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+p#output {
+	min-height: 2rem;
+	padding: 0.5rem;
+	border: 1px dashed #aaa7;
+	border-radius: 6px;
+}
