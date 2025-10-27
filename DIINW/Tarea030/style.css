@@ -1,0 +1,69 @@
+/* Estilos básicos */
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+.item {
+  background-color: #666;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  /* Reducimos la altura mínima para permitir que el item 6 se encoja */
+  min-height: 60px; 
+}
+
+
+/* --- CSS Grid con las ALTURAS modificadas --- */
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 15px;
+  
+  /* ======================================================= */
+  /* AQUÍ ESTÁN LOS CAMBIOS                  */
+  /* ======================================================= */
+
+  /* 1. Ancho (Columnas): Volvemos al original (1fr 1fr 1fr) */
+  grid-template-columns: 1fr 1fr 1fr;
+
+  /* 2. Alto (Filas): Ajustamos las proporciones de las 4 filas */
+  grid-template-rows: 
+    1.5fr   /* Fila 1: MÁS ALTA (para que el "3" sea más alto) */
+    0.7fr   /* Fila 2: MÁS CORTA (para que el "6" sea más corto) */
+    0.7fr   /* Fila 3: MÁS CORTA (para que el "6" sea más corto) */
+    1.5fr;  /* Fila 4: MÁS ALTA (para que el "9" sea más alto) */
+
+  
+  /* 3. Mantenemos las áreas de la imagen original */
+  grid-template-areas:
+    "item1 item2 item3"
+    "item1 item2 item3"
+    "item1 item5 item3"
+    "item1 item5 item6"
+    "item4 item5 item6"
+    "item4 item5 item6"
+    "item4 item5 item9"
+    "item7 item8 item9"
+    "item7 item8 item9"
+    "item7 item0 item9"
+    "item7 item0 item9";
+}
+
+/* Asignaciones de área (sin cambios) */
+.item-1 { grid-area: item1; }
+.item-2 { grid-area: item2; }
+.item-3 { grid-area: item3; } /* Ahora ocupa la Fila 1 (que es 1.5fr de alto) */
+.item-4 { grid-area: item4; }
+.item-5 { grid-area: item5; }
+.item-6 { grid-area: item6; } /* Ocupa las Filas 2 y 3 (ambas de 0.7fr de alto) */
+.item-7 { grid-area: item7; }
+.item-8 { grid-area: item8; }
+.item-9 { grid-area: item9; } /* Ocupa la Fila 4 (que es 1.5fr de alto) */

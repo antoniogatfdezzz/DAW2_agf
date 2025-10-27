@@ -1,0 +1,56 @@
+
+* { box-sizing: border-box; }
+html,body{ height:100%; margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+body{ background:#f4f7fb; color:#222; line-height:1.5; }
+
+@media screen {
+	.site-header{ display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:linear-gradient(90deg,#3b82f6,#06b6d4); color:white; }
+	.site-header .brand h1{ margin:0; font-size:1.6rem; }
+	.site-header .brand .tag{ margin:0; font-size:0.9rem; opacity:0.9; }
+
+	.main-nav a{ color:white; text-decoration:none; margin-left:1rem; padding:0.35rem 0.6rem; border-radius:4px; }
+	.main-nav a:hover{ background:rgba(255,255,255,0.12); }
+
+	.page-grid{ display:grid; grid-template-columns: 1fr 280px; gap:1.5rem; padding:2rem; max-width:1100px; margin:1.5rem auto; }
+	.content{ background:white; padding:1.5rem; border-radius:8px; box-shadow:0 6px 18px rgba(10,20,40,0.06); }
+	.content h2{ color:#0b4a6f; }
+	.content img{ max-width:100%; height:auto; border-radius:6px; display:block; }
+
+	.sidebar{ background:linear-gradient(180deg,#fff,#f7fbff); padding:1rem; border-radius:8px; height:min-content; }
+	.sidebar h3{ margin-top:0; color:#0b4a6f; }
+
+	.site-footer{ text-align:center; padding:1rem; color:#556; }
+
+	@media (max-width:880px){
+		.page-grid{ grid-template-columns: 1fr; padding:1rem; }
+		.main-nav{ display:none; }
+		.site-header{ align-items:flex-start; flex-direction:column; gap:0.75rem; }
+	}
+}
+
+@media print {
+	@page { size: A4; margin: 20mm; }
+
+	html,body{ background:white !important; color:black !important; }
+
+	.print-header{ display:block; position:fixed; top:0; left:0; right:0; background:white; color:black; padding:6mm 0; border-bottom:1px solid #999; text-align:center; font-weight:700; }
+	.site-header, .main-nav, .sidebar, .site-footer{ display:none !important; }
+
+	.page-grid{ display:block; width:100%; margin:0; padding-top:18mm; }
+	.content{ background:transparent; padding:0; box-shadow:none; border-radius:0; }
+
+	body{ font-family: 'Times New Roman', Times, serif; font-size:12pt; }
+	h2{ font-size:14pt; margin:0 0 6pt 0; }
+	p{ font-size:11pt; margin:0 0 8pt 0; }
+
+	.content section{ margin-bottom:10mm; page-break-inside:avoid; }
+	.content section + section{ border-top:1px solid #ddd; padding-top:6mm; }
+
+	address{ font-style:normal; }
+
+	.with-image img{ max-width:100%; height:auto; display:block !important; margin:6pt 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+	img, table{ page-break-inside:avoid; }
+
+	.site-footer{ display:block; position:fixed; bottom:0; left:0; right:0; text-align:center; font-size:10pt; }
+}

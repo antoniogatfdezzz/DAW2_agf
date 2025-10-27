@@ -1,0 +1,52 @@
+:root{
+	--gap: 0px;
+}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+
+input[type="radio"]{display:none}
+.controls .btn{cursor:pointer}
+.controls .btn:active{transform:translateY(1px)}
+
+.board{
+	width: min(90vw, 640px);
+	aspect-ratio: 1 / 1;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: var(--gap);
+	position: relative; /* para stacking context */
+	background: #fff;
+}
+
+.cell{
+	border: 1px solid rgba(0,0,0,0.08);
+	background-clip: padding-box;
+}
+
+.img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.img1{ grid-column: 1 / span 2; grid-row: 1 / span 2; z-index:1; align-self:stretch; justify-self:stretch }
+.img2{ grid-column: 2 / span 2; grid-row: 2 / span 2; z-index:1; align-self:stretch; justify-self:stretch }
+
+#top1:checked ~ .board .img1{ z-index: 3; transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.12) }
+#top1:checked ~ .board .img2{ z-index: 2 }
+
+#top2:checked ~ .board .img2{ z-index: 3; transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.12) }
+#top2:checked ~ .board .img1{ z-index: 2 }
+
+@media (max-width:480px){
+	.controls .btn{font-size:14px;padding:.45rem .6rem}
+}
+
+@media (min-width:641px){
+	.cell{border-width:1px}
+}
+

@@ -1,0 +1,68 @@
+*{box-sizing:border-box}
+
+body{
+	font-family: Georgia, 'Times New Roman', serif;
+	background: #ffffff;
+	padding: 18px;
+	color: #fff;
+}
+
+.grid-container{
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-rows: auto 1fr auto;
+	gap: 1rem;
+	grid-template-areas:
+		"one one one"
+		"two three three"
+		"two four five";
+	max-width: 980px;
+	margin: 12px;
+}
+
+.grid-container > *{
+	background: #3f3f3f;
+	padding: 18px;
+	border-radius: 8px;
+	box-shadow: 0 2px 0 rgba(0,0,0,0.12);
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	color: #fff;
+}
+
+.item-1, .item-1 *{font-size:1.35rem}
+.item-1{grid-area: one; padding:22px 26px}
+.item-2{grid-area: two; min-height: 220px}
+.item-3{grid-area: three; min-height: 120px}
+.item-4{grid-area: four; align-items:center; justify-content:center; height:100px}
+.item-5{grid-area: five; align-items:center; justify-content:center; height:100px}
+
+.grid-container:has(> :nth-child(5)) > :nth-child(1){grid-area: one}
+.grid-container:has(> :nth-child(5)) > :nth-child(2){grid-area: two}
+.grid-container:has(> :nth-child(5)) > :nth-child(3){grid-area: three}
+.grid-container:has(> :nth-child(5)) > :nth-child(4){grid-area: four}
+.grid-container:has(> :nth-child(5)) > :nth-child(5){grid-area: five}
+
+.grid-container h1, .grid-container h2, .grid-container h3{
+	margin: 0;
+	color: #fff;
+	font-weight: 700;
+}
+
+.grid-container > *{border-radius:8px}
+
+@media (max-width: 720px){
+	.grid-container{
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"one"
+			"two"
+			"three"
+			"four"
+			"five";
+	}
+	.item-2{min-height: 160px}
+	.item-3{min-height: 120px}
+}
+
