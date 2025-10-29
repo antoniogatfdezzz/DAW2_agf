@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0210() {
             let numeros = [];
             while (numeros.length < 3) {

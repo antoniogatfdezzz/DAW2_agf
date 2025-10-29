@@ -1,3 +1,5 @@
+"use strict";
+
 function sumaNumeros0407(...numeros) {
             const suma = numeros.reduce((total, num) => total + num, 0);
             sumaNumeros0407.acumulado = (sumaNumeros0407.acumulado || 0) + suma;

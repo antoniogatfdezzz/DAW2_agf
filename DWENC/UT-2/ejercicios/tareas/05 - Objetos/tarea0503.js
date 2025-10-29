@@ -1,3 +1,5 @@
+"use strict";
+
 function Calculadora0503() {
             this.pantalla = 0;
             this.memoria = 0;

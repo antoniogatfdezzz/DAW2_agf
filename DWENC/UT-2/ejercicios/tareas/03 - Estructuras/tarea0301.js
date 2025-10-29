@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0301() {
             let numeros = [];
             let entrada;

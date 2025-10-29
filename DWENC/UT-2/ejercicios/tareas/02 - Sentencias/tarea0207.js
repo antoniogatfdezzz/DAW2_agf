@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0207() {
             let numero = parseInt(prompt("Introduce un número (máximo 50):"));
             if (isNaN(numero) || numero <= 0 || numero > 50) {

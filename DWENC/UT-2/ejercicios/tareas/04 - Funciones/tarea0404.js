@@ -1,3 +1,5 @@
+"use strict";
+
 let pantalla0404 = 0;
         let memoria0404 = 0;
 

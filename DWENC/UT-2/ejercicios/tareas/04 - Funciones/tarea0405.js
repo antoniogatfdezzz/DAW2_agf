@@ -1,4 +1,6 @@
- let pantalla0405 = 0;
+"use strict";
+
+let pantalla0405 = 0;
         let memoria0405 = 0;
 
         const sumar0405 = (a = pantalla0405, b = pantalla0405) => a + b;

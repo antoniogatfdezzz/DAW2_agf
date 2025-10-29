@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0106() {
             let inicio = new Date();
             

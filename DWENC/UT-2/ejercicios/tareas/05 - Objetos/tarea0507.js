@@ -1,3 +1,5 @@
+"use strict";
+
 const PersonaObservable = {
             _nombre: '',
             _edad: 0,

@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0221() {
             let opciones = ["piedra", "papel", "tijera"];
             let jugador = prompt("Elige: piedra, papel o tijera").toLowerCase();

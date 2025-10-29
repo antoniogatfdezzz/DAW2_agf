@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0102() {
             let cadena = prompt("Introduce una cadena de texto:");
             if (cadena !== null) {

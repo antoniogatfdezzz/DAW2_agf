@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0107() {
             let mes = parseInt(prompt("Introduce el número del mes (1-12):"));
             let año = parseInt(prompt("Introduce el año:"));

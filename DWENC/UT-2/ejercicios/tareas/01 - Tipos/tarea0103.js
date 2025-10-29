@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0103() {
             let texto = prompt("Introduce un texto para contar vocales:");
             if (texto !== null) {

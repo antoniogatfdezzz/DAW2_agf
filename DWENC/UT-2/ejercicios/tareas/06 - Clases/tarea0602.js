@@ -1,3 +1,5 @@
+"use strict";
+
 let pantalla = 0;
 let memoria = 0;
 

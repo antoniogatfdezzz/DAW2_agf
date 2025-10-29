@@ -1,3 +1,5 @@
+"use strict";
+
 const calculadora0501 = {
             pantalla: 0,
             memoria: 0,

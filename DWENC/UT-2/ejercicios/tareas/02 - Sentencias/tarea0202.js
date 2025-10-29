@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0202() {
             let nota = parseFloat(prompt("Introduce una nota (0-10):"));
             let calificacion;

@@ -1,3 +1,5 @@
+"use strict";
+
 const PersonaModular = (function() {
             // Constantes privadas
             const SEXO_HOMBRE = 'H';

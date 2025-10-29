@@ -1,3 +1,5 @@
+"use strict";
+
 const CalculadoraPrototipo = {
             init() {
                 this.pantalla = 0;

@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0201() {
             let edad = parseInt(prompt("Introduce tu edad:"));
             let resultado;

@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0203() {
             let cadenas = [];
             let cadena;

@@ -1,3 +1,5 @@
+"use strict";
+
 const CalculadoraModular = (function() {
             // Variables privadas
             let pantalla = 0;

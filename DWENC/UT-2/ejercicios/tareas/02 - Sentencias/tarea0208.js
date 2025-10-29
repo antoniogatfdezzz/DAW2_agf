@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0208() {
             let nombre1 = prompt("Introduce el primer nombre:");
             let edad1 = parseInt(prompt("Introduce la primera edad:"));

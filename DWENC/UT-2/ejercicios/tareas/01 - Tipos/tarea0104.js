@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0104() {
             let cadena = prompt("Introduce una cadena para invertir:");
             if (cadena !== null) {

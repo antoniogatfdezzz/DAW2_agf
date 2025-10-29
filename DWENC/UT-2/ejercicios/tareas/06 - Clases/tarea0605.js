@@ -1,3 +1,5 @@
+"use strict";
+
 const SEXO_HOMBRE = 'H';
         const SEXO_MUJER = 'M';
         const PESO_IDEAL_BAJO = -1;

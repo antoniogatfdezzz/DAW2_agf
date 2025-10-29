@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0217() {
             const MAX_INTENTOS = 7;
             let numeroSecreto = Math.floor(Math.random() * 100) + 1;

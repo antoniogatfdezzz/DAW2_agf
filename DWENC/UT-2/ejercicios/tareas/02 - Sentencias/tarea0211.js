@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0211() {
             let opciones = ["1", "X", "2"];
             let resultado = "";

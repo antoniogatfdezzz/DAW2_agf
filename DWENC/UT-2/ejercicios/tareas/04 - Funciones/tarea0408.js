@@ -1,3 +1,5 @@
+"use strict";
+
 function contadorUnico() {
             // Inicializar propiedades si no existen
             if (!contadorUnico.hasOwnProperty('actual')) {

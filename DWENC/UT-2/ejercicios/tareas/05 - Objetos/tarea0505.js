@@ -1,3 +1,5 @@
+"use strict";
+
 class Cuenta {
     
     constructor(titular, cantidad) {

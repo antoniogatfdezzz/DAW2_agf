@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0204() {
             let numero = prompt("Introduce el número del DNI (sin letra):");
             if (numero !== null && !isNaN(numero) && numero.length === 8) {

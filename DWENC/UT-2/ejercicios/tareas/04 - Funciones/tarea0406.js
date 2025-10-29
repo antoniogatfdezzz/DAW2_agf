@@ -1,3 +1,5 @@
+"use strict";
+
 function sumaNumeros(...numeros) {
             return numeros.reduce((suma, num) => suma + num, 0);
         }

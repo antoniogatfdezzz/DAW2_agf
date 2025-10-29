@@ -1,10 +1,12 @@
 /**
- * Script para resolver automáticamente todos los retos de depuración
+ * Este script está pensado para ejercitar el uso del depurador. Está compuesto de una serie de 
+ * retos que deben ir siendo superados. Si fallas, tendrás que empezar desde el principio.
  */
 "use strict";
+const read = require('prompt-sync')();
 
-// Simulamos las iniciales para el cálculo
-const iniciales = "AGF"; // Puedes cambiar esto por tus iniciales reales
+// Lee las iniciales. Esto hará que el resultado sea diferente para cada alumno.
+const iniciales = read("¿Cuáles son tus iniciales?");
 
 // Convierte las iniciales en un valor numérico al azar que depende de las iniciales.
 let id_alumno = 1n;
@@ -15,53 +17,107 @@ for(let ch of iniciales) {
 }
 
 id_alumno %= 1000n;
-console.log("ID Alumno:", id_alumno);
 
-// RETO 1: Calculamos el valor de p1 después de la división
+//----------------------------------------------------------------------------------------
+// A partir de aquí empiezan los retos
+//----------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------
+// RETO 1. Asigna a la variable a el valor de la variable p en el momento que
+// aparece marcada.
+//----------------------------------------------------------------------
 let p1 = id_alumno;
 p1 *= 3n;
-p1 /= 7n; // Este es el valor que necesitamos para 'a'
-console.log("RETO 1 - Valor para 'a':", p1);
+p1 /= 7n; // Asigna este valor a la variable a más abajo
 p1 += 123n;
 
-// RETO 2: Calculamos qué valor necesita 'b'
-let b_valor = id_alumno - 666n;
-console.log("RETO 2 - Valor para 'b':", b_valor);
+let a = 0n; // <-- A esta variable.
+if(a != id_alumno*3n/7n) throw "RETO 1 No superado";
+console.log("RETO 1 = "+a);
 
-// RETO 3: Simulamos el array aleatorio
+
+//----------------------------------------------------------------------
+// RETO 2. Asigna un valor a b de modo que el resultado sea 666.
+// Puedes utilizar el evaluador de expresiones o crear una inpección para
+// calcular el valor que tienes que asignar.
+//----------------------------------------------------------------------
+let b = 0n;
+let r1 = id_alumno - b; // Asigna el valor a b antes de ejecutar esta sentencia
+if(r1 != 666) throw "RETO 2 No superado";
+console.log("RETO 2: "+r1);
+
+
+//---------------------------------------------------------------------
+// RETO 3. Asigna la variable tamaño al tamaño del array. 
+// Comprueba el tamaño con el depurador.
+// En el visor de variables puedes ver el tamaño. Tambíen puedes evaluar
+// el valor del atributo length
+//---------------------------------------------------------------------
 let vector = [];
 for(let n = 0n;n < BigInt((Math.random()*999999).toFixed());n++) vector[n] = n;
-console.log("RETO 3 - Tamaño del vector:", BigInt(vector.length));
 
-// RETO 4: Calculamos la posición y el valor
-let tamaño = BigInt(vector.length);
-let posición = tamaño / 2n;
-for(let n = 0n; n < tamaño; n++) {
+let tamaño = 0n; // <-- Esta variable tiene que ser el tamaño del array
+let n = 0n;
+for(;n < tamaño;n++) {
     vector[n] = n%128n;
 }
-console.log("RETO 4 - Posición:", posición);
-console.log("RETO 4 - Valor en vector[posición]:", vector[posición]);
 
-// RETO 5: Simulamos la cadena aleatoria
+// Ponte en la siguiente fila ejecutable y pulsa F4 para continuar aquí
+if(n != vector.length) throw "RETO 3 No superado";
+console.log("RETO 3: "+n);
+
+
+//---------------------------------------------------------------------
+// RETO 4. Asigna a c el valor en la posición indicada del vector
+// Utiliza el inspector para ver el valor en la posición indicada del vector.
+// Y desde el mismo visor de variables asigna el valor.
+//----------------------------------------------------------------------
+let posición = tamaño / 2n; // <--- Posición
+let c = 0n;
+if(c != vector[posición])
+    throw "RETO 4 No superado";
+
+console.log("RETO 4: " + c);
+
+
+//---------------------------------------------------------------------
+// RETO 5. Se ha creado una cadena concatenando algunos números.
+//
+// Asigna a ch el caracter en la posición ps
+// Puedes ver la posición que necesitas evaluando la expresión. Prueba
+// a introducir en el visor de variables la expresión que necesitas o comprueba
+// el contenido de la cadena.
+//----------------------------------------------------------------------
 let s1 = "" + Math.random()+"--"+Math.random()+"--"+Math.random();
 let ps = (Math.random()*s1.length).toFixed();
-console.log("RETO 5 - Cadena s1:", s1);
-console.log("RETO 5 - Posición ps:", ps);
-console.log("RETO 5 - Carácter en s1[ps]:", s1[ps]);
 
-// RETO 6: Simulamos la función
-console.log("\nRETO 6 - Simulando función reto6():");
-let iteraciones = BigInt( (Math.random()*1000).toFixed() );
-let iteracion = BigInt( (iteraciones+1n)/2n );
-console.log("RETO 6 - Iteraciones totales:", iteraciones);
-console.log("RETO 6 - Iteración objetivo:", iteracion);
+let ch = "0";
+if(ch !== s1[ps])
+    throw new "RETO 5 No superado";
+console.log("RETO 5: " + ch);
 
-let valor_anterior = 0n;
-let n = 0n;
-for(;n < iteraciones;n++) {
-    if(n == iteracion) {
-        console.log("RETO 6 - Valor anterior en iteración", iteracion, ":", valor_anterior);
-        break;
-    }
-    valor_anterior = BigInt((Math.random()*1000000).toFixed());
+
+
+//---------------------------------------------------------------------
+// RETO 6. Se ha creado una cadena concatenando algunos números.
+//
+// Asigna a la variable resultado el valor de la variable valor_anterior 
+// Cuando el bucle se encuentr en la iteración indicada por la variable iteración
+//
+// Puedes poner un punto de ruptura condicional.
+//----------------------------------------------------------------------
+reto6(); // Utiliza la funcionalidad Step-In para entrar en la función. 
+         // Si no lo haces fallarás directamente el reto
+
+function reto6() {
+    let iteraciones = BigInt( (Math.random()*1000).toFixed() );
+    let iteracion = BigInt( (iteraciones+1n)/2n );
+    let valor_anterior = 0n;
+    let resultado = 0n;
+    let n = 0n;
+    
+    for(;n < iteraciones;n++) { if(n == iteracion && resultado != valor_anterior) throw "RETO 6 No superado"; else if(n == iteracion) break; else valor_anterior = BigInt(Math.random().toFixed()); }
+    console.log("RETO 6: " + resultado);
 }
+

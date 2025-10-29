@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0214() {
             let numero = parseInt(prompt("Introduce un número mayor que cero:"));
             if (isNaN(numero) || numero <= 0) {

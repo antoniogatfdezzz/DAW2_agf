@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0222() {
             let pantalla = 0;
             let memoria = 0;

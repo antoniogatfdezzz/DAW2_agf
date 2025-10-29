@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0206() {
             let numero = parseInt(prompt("Introduce un número:"));
             if (isNaN(numero) || numero <= 0) {

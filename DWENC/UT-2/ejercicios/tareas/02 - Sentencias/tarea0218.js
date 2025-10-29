@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0218() {
             let tipo = parseInt(prompt("Introduce el tipo de motor (0, 1, 2, 3, 4):"));
             let mensaje;

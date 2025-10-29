@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0302() {
             let palabras = [];
             

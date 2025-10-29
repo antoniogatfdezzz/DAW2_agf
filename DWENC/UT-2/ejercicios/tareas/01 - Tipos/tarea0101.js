@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0101() {
             let texto = prompt("Introduce un texto:");
             if (texto !== null) {

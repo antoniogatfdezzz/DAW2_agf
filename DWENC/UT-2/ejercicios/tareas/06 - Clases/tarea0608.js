@@ -1,3 +1,5 @@
+"use strict";
+
 const ValorObservable0608 = {
             _valor: undefined,
             _listener: undefined,

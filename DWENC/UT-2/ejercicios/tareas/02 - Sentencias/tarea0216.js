@@ -1,3 +1,5 @@
+"use strict";
+
 function ejercicio0216() {
             let numero = parseInt(prompt("Introduce un número para calcular su factorial:"));
             if (isNaN(numero) || numero < 0) {
