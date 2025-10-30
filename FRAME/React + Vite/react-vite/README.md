@@ -1,16 +1,41 @@
-# React + Vite
+# CinemaFAW (React + Vite + Bootstrap)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Recreación de la actividad Flask en un frontend SPA con React, Vite y Bootstrap. Incluye listado de películas, búsqueda por título, filtros por género/año y página de detalle.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 18+ (macOS con zsh)
 
-## React Compiler
+## Instalar dependencias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+Esto instalará React, Vite, Bootstrap y `react-router-dom`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ejecutar en desarrollo
+
+```bash
+npm run dev
+```
+
+Abre la URL que aparece en la terminal. HMR estará activo.
+
+## Compilar para producción
+
+```bash
+npm run build
+```
+
+Los artefactos quedarán en `dist/`.
+
+## Estructura relevante
+
+- `src/components/` Navbar, Footer, Layout, y componentes de películas (SearchBar, FilterBar, MovieCard, MovieList).
+- `src/pages/` Páginas: Home, Movies, MovieDetail, About, Contact, NotFound.
+- `src/data/mockMovies.js` Datos mock de películas usados por la app.
+
+## Notas
+
+Esta versión es solo frontend (no hay backend Flask). Si más adelante quieres conectar un backend, se pueden sustituir los mocks por llamadas a API.
