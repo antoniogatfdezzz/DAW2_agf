@@ -1,0 +1,218 @@
+/* Estilos responsive usando @media queries */
+/* He creado media queries para adaptar la web a diferentes dispositivos */
+
+/* Tablets y dispositivos medianos (max-width: 1024px) */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 2rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .flex-card {
+        flex: 1 1 300px;
+    }
+}
+
+/* Tablets pequeños y móviles grandes (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header {
+        padding: 0.5rem 0;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        padding: 0 0.5rem;
+    }
+    
+    nav a {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 0.4rem 0.5rem;
+        font-size: 0.8rem;
+        min-width: fit-content;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .hero {
+        padding: 1.5rem;
+    }
+    
+    .intro-content .card {
+        flex: 1 1 100%;
+    }
+    
+    .flex-container {
+        gap: 1.5rem;
+    }
+    
+    .flex-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .grid-item.item-1 {
+        grid-column: span 1;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Móviles pequeños (max-width: 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 0.4rem 0;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    nav {
+        gap: 0.25rem;
+    }
+    
+    nav a {
+        padding: 0.35rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-image {
+        height: 200px;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .flex-card {
+        padding: 1.5rem;
+    }
+    
+    .flex-image {
+        height: 180px;
+    }
+    
+    .card-icon {
+        font-size: 3rem;
+    }
+    
+    .grid-item {
+        padding: 1.5rem;
+    }
+    
+    .grid-image {
+        height: 180px;
+    }
+    
+    .tabla-container {
+        padding: 1rem;
+    }
+    
+    .tabla-hero-image {
+        height: 200px;
+    }
+    
+    .bibliografia-container {
+        padding: 1rem;
+    }
+    
+    .referencia {
+        padding: 1rem;
+    }
+    
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pantallas muy grandes (min-width: 1400px) */
+@media (min-width: 1400px) {
+    header h1 {
+        font-size: 3rem;
+    }
+    
+    .main-flex,
+    .grid-container,
+    .tabla-container,
+    .bibliografia-container {
+        max-width: 1600px;
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .flex-card {
+        max-width: 450px;
+    }
+}
+
+/* Media query para impresión */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    header {
+        position: static;
+        background: white;
+        border-bottom: 2px solid black;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    .card,
+    .flex-card,
+    .grid-item {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    
+    footer {
+        border-top: 2px solid black;
+        background: white;
+        color: black;
+    }
+}
