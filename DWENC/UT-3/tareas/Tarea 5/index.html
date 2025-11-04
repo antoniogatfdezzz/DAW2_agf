@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Tarea 5 - Juego 2D</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="ui">
+			<div id="top-left">
+				<label for="difficulty">Dificultad:</label>
+				<select id="difficulty">
+					<option value="easy">Fácil</option>
+					<option value="normal" selected>Normal</option>
+					<option value="hard">Difícil</option>
+				</select>
+				<button id="startBtn">Iniciar</button>
+			</div>
+
+			<div id="top-right">
+				<div id="score">0</div>
+				<div id="timer">0.00</div>
+			</div>
+		</div>
+
+		<main id="game-area">
+			<!-- El bloque aparecerá aquí -->
+			<div id="block" aria-hidden="true"></div>
+			<div id="overlay" class="hidden" style="display:none;">
+				<div id="overlay-content">
+					<h2>Juego terminado</h2>
+					<p>Puntos: <span id="final-score">0</span></p>
+					<button id="restartBtn">Reiniciar</button>
+				</div>
+			</div>
+		</main>
+		<script src="script.js"></script>
+	</body>
+</html>

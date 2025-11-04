@@ -1,0 +1,76 @@
+:root{
+	--bg: #ffffff;
+	--accent: #111;
+}
+*{box-sizing:border-box}
+html,body{
+	height:100%;
+	margin:0;
+	font-family: Arial, Helvetica, sans-serif;
+	background:var(--bg);
+	color:var(--accent);
+}
+#ui{
+	position:fixed;
+	top:8px;
+	left:8px;
+	right:8px;
+	pointer-events:none;
+}
+#top-left{pointer-events:auto;display:flex;gap:8px;align-items:center}
+#top-right{
+	position:fixed;
+	top:8px;
+	right:12px;
+	text-align:right;
+	pointer-events:auto;
+}
+#score{font-weight:700;font-size:20px}
+#timer{font-size:14px;color:#333}
+
+#game-area{
+	width:100%;
+	height:100vh;
+	position:relative;
+	overflow:hidden;
+}
+
+#block{
+	position:absolute;
+	width:80px; /* tamaño inicial por defecto (se ajusta JS) */
+	height:80px;
+	background:#000;
+	left:50%;
+	top:70%;
+	transform:translate(-50%,-50%);
+	cursor:pointer;
+	transition:width 0.12s linear,height 0.12s linear,transform 0.05s linear;
+}
+
+#overlay{
+	position:absolute;
+	inset:0;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	background:rgba(255,255,255,0.85);
+}
+#overlay{z-index:80}
+.hidden{display:none !important}
+#ui{z-index:100}
+#overlay-content{
+	background:#fff;
+	border:1px solid #ccc;
+	padding:20px 28px;
+	text-align:center;
+	box-shadow:0 6px 18px rgba(0,0,0,0.12);
+	border-radius:8px;
+}
+
+button{padding:6px 10px;border-radius:4px;border:1px solid #111;background:#fff;cursor:pointer}
+select{padding:6px;border-radius:4px}
+
+@media (max-width:420px){
+	#block{left:50%;top:75%}
+	#top-right{right:8px}
+}
