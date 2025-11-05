@@ -1,8 +1,4 @@
 /**
- * Módulo de validaciones para el formulario de cliente
- */
-
-/**
  * Valida que un campo no esté vacío y no contenga solo espacios
  * @param {string} valor - El valor a validar
  * @returns {boolean} - true si es válido, false si no lo es
@@ -17,25 +13,20 @@ export function validarObligatorio(valor) {
  * @returns {boolean} - true si es válido, false si no lo es
  */
 export function validarDNI(dni) {
-    // Eliminar espacios y convertir a mayúsculas
     dni = dni.trim().toUpperCase();
     
-    // Expresión regular para validar formato: 8 dígitos seguidos de una letra
     const dniRegex = /^[0-9]{8}[A-Z]$/;
     
     if (!dniRegex.test(dni)) {
         return false;
     }
     
-    // Extraer número y letra
     const numero = parseInt(dni.substring(0, 8), 10);
     const letraIntroducida = dni.charAt(8);
     
-    // Letras de control del DNI
     const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
     const letraCalculada = letras.charAt(numero % 23);
     
-    // Verificar que la letra sea correcta
     return letraIntroducida === letraCalculada;
 }
 
@@ -45,7 +36,6 @@ export function validarDNI(dni) {
  * @returns {boolean} - true si es válido, false si no lo es
  */
 export function validarEmail(email) {
-    // Validar que contenga @ y tenga un formato básico válido
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email.trim()) && email.includes('@');
 }
@@ -95,7 +85,6 @@ export function ejecutarValidacion(tipoValidacion, valor, $campo = null) {
             return validarEmail(valor);
         
         case 'passwordMatch':
-            // Para validar que las contraseñas coincidan
             const password1 = $('#password1').val();
             return validarPasswordsIguales(password1, valor);
         

@@ -4,18 +4,16 @@
 export default class Calculadora {
   constructor() {
     this._pantalla = '0';
-    this._operando = null; // valor acumulado
-    this._operador = null; // '+', '-', 'x', '÷'
-    this._nuevaEntrada = true; // si true, el siguiente dígito reemplaza la pantalla
+    this._operando = null;
+    this._operador = null;
+    this._nuevaEntrada = true;
     this._listener = null;
   }
 
-  // Registrar listener que se invoca con el nuevo valor de pantalla
   setPantallaActualidadListener(fn) {
     this._listener = fn;
   }
 
-  // Obtener pantalla (lectura)
   getPantalla() {
     return this._pantalla;
   }
@@ -24,7 +22,6 @@ export default class Calculadora {
     if (typeof this._listener === 'function') this._listener(this._pantalla);
   }
 
-  // Borrar todo
   clearAll() {
     this._pantalla = '0';
     this._operando = null;
@@ -33,7 +30,6 @@ export default class Calculadora {
     this._notify();
   }
 
-  // Retroceso (backspace)
   backspace() {
     if (this._pantalla === 'ERROR') {
       this.clearAll();
@@ -51,7 +47,6 @@ export default class Calculadora {
     this._notify();
   }
 
-  // Añadir dígito (0-9)
   inputDigit(d) {
     if (this._pantalla === 'ERROR') {
       this._pantalla = d;
@@ -68,7 +63,6 @@ export default class Calculadora {
     this._notify();
   }
 
-  // Añadir decimal
   inputDecimal() {
     if (this._pantalla === 'ERROR') {
       this._pantalla = '0.';
@@ -85,14 +79,12 @@ export default class Calculadora {
     this._notify();
   }
 
-  // Cambiar signo
   toggleSign() {
     if (this._pantalla === '0' || this._pantalla === 'ERROR') return;
     this._pantalla = this._pantalla.startsWith('-') ? this._pantalla.slice(1) : '-' + this._pantalla;
     this._notify();
   }
 
-  // Porcentaje (divide por 100)
   percent() {
     try {
       const val = parseFloat(this._pantalla);
@@ -105,7 +97,6 @@ export default class Calculadora {
     }
   }
 
-  // Establecer operador y preparar acumulación
   setOperator(op) {
     try {
       if (this._pantalla === 'ERROR') return;
@@ -114,7 +105,6 @@ export default class Calculadora {
         if (this._operando === null) {
           this._operando = current;
         } else {
-          // si ya había operador pendiente, calcular antes
           this._compute();
         }
       }
@@ -125,7 +115,6 @@ export default class Calculadora {
     }
   }
 
-  // Realiza el cálculo pendiente
   _compute() {
     if (this._operador === null || this._operando === null) return;
     const a = this._operando;
@@ -151,14 +140,12 @@ export default class Calculadora {
     }
     if (!isFinite(res)) throw new Error('ERROR');
 
-    // normalizar (quitar .0 innecesario)
     this._pantalla = String(res);
     this._operando = res;
     this._nuevaEntrada = true;
     this._notify();
   }
 
-  // Igual -> calcular
   equals() {
     try {
       if (this._pantalla === 'ERROR') return;

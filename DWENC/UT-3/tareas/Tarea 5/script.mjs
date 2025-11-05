@@ -1,10 +1,4 @@
-/* Juego 2D: bloque a clicar antes de que acabe el tiempo.
-	 Mecánicas:
-	 - Selector de dificultad (easy/normal/hard)
-	 - Cada acierto suma el tiempo restante al marcador
-	 - Tras cada acierto, el bloque se hace más pequeño y el tiempo disponible disminuye
-	 - Juego infinito hasta que tiempo < 0 o tamaño <= 0
-*/
+"use strict";
 
 const el = {
 	block: document.getElementById('block'),
@@ -68,7 +62,6 @@ function spawnBlock(){
 function positionBlockRandom(){
 	const area = el.gameArea.getBoundingClientRect();
 	const size = state.currentSize;
-	// Margen para que el bloque no salga de la pantalla
 	const padding = 8;
 	const x = Math.random() * (Math.max(0, area.width - size - padding*2)) + padding;
 	const y = Math.random() * (Math.max(0, area.height - size - padding*2)) + padding;
@@ -92,23 +85,18 @@ function startTimer(){
 
 function onBlockClick(e){
 	if(!state.running) return;
-	// Añadir el tiempo restante al marcador
 	const gained = Math.max(0, state.remainingTime);
 	state.score += gained;
 	el.score.textContent = formatScore(state.score);
 
-	// Incremento de dificultad
 	state.currentSize = state.currentSize * state.shrinkFactor;
 	state.timePerRound = state.timePerRound * state.timeFactor;
 
-	// Condiciones de fin de juego: tamaño menor o tiempo disponible casi 0
 	if(state.currentSize <= 4 || state.timePerRound <= 0.05){
-		// consideramos que el jugador gana pero el juego termina
 		gameOver();
 		return;
 	}
 
-	// Reiniciar ronda
 	spawnBlock();
 	startTimer();
 }
@@ -124,7 +112,6 @@ function gameOver(){
 	el.overlay.classList.remove('hidden');
 }
 
-// Event listeners
 el.startBtn.addEventListener('click', ()=>{
 	setDifficulty(el.difficulty.value);
 	startGame();
@@ -137,17 +124,13 @@ el.restartBtn.addEventListener('click', ()=>{
 
 el.block.addEventListener('click', onBlockClick);
 
-// Cambiar dificultad antes de iniciar actualiza valores visuales
 el.difficulty.addEventListener('change', ()=>{
 	setDifficulty(el.difficulty.value);
 });
 
-// Inicializar visualmente
 setDifficulty(el.difficulty.value);
 
-// Asegurar que el bloque se reposiciona cuando se redimensiona la ventana
 window.addEventListener('resize', ()=>{
-	// limitar la posición actual al área
 	const area = el.gameArea.getBoundingClientRect();
 	const size = state.currentSize;
 	const left = parseFloat(el.block.style.left || 0);
