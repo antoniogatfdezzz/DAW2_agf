@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tarea 035</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="wrapper">
+			<h1>Composición de imágenes con CSS Grid</h1>
+
+			<form class="controls" aria-label="Control de superposición (z-index)">
+				<span>Al frente:</span>
+				<input type="radio" id="i1" name="top" />
+				<label for="i1">Imagen 1</label>
+
+				<input type="radio" id="i2" name="top" />
+				<label for="i2">Imagen 2</label>
+
+				<input type="radio" id="i3" name="top" />
+				<label for="i3">Imagen 3</label>
+
+				<input type="radio" id="i4" name="top" />
+				<label for="i4">Imagen 4</label>
+
+				<input type="radio" id="i5" name="top" checked />
+				<label for="i5">Imagen 5 (central)</label>
+			</form>
+
+			<section class="grid-4x4" aria-label="Composición en cuadrícula 4x4">
+				<figure class="item item1" aria-label="Imagen 1">Imagen 1</figure>
+				<figure class="item item2" aria-label="Imagen 2">Imagen 2</figure>
+				<figure class="item item3" aria-label="Imagen 3">Imagen 3</figure>
+				<figure class="item item4" aria-label="Imagen 4">Imagen 4</figure>
+				<figure class="item item5" aria-label="Imagen 5">Imagen 5</figure>
+			</section>
+
+		</main>
+	</body>
+	</html>
+

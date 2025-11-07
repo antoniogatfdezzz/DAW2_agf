@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Antonio Gat Fernández" />
+	<meta name="description" content="Ejercicio demostración de offset, reordenación y visibilidad block/none con CSS Grid responsive." />
+	<meta name="robots" content="index,follow" />
+	<title>Tarea 033</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<header class="layout__header">
+		<h1>Responsive: Offset & Reordenación</h1>
+	</header>
+
+	<div class="bloque hidden-desktop" role="status" aria-live="polite">
+		<strong>Aviso móvil:</strong> este mensaje se oculta en pantallas de escritorio.
+	</div>
+
+	<nav class="layout__nav">
+		<ul class="menu">
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#articulo">Artículo</a></li>
+			<li><a href="#galeria">Galería</a></li>
+			<li class="hidden-mobile"><a href="#extra">Extra Desktop</a></li>
+		</ul>
+	</nav>
+
+	<main class="layout__main">
+		<section id="intro" class="bloque bloque--intro">
+			<h2>Introducción</h2>
+			<p>Este bloque ocupa columnas iniciales y sirve para ver la posición base sin offset. En resoluciones grandes otros bloques se moverán simulando un offset (espacio vacío al inicio).</p>
+		</section>
+
+		<section id="articulo" class="bloque bloque--articulo">
+			<h2>Artículo</h2>
+			<p>En mobile el orden es lineal. A partir de 768px este artículo se reordena antes que la introducción mediante áreas de grid, demostrando la reordenación sin alterar el HTML.</p>
+		</section>
+
+		<aside id="lado" class="bloque bloque--aside">
+			<h2>Aside</h2>
+			<p>Este aside muestra un offset horizontal en pantallas grandes.</p>
+		</aside>
+
+		<section id="galeria" class="bloque bloque--galeria">
+			<h2>Galería</h2>
+			<div class="grid-galeria">
+				<figure class="item">Img 1</figure>
+				<figure class="item">Img 2</figure>
+				<figure class="item">Img 3</figure>
+				<figure class="item">Img 4</figure>
+			</div>
+		</section>
+
+		<section id="extra" class="bloque bloque--extra hidden-mobile">
+			<h2>Contenido Extra (Sólo Desktop)</h2>
+			<p>Este bloque está oculto en móviles (display:none) y se muestra como block en escritorio.</p>
+		</section>
+	</main>
+
+	<footer class="layout__footer">
+		<small>&copy; 2025 Antonio Gat Fernández</small>
+	</footer>
+</body>
+</html>
