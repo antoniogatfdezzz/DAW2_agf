@@ -18,25 +18,33 @@ const container = document.querySelector('.calculadora');
 function handleButton(text) {
   text = (text || '').trim();
   if (!text) return;
-  if (/^[0-9]$/.test(text)) {
-    calc.inputDigit(text);
-    return;
-  }
-  if (text === ',' || text === '.') {
-    calc.inputDecimal();
-    return;
-  }
-  if (text === 'AC') { calc.clearAll(); return; }
-  if (text === '+/-') { calc.toggleSign(); return; }
-  if (text === '%') { calc.percent(); return; }
-  if (text === '=') { calc.equals(); return; }
-  
-  if (['+', '-', 'x', '÷', '/', '*'].includes(text)) {
-    let op = text;
-    if (op === '/') op = '÷';
-    if (op === '*') op = 'x';
-    calc.setOperator(op);
-  }
+  const actions = {
+    '0': () => calc.inputDigit('0'),
+    '1': () => calc.inputDigit('1'),
+    '2': () => calc.inputDigit('2'),
+    '3': () => calc.inputDigit('3'),
+    '4': () => calc.inputDigit('4'),
+    '5': () => calc.inputDigit('5'),
+    '6': () => calc.inputDigit('6'),
+    '7': () => calc.inputDigit('7'),
+    '8': () => calc.inputDigit('8'),
+    '9': () => calc.inputDigit('9'),
+    ',': () => calc.inputDecimal(),
+    '.': () => calc.inputDecimal(),
+    'AC': () => calc.clearAll(),
+    '+/-': () => calc.toggleSign(),
+    '%': () => calc.percent(),
+    '=': () => calc.equals(),
+    '+': () => calc.setOperator('+'),
+    '-': () => calc.setOperator('-'),
+    'x': () => calc.setOperator('x'),
+    '*': () => calc.setOperator('x'),
+    '÷': () => calc.setOperator('÷'),
+    '/': () => calc.setOperator('÷')
+  };
+
+  const action = actions[text];
+  if (typeof action === 'function') action();
 }
 
 container.addEventListener('click', (ev) => {
@@ -47,11 +55,11 @@ container.addEventListener('click', (ev) => {
 
 document.addEventListener('keydown', (ev) => {
   const key = ev.key;
-  if (/^[0-9]$/.test(key)) { calc.inputDigit(key); ev.preventDefault(); return; }
-  if (key === '.' || key === ',') { calc.inputDecimal(); ev.preventDefault(); return; }
-  if (key === 'Enter') { calc.equals(); ev.preventDefault(); return; }
-  if (key === 'Escape') { calc.clearAll(); ev.preventDefault(); return; }
-  if (key === '%') { calc.percent(); ev.preventDefault(); return; }
+  if (/^[0-9]$/.test(key)) { handleButton(key); ev.preventDefault(); return; }
+  if (key === '.' || key === ',') { handleButton(key); ev.preventDefault(); return; }
+  if (key === 'Enter') { handleButton('='); ev.preventDefault(); return; }
+  if (key === 'Escape') { handleButton('AC'); ev.preventDefault(); return; }
+  if (key === '%') { handleButton('%'); ev.preventDefault(); return; }
   if (key === '+' || key === '-' || key === '*' || key === '/') { handleButton(key); ev.preventDefault(); return; }
   if (key === 'Backspace') { calc.backspace(); ev.preventDefault(); return; }
 });

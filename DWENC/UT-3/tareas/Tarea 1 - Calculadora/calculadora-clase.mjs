@@ -8,10 +8,16 @@ export default class Calculadora {
     this._operador = null;
     this._nuevaEntrada = true;
     this._listener = null;
+    this.onPantallaActualizada = null;
   }
 
   setPantallaActualidadListener(fn) {
+    this.setPantallaActualizadaListener(fn);
+  }
+
+  setPantallaActualizadaListener(fn) {
     this._listener = fn;
+    this.onPantallaActualizada = fn;
   }
 
   getPantalla() {
@@ -20,6 +26,7 @@ export default class Calculadora {
 
   _notify() {
     if (typeof this._listener === 'function') this._listener(this._pantalla);
+    if (typeof this.onPantallaActualizada === 'function') this.onPantallaActualizada(this._pantalla);
   }
 
   clearAll() {
