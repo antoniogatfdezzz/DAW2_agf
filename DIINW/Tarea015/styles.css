@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: separate; /* permitir espacio entre celdas */
+    border-spacing: 4px; /* espacio en blanco entre las celdas */
+    min-width: 420px;
+    border: 2px solid #000; /* borde exterior contenedor */
+}
+
+th, td {
+    border: 2px solid #000;
+    background: #fff; /* asegura fondo blanco en cada celda */
+    padding: 8px 12px;
+}
+
+th {
+    text-align: center;
+}
+

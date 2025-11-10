@@ -16,25 +16,34 @@ body {
 .table-container {
     display: inline-block;
     border: 3px solid #000;
-    background-color: white;
+    background-color: #fff;
+    font-size: 14px;
+    padding: 6px;
 }
 
 .header-row,
 .row {
     display: flex;
+    gap: 6px;
 }
 
 .cell {
-    border: 1px solid #000;
     text-align: center;
-    font-size: 16px;
-    background-color: white;
-    color: black;
+    background-color: #fff;
+    color: #000;
     min-width: 120px;
+    width: 140px;
+    height: 40px;
+    padding: 4px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    border: 
+    border: 1px solid #000;
+}
+
+.header-row .cell {
+    font-weight: bold;
+    background-color: #fff;
 }
 

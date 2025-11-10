@@ -1,0 +1,17 @@
+.demo-grid { margin: 12px; }
+
+.demo-grid .demo-row {
+	border-left: 3px solid #000;
+	border-right: 3px solid #000;
+}
+.demo-grid .demo-row:first-child { border-top: 3px solid #000; }
+.demo-grid .demo-row:last-child { border-bottom: 3px solid #000; }
+.demo-grid .demo-row + .demo-row { border-top: 3px solid #000; }
+
+.demo-grid .demo-row > .col {
+	border-right: 3px solid #000;
+	padding: 8px 0;
+	text-align: center;
+	font-weight: 600;
+}
+.demo-grid .demo-row > .col:last-child { border-right: 0; }
