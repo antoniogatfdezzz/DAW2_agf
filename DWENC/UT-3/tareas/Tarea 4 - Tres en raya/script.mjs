@@ -2,19 +2,24 @@
 
 console.log('Script cargado correctamente');
 
-const cells = document.querySelectorAll('.cell');
-const statusText = document.querySelector('.status');
-const restartBtn = document.querySelector('.restart-btn');
-let currentPlayer = 'X';
-let board = ['', '', '', '', '', '', '', '', ''];
-let isGameActive = true;
-let scoreX = 0;
-let scoreO = 0;
+// Referencias a elementos del DOM
+const celdas = document.querySelectorAll('.cell');
+const textoEstado = document.querySelector('.status');
+const botonReiniciar = document.querySelector('.restart-btn');
 
-const scoreXEl = document.getElementById('score-x');
-const scoreOEl = document.getElementById('score-o');
+// Estado de la partida
+let jugadorActual = 'X';
+let tablero = ['', '', '', '', '', '', '', '', ''];
+let juegoActivo = true;
+let puntuacionX = 0;
+let puntuacionO = 0;
 
-const winningConditions = [
+// Elementos de puntuación
+const puntuacionXEl = document.getElementById('score-x');
+const puntuacionOEl = document.getElementById('score-o');
+
+// Combinaciones ganadoras posibles
+const condicionesVictoria = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -25,58 +30,71 @@ const winningConditions = [
   [2, 4, 6]
 ];
 
-function handleCellClick(event) {
-  const cell = event.target;
-  const index = cell.getAttribute('data-index');
+/**
+ * Maneja el clic en una celda del tablero. Ignora el clic si la celda ya está ocupada o la partida terminó. Actualiza el tablero, comprueba victoria/empate y alterna turno.
+ * @param {MouseEvent} event Evento de clic recibido.
+ * @returns {void}
+ */
+function manejarClickCelda(event) {
+  const celda = event.target;
+  const indice = celda.getAttribute('data-index');
 
-  if (board[index] !== '' || !isGameActive) return;
+  if (tablero[indice] !== '' || !juegoActivo) return;
 
-  board[index] = currentPlayer;
-  cell.textContent = currentPlayer;
-  const winCondition = checkWin();
-  if (winCondition) {
-    winCondition.forEach(i => {
+  tablero[indice] = jugadorActual;
+  celda.textContent = jugadorActual;
+  const condicionVictoria = comprobarVictoria();
+  if (condicionVictoria) {
+    condicionVictoria.forEach(i => {
       const el = document.querySelector(`.cell[data-index="${i}"]`);
       if (el) el.classList.add('win');
     });
-    isGameActive = false;
-    statusText.textContent = `¡El jugador ${currentPlayer} gana!`;
-    if (currentPlayer === 'X') {
-      scoreX++;
-      scoreXEl.textContent = scoreX;
+    juegoActivo = false;
+    textoEstado.textContent = `¡El jugador ${jugadorActual} gana!`;
+    if (jugadorActual === 'X') {
+      puntuacionX++;
+      puntuacionXEl.textContent = puntuacionX;
     } else {
-      scoreO++;
-      scoreOEl.textContent = scoreO;
+      puntuacionO++;
+      puntuacionOEl.textContent = puntuacionO;
     }
-  } else if (board.every(cell => cell !== '')) {
-    isGameActive = false;
-    statusText.textContent = '¡Es un empate!';
+  } else if (tablero.every(c => c !== '')) {
+    juegoActivo = false;
+    textoEstado.textContent = '¡Es un empate!';
   } else {
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    statusText.textContent = `Turno del jugador ${currentPlayer}`;
+    jugadorActual = jugadorActual === 'X' ? 'O' : 'X';
+    textoEstado.textContent = `Turno del jugador ${jugadorActual}`;
   }
 }
 
-function checkWin() {
-  for (let condition of winningConditions) {
-    if (condition.every(index => board[index] === currentPlayer)) {
-      return condition;
+/**
+ * Comprueba si el jugador actual tiene una combinación ganadora.
+ * @returns {number[]|null} Array con los índices ganadores, o null si no hay victoria.
+ */
+function comprobarVictoria() {
+  for (let condicion of condicionesVictoria) {
+    if (condicion.every(indice => tablero[indice] === jugadorActual)) {
+      return condicion;
     }
   }
   return null;
 }
 
-function restartGame() {
-  board = ['', '', '', '', '', '', '', '', ''];
-  isGameActive = true;
-  currentPlayer = 'X';
-  statusText.textContent = `Turno del jugador ${currentPlayer}`;
-  cells.forEach(cell => {
-    cell.textContent = '';
-    cell.classList.remove('win');
+/**
+ * Reinicia la partida a su estado inicial: limpia tablero y estilos, restablece el jugador y el estado del juego.
+ * @returns {void}
+ */
+function reiniciarJuego() {
+  tablero = ['', '', '', '', '', '', '', '', ''];
+  juegoActivo = true;
+  jugadorActual = 'X';
+  textoEstado.textContent = `Turno del jugador ${jugadorActual}`;
+  celdas.forEach(celda => {
+    celda.textContent = '';
+    celda.classList.remove('win');
   });
 }
 
-cells.forEach(cell => cell.addEventListener('click', handleCellClick));
-restartBtn.addEventListener('click', restartGame);
-statusText.textContent = `Turno del jugador ${currentPlayer}`;
+celdas.forEach(celda => celda.addEventListener('click', manejarClickCelda));
+botonReiniciar.addEventListener('click', reiniciarJuego);
+textoEstado.textContent = `Turno del jugador ${jugadorActual}`;

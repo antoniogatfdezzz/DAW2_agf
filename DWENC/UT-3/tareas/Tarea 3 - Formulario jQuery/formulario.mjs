@@ -3,10 +3,7 @@ import {
     obtenerMensajeError 
 } from './formulario-validaciones.mjs';
 
-/**
- * Mapa de ayudas para cada campo del formulario
- * Asocia el id del campo con el texto de ayuda
- */
+// Mapa de ayudas para cada campo del formulario
 const ayudasCampos = {
     'nombre': 'Introduce tu nombre',
     'apellidos': 'Introduce tus apellidos completos',
@@ -16,10 +13,7 @@ const ayudasCampos = {
     'password2': 'Vuelve a introducir la misma contraseña'
 };
 
-/**
- * Mapa de validaciones para cada campo del formulario
- * Asocia el id del campo con el tipo de validación
- */
+// Mapa de validaciones para cada campo del formulario
 const validacionesCampos = {
     'nombre': 'obligatorio',
     'apellidos': 'obligatorio',
@@ -30,8 +24,9 @@ const validacionesCampos = {
 };
 
 /**
- * Muestra un mensaje de ayuda en el div de ayuda
- * @param {string} mensaje - El mensaje a mostrar
+ * Muestra un mensaje de ayuda contextual en el contenedor de ayuda.
+ * @param {string} mensaje Texto a mostrar al usuario.
+ * @returns {void}
  */
 function mostrarAyuda(mensaje) {
     const $ayudaContainer = $('#ayuda-container');
@@ -52,9 +47,10 @@ function mostrarAyuda(mensaje) {
 }
 
 /**
- * Muestra un mensaje de error para un campo específico
- * @param {jQuery} $campo - El campo jQuery que tiene el error
- * @param {string} mensajeError - El mensaje de error a mostrar
+ * Marca el campo con error y muestra un mensaje descriptivo en el área de ayuda.
+ * @param {JQuery<HTMLInputElement>} $campo Campo que ha fallado la validación.
+ * @param {string} mensajeError Mensaje a mostrar.
+ * @returns {void}
  */
 function mostrarError($campo, mensajeError) {
     const $ayudaContainer = $('#ayuda-container');
@@ -69,8 +65,9 @@ function mostrarError($campo, mensajeError) {
 }
 
 /**
- * Limpia el mensaje de error de un campo
- * @param {jQuery} $campo - El campo jQuery del que limpiar el error
+ * Elimina los estilos de error del campo y limpia el texto de ayuda.
+ * @param {JQuery<HTMLInputElement>} $campo Campo a limpiar.
+ * @returns {void}
  */
 function limpiarError($campo) {
     const $ayudaContainer = $('#ayuda-container');
@@ -85,9 +82,9 @@ function limpiarError($campo) {
 }
 
 /**
- * Valida un campo individual
- * @param {jQuery} $campo - El campo a validar
- * @returns {boolean} - true si es válido, false si no lo es
+ * Valida un campo individual basado en data-validacion o el mapa por id. Si falla, muestra el mensaje de error correspondiente.
+ * @param {JQuery<HTMLInputElement>} $campo Campo a validar.
+ * @returns {boolean} true si es válido o no requiere validación; false si falla.
  */
 function validarCampo($campo) {
     const idCampo = $campo.attr('id');
@@ -116,8 +113,8 @@ function validarCampo($campo) {
 }
 
 /**
- * Valida todos los campos del formulario
- * @returns {Object} - {valido: boolean, primerCampoError: jQuery|null}
+ * Valida el formulario completo recorriendo los campos con data-validacion y comprobando la coincidencia de contraseñas.
+ * @returns {{valido:boolean, primerCampoError:JQuery<HTMLInputElement>|null}}
  */
 function validarFormulario() {
     let formularioValido = true;
@@ -167,7 +164,8 @@ function validarFormulario() {
 }
 
 /**
- * Limpia todo el formulario
+ * Restablece el formulario a su estado inicial, elimina errores y enfoca el campo nombre.
+ * @returns {void}
  */
 function limpiarFormulario() {
     $('#formulario-cliente')[0].reset();
@@ -180,7 +178,8 @@ function limpiarFormulario() {
 }
 
 /**
- * Inicializa los eventos del formulario
+ * Configura todos los manejadores de eventos del formulario: focus/blur, submit y limpiar. También establece el foco inicial.
+ * @returns {void}
  */
 function inicializarEventos() {
     $('input').on('focus', function() {

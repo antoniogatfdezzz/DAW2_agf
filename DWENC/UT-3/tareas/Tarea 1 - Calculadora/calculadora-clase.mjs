@@ -1,133 +1,159 @@
 "use strict";
 
+export default function crearCalculadora() {
+  // Estado interno de la calculadora
+  let pantalla = '0';
+  let operando = null;
+  let operador = null;
+  let nuevaEntrada = true;
 
-export default class Calculadora {
-  constructor() {
-    this._pantalla = '0';
-    this._operando = null;
-    this._operador = null;
-    this._nuevaEntrada = true;
-    this._listener = null;
-    this.onPantallaActualizada = null;
+  /**
+   * Marca el estado como error, muestra "ERROR" en la pantalla y reinicia el operando/operador para comenzar una nueva entrada.
+   * @returns {void}
+   */
+    function marcarError() {
+    // Pone la pantalla en 'ERROR' y reinicia la operación
+    pantalla = 'ERROR';
+    operando = null;
+    operador = null;
+    nuevaEntrada = true;
   }
 
-  setPantallaActualidadListener(fn) {
-    this.setPantallaActualizadaListener(fn);
+  /**
+   * Obtiene el contenido actual mostrado en la pantalla de la calculadora.
+   * @returns {string} Texto a mostrar en el display (número, "0" o "ERROR").
+   */
+    function obtenerPantalla() {
+    return pantalla;
   }
 
-  setPantallaActualizadaListener(fn) {
-    this._listener = fn;
-    this.onPantallaActualizada = fn;
+  /**
+   * Resetea completamente la calculadora a su estado inicial.
+   * @returns {void}
+   */
+  function borrarTodo() {
+    pantalla = '0';
+    operando = null;
+    operador = null;
+    nuevaEntrada = true;
   }
 
-  getPantalla() {
-    return this._pantalla;
-  }
-
-  _notify() {
-    if (typeof this._listener === 'function') this._listener(this._pantalla);
-    if (typeof this.onPantallaActualizada === 'function') this.onPantallaActualizada(this._pantalla);
-  }
-
-  clearAll() {
-    this._pantalla = '0';
-    this._operando = null;
-    this._operador = null;
-    this._nuevaEntrada = true;
-    this._notify();
-  }
-
-  backspace() {
-    if (this._pantalla === 'ERROR') {
-      this.clearAll();
+  /**
+   * Elimina el último carácter del display. Si solo queda un carácter (o es un negativo de un dígito), deja la pantalla en "0". Si el estado es de error o es una nueva entrada, resetea todo.
+   * @returns {void}
+   */
+  function borrarUltimo() {
+    if (pantalla === 'ERROR') {
+      borrarTodo();
       return;
     }
-    if (this._nuevaEntrada) {
-      this.clearAll();
+    if (nuevaEntrada) {
+      borrarTodo();
       return;
     }
-    if (this._pantalla.length <= 1 || (this._pantalla.length === 2 && this._pantalla.startsWith('-'))) {
-      this._pantalla = '0';
+    if (pantalla.length <= 1 || (pantalla.length === 2 && pantalla.startsWith('-'))) {
+      pantalla = '0';
     } else {
-      this._pantalla = this._pantalla.slice(0, -1);
+      pantalla = pantalla.slice(0, -1);
     }
-    this._notify();
   }
 
-  inputDigit(d) {
-    if (this._pantalla === 'ERROR') {
-      this._pantalla = d;
-      this._nuevaEntrada = false;
-      this._notify();
+  /**
+   * Introduce un dígito en el display, gestionando los casos de nueva entrada y de "0" inicial.
+   * @param {string} d Dígito a introducir (carácter '0'-'9').
+   * @returns {void}
+   */
+  function introducirDigito(d) {
+    if (pantalla === 'ERROR') {
+      pantalla = d;
+      nuevaEntrada = false;
       return;
     }
-    if (this._nuevaEntrada) {
-      this._pantalla = d;
-      this._nuevaEntrada = false;
+    if (nuevaEntrada) {
+      pantalla = d;
+      nuevaEntrada = false;
     } else {
-      this._pantalla = (this._pantalla === '0' ? d : this._pantalla + d);
+      pantalla = (pantalla === '0' ? d : pantalla + d);
     }
-    this._notify();
   }
 
-  inputDecimal() {
-    if (this._pantalla === 'ERROR') {
-      this._pantalla = '0.';
-      this._nuevaEntrada = false;
-      this._notify();
+  /**
+   * Inserta el separador decimal en el número mostrado si aún no existe. Si está en estado de error o nueva entrada, comienza con "0.".
+   * @returns {void}
+   */
+  function introducirDecimal() {
+    if (pantalla === 'ERROR') {
+      pantalla = '0.';
+      nuevaEntrada = false;
       return;
     }
-    if (this._nuevaEntrada) {
-      this._pantalla = '0.';
-      this._nuevaEntrada = false;
-    } else if (!this._pantalla.includes('.')) {
-      this._pantalla += '.';
+    if (nuevaEntrada) {
+      pantalla = '0.';
+      nuevaEntrada = false;
+    } else if (!pantalla.includes('.')) {
+      pantalla += '.';
     }
-    this._notify();
   }
 
-  toggleSign() {
-    if (this._pantalla === '0' || this._pantalla === 'ERROR') return;
-    this._pantalla = this._pantalla.startsWith('-') ? this._pantalla.slice(1) : '-' + this._pantalla;
-    this._notify();
+  /**
+   * Cambia el signo del valor actual mostrado en pantalla. No realiza cambios si el valor es "0" o "ERROR".
+   * @returns {void}
+   */
+  function cambiarSigno() {
+    if (pantalla === '0' || pantalla === 'ERROR') return;
+    pantalla = pantalla.startsWith('-') ? pantalla.slice(1) : '-' + pantalla;
   }
 
-  percent() {
+  /**
+   * Convierte el valor actual a porcentaje, dividiéndolo entre 100. Si el valor no es numérico o el resultado no es finito, marca error.
+   * @returns {void}
+   */
+  function convertirPorcentaje() {
     try {
-      const val = parseFloat(this._pantalla);
+      const val = parseFloat(pantalla);
       if (Number.isNaN(val)) throw new Error('ERROR');
-      this._pantalla = String(val / 100);
-      this._nuevaEntrada = true;
-      this._notify();
+      pantalla = String(val / 100);
+      nuevaEntrada = true;
     } catch (e) {
-      this._error();
+  marcarError();
     }
   }
 
-  setOperator(op) {
+  /**
+   * Establece el operador de la operación. Si ya existía un operando previo y no es nueva entrada, ejecuta la operación interna pendiente.
+   * @param {'+'|'-'|'x'|'*'|'÷'|'/'} op Operador a aplicar.
+   * @returns {void}
+   */
+  function establecerOperador(op) {
     try {
-      if (this._pantalla === 'ERROR') return;
-      if (!this._nuevaEntrada) {
-        const current = parseFloat(this._pantalla);
-        if (this._operando === null) {
-          this._operando = current;
+      if (pantalla === 'ERROR') return;
+      if (!nuevaEntrada) {
+        const current = parseFloat(pantalla);
+        if (operando === null) {
+          operando = current;
         } else {
-          this._compute();
+          calcularOperacionInterna();
         }
       }
-      this._operador = op;
-      this._nuevaEntrada = true;
+      operador = op;
+      nuevaEntrada = true;
     } catch (e) {
-      this._error();
+  marcarError();
     }
   }
 
-  _compute() {
-    if (this._operador === null || this._operando === null) return;
-    const a = this._operando;
-    const b = parseFloat(this._pantalla);
+  /**
+   * Calcula la operación pendiente entre el operando acumulado y el valor actual de pantalla utilizando el operador seleccionado.
+   * Actualiza el display y el operando acumulado con el resultado. Lanza error si el resultado no es finito.
+   * @returns {void}
+   * @throws {Error} Si el operador es desconocido o el resultado es inválido.
+   */
+  function calcularOperacionInterna() {
+    if (operador === null || operando === null) return;
+    const a = operando;
+    const b = parseFloat(pantalla);
     let res;
-    switch (this._operador) {
+    switch (operador) {
       case '+':
         res = a + b;
         break;
@@ -147,29 +173,51 @@ export default class Calculadora {
     }
     if (!isFinite(res)) throw new Error('ERROR');
 
-    this._pantalla = String(res);
-    this._operando = res;
-    this._nuevaEntrada = true;
-    this._notify();
+    pantalla = String(res);
+    operando = res;
+    nuevaEntrada = true;
   }
 
-  equals() {
+  /**
+   * Finaliza la operación pendiente aplicando el operador sobre el valor actual. Limpia el operador tras calcular.
+   * @returns {void}
+   */
+  function calcularResultado() {
     try {
-      if (this._pantalla === 'ERROR') return;
-      if (this._operador !== null) {
-        this._compute();
-        this._operador = null;
+      if (pantalla === 'ERROR') return;
+      if (operador !== null) {
+  calcularOperacionInterna();
+        operador = null;
       }
     } catch (e) {
-      this._error();
+  marcarError();
     }
   }
 
-  _error() {
-    this._pantalla = 'ERROR';
-    this._operando = null;
-    this._operador = null;
-    this._nuevaEntrada = true;
-    this._notify();
-  }
+  /**
+   * Crea una calculadora con estado interno y API para operar sobre ella.
+   * Métodos disponibles:
+   * @returns {{
+   *   obtenerPantalla: ()=>string,
+   *   borrarTodo: ()=>void,
+   *   borrarUltimo: ()=>void,
+   *   introducirDigito: (d:string)=>void,
+   *   introducirDecimal: ()=>void,
+   *   cambiarSigno: ()=>void,
+   *   convertirPorcentaje: ()=>void,
+   *   establecerOperador: (op:string)=>void,
+   *   calcularResultado: ()=>void
+   * }} 
+   */
+  return {
+    obtenerPantalla,
+    borrarTodo,
+    borrarUltimo,
+    introducirDigito,
+    introducirDecimal,
+    cambiarSigno,
+    convertirPorcentaje,
+    establecerOperador,
+    calcularResultado
+  };
 }
