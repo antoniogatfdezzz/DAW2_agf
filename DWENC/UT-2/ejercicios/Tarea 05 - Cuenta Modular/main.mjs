@@ -74,7 +74,7 @@ const texto = ejercicio0603();
 if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     let salida = document.getElementById('resultado0603');
     if (!salida) {
-        salida = document.createElement('pre');
+        salida = document.createElement('div');
         salida.id = 'resultado0603';
         salida.style.whiteSpace = 'pre-wrap';
         salida.style.padding = '8px';
