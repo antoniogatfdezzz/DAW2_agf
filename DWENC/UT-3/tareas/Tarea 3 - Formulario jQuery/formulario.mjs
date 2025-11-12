@@ -1,3 +1,4 @@
+// Importa funciones de validación y de obtención de mensajes de error
 import { 
     ejecutarValidacion, 
     obtenerMensajeError 
@@ -5,22 +6,22 @@ import {
 
 // Mapa de ayudas para cada campo del formulario
 const ayudasCampos = {
-    'nombre': 'Introduce tu nombre',
-    'apellidos': 'Introduce tus apellidos completos',
-    'dni': 'Introduce tu DNI con letra (ejemplo: 12345678Z)',
-    'email': 'Introduce tu dirección de correo electrónico',
-    'password1': 'Introduce una contraseña segura',
-    'password2': 'Vuelve a introducir la misma contraseña'
+    'nombre': 'Introduce tu nombre', // ayuda para el campo nombre
+    'apellidos': 'Introduce tus apellidos completos', // ayuda apellidos
+    'dni': 'Introduce tu DNI con letra (ejemplo: 12345678Z)', // ayuda DNI
+    'email': 'Introduce tu dirección de correo electrónico', // ayuda email
+    'password1': 'Introduce una contraseña segura', // ayuda primera contraseña
+    'password2': 'Vuelve a introducir la misma contraseña' // ayuda confirmación contraseña
 };
 
 // Mapa de validaciones para cada campo del formulario
 const validacionesCampos = {
-    'nombre': 'obligatorio',
-    'apellidos': 'obligatorio',
-    'dni': 'dni',
-    'email': 'email',
-    'password1': 'obligatorio',
-    'password2': 'passwordMatch'
+    'nombre': 'obligatorio', // no vacío
+    'apellidos': 'obligatorio', // no vacío
+    'dni': 'dni', // formato DNI y letra
+    'email': 'email', // formato email
+    'password1': 'obligatorio', // no vacío
+    'password2': 'passwordMatch' // debe coincidir con password1
 };
 
 /**
@@ -29,21 +30,21 @@ const validacionesCampos = {
  * @returns {void}
  */
 function mostrarAyuda(mensaje) {
-    const $ayudaContainer = $('#ayuda-container');
-    const $ayudaTexto = $('#ayuda-texto');
+    const $ayudaContainer = $('#ayuda-container'); // contenedor visual de ayuda
+    const $ayudaTexto = $('#ayuda-texto'); // elemento donde se muestra el texto
     
     // Limpiar clase de error si existe
-    $ayudaContainer.removeClass('error');
-    $ayudaTexto.removeClass('error');
+    $ayudaContainer.removeClass('error'); // quitar modo error del contenedor
+    $ayudaTexto.removeClass('error'); // quitar estilo error del texto
     
     // Si el mensaje está vacío, limpiar el contenido
     if (!mensaje || mensaje.trim() === '') {
-        $ayudaTexto.text('');
-        return;
+        $ayudaTexto.text(''); // no mostrar nada si no hay mensaje
+        return; // salir sin más cambios
     }
     
     // Mostrar el mensaje de ayuda
-    $ayudaTexto.text(mensaje);
+    $ayudaTexto.text(mensaje); // inyectar texto de ayuda
 }
 
 /**
@@ -53,15 +54,15 @@ function mostrarAyuda(mensaje) {
  * @returns {void}
  */
 function mostrarError($campo, mensajeError) {
-    const $ayudaContainer = $('#ayuda-container');
-    const $ayudaTexto = $('#ayuda-texto');
+    const $ayudaContainer = $('#ayuda-container'); // contenedor de ayuda
+    const $ayudaTexto = $('#ayuda-texto'); // texto de ayuda
     
-    $campo.addClass('error');
+    $campo.addClass('error'); // aplica estilo de error al campo
     
-    $ayudaContainer.addClass('error');
-    $ayudaTexto.addClass('error');
+    $ayudaContainer.addClass('error'); // activa modo error en contenedor
+    $ayudaTexto.addClass('error'); // activa estilo de error en el texto
     
-    $ayudaTexto.text(mensajeError);
+    $ayudaTexto.text(mensajeError); // muestra el mensaje correspondiente
 }
 
 /**
@@ -70,15 +71,15 @@ function mostrarError($campo, mensajeError) {
  * @returns {void}
  */
 function limpiarError($campo) {
-    const $ayudaContainer = $('#ayuda-container');
-    const $ayudaTexto = $('#ayuda-texto');
+    const $ayudaContainer = $('#ayuda-container'); // contenedor de ayuda
+    const $ayudaTexto = $('#ayuda-texto'); // texto de ayuda
     
-    $campo.removeClass('error');
+    $campo.removeClass('error'); // quita la clase de error del campo
     
-    $ayudaContainer.removeClass('error');
-    $ayudaTexto.removeClass('error');
+    $ayudaContainer.removeClass('error'); // desactiva el modo error
+    $ayudaTexto.removeClass('error'); // quita estilo de error
     
-    $ayudaTexto.text('');
+    $ayudaTexto.text(''); // limpia el texto de ayuda
 }
 
 /**
@@ -87,28 +88,28 @@ function limpiarError($campo) {
  * @returns {boolean} true si es válido o no requiere validación; false si falla.
  */
 function validarCampo($campo) {
-    const idCampo = $campo.attr('id');
-    const valor = $campo.val();
+    const idCampo = $campo.attr('id'); // id del input
+    const valor = $campo.val(); // valor actual del campo
     
-    let tipoValidacion = $campo.attr('data-validacion');
+    let tipoValidacion = $campo.attr('data-validacion'); // prioridad: atributo data-validacion
     
     if (!tipoValidacion) {
-        tipoValidacion = validacionesCampos[idCampo];
+        tipoValidacion = validacionesCampos[idCampo]; // fallback al mapa por id
     }
     
     if (!tipoValidacion) {
-        return true;
+        return true; // si no hay regla, se considera válido
     }
     
-    const esValido = ejecutarValidacion(tipoValidacion, valor, $campo);
+    const esValido = ejecutarValidacion(tipoValidacion, valor, $campo); // ejecuta la regla
     
     if (!esValido) {
-        const mensajeError = obtenerMensajeError(tipoValidacion);
-        mostrarError($campo, mensajeError);
-        return false;
+        const mensajeError = obtenerMensajeError(tipoValidacion); // obtiene mensaje por tipo
+        mostrarError($campo, mensajeError); // muestra error y estilos
+        return false; // indica fallo
     } else {
-        limpiarError($campo);
-        return true;
+        limpiarError($campo); // limpia posibles errores previos
+        return true; // indica éxito
     }
 }
 
@@ -117,49 +118,49 @@ function validarCampo($campo) {
  * @returns {{valido:boolean, primerCampoError:JQuery<HTMLInputElement>|null}}
  */
 function validarFormulario() {
-    let formularioValido = true;
-    let primerCampoError = null;
+    let formularioValido = true; // estado global de validez
+    let primerCampoError = null; // para enfocar el primer error
     
-    const $campos = $('input[data-validacion]');
+    const $campos = $('input[data-validacion]'); // inputs con reglas de validación
     
     $campos.each(function() {
-        const $campo = $(this);
-        const esValido = validarCampo($campo);
+        const $campo = $(this); // convierte el elemento actual a jQuery
+        const esValido = validarCampo($campo); // valida cada campo
         
         if (!esValido) {
-            formularioValido = false;
+            formularioValido = false; // marca formulario como inválido
             
             if (primerCampoError === null) {
-                primerCampoError = $campo;
+                primerCampoError = $campo; // guarda el primero que falla
             }
         }
     });
     
-    const password1 = $('#password1').val();
-    const password2 = $('#password2').val();
+    const password1 = $('#password1').val(); // valor de primera contraseña
+    const password2 = $('#password2').val(); // valor de confirmación
     
     if (password1 !== password2 || password1.length === 0) {
-        formularioValido = false;
+        formularioValido = false; // regla extra: ambas deben coincidir y no estar vacías
         
-        const $password1 = $('#password1');
+        const $password1 = $('#password1'); // cachea jQuery objects
         const $password2 = $('#password2');
         
-        $password1.addClass('error');
-        $password2.addClass('error');
+        $password1.addClass('error'); // marca campo 1 con error
+        $password2.addClass('error'); // marca campo 2 con error
         
-        mostrarError($password1, 'Las contraseñas no coinciden. Debes introducir la misma contraseña en ambos campos');
+        mostrarError($password1, 'Las contraseñas no coinciden. Debes introducir la misma contraseña en ambos campos'); // muestra mensaje
         
         if (primerCampoError === null) {
-            primerCampoError = $password1;
+            primerCampoError = $password1; // establece foco en el primer campo de password
         }
         
-        $password1.val('');
+        $password1.val(''); // limpia ambos campos para reintroducción
         $password2.val('');
     }
     
     return {
-        valido: formularioValido,
-        primerCampoError: primerCampoError
+        valido: formularioValido, // estado final
+        primerCampoError: primerCampoError // referencia para enfocar
     };
 }
 
@@ -168,13 +169,13 @@ function validarFormulario() {
  * @returns {void}
  */
 function limpiarFormulario() {
-    $('#formulario-cliente')[0].reset();
+    $('#formulario-cliente')[0].reset(); // resetea el formulario nativo (primer nodo del jQuery set)
     
-    $('input').removeClass('error');
+    $('input').removeClass('error'); // elimina clases de error de todos los inputs
     
-    mostrarAyuda('');
+    mostrarAyuda(''); // limpia el área de ayuda
     
-    $('#nombre').focus();
+    $('#nombre').focus(); // vuelve a enfocar el primer campo
 }
 
 /**
@@ -182,54 +183,55 @@ function limpiarFormulario() {
  * @returns {void}
  */
 function inicializarEventos() {
-    $('input').on('focus', function() {
-        const $campo = $(this);
-        const idCampo = $campo.attr('id');
+    $('input').on('focus', function() { // al enfocar cualquier input
+        const $campo = $(this); // referencia al input enfocado
+        const idCampo = $campo.attr('id'); // id del input
         
-        limpiarError($campo);
+        limpiarError($campo); // quita errores previos del campo
         
-        let textoAyuda = $campo.attr('data-ayuda');
+        let textoAyuda = $campo.attr('data-ayuda'); // intenta leer ayuda del data-* del input
         
         if (!textoAyuda) {
-            textoAyuda = ayudasCampos[idCampo];
+            textoAyuda = ayudasCampos[idCampo]; // si no hay, usa el mapa por id
         }
         
-        mostrarAyuda(textoAyuda || '');
+        mostrarAyuda(textoAyuda || ''); // pinta la ayuda contextual
     });
     
-    $('input').on('blur', function() {
-        const $campo = $(this);
-        validarCampo($campo);
+    $('input').on('blur', function() { // al perder el foco
+        const $campo = $(this); // referencia al input
+        validarCampo($campo); // valida el campo
     });
     
-    $('#formulario-cliente').on('submit', function(e) {
-        e.preventDefault();
+    $('#formulario-cliente').on('submit', function(e) { // al enviar el formulario
+        e.preventDefault(); // evita envío real para validar primero
         
-        const resultado = validarFormulario();
+        const resultado = validarFormulario(); // valida todo el formulario
         
-        if (!resultado.valido) {
+        if (!resultado.valido) { // si hay errores
             if (resultado.primerCampoError) {
-                resultado.primerCampoError.focus();
+                resultado.primerCampoError.focus(); // enfoca el primero con error
             }
         } else {
-            alert('¡Formulario enviado correctamente!\n\nDatos:\n' +
+            alert('¡Formulario enviado correctamente!\n\nDatos:\n' + // muestra resumen
                 'Nombre: ' + $('#nombre').val() + '\n' +
                 'Apellidos: ' + $('#apellidos').val() + '\n' +
                 'DNI: ' + $('#dni').val() + '\n' +
                 'Email: ' + $('#email').val()
             );
             
-            limpiarFormulario();
+            limpiarFormulario(); // limpia tras el envío exitoso
         }
     });
     
-    $('#btn-limpiar').on('click', function() {
-        limpiarFormulario();
+    $('#btn-limpiar').on('click', function() { // botón de limpiar
+        limpiarFormulario(); // restablece todo
     });
 }
 
+// Ejecuta la inicialización cuando el DOM esté listo
 $(document).ready(function() {
-    inicializarEventos();
+    inicializarEventos(); // configura manejadores
     
-    $('#nombre').focus();
+    $('#nombre').focus(); // pone el foco inicial en nombre
 });

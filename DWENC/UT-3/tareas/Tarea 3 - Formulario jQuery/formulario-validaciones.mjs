@@ -4,8 +4,9 @@
  * @returns {boolean} true si hay al menos un carácter no espacio.
  */
 export function validarObligatorio(valor) {
+    // valor: cadena a comprobar (puede contener espacios al inicio/fin)
     // Quita espacios al principio y al final y comprueba que quede algún carácter
-    return valor.trim().length > 0;
+    return valor.trim().length > 0; // true si hay longitud > 0 tras recorte
 }
 
 /**
@@ -15,25 +16,25 @@ export function validarObligatorio(valor) {
  */
 export function validarDNI(dni) {
     // Elimina espacios y pone la letra en mayúsculas
-    dni = dni.trim().toUpperCase();
+    dni = dni.trim().toUpperCase(); // normaliza entrada para validar
     
     // Debe ser 8 dígitos seguidos de 1 letra
-    const dniRegex = /^[0-9]{8}[A-Z]$/;
+    const dniRegex = /^[0-9]{8}[A-Z]$/; // patrón simple DNI español
     
     if (!dniRegex.test(dni)) {
-        return false;
+        return false; // formato inválido
     }
     
     // Separa número y letra
-    const numero = parseInt(dni.substring(0, 8), 10);
-    const letraIntroducida = dni.charAt(8);
+    const numero = parseInt(dni.substring(0, 8), 10); // parte numérica
+    const letraIntroducida = dni.charAt(8); // letra que indicó el usuario
     
     // Tabla de letras válidas y cálculo de la esperada
-    const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
-    const letraCalculada = letras.charAt(numero % 23);
+    const letras = 'TRWAGMYFPDXBNJZSQVHLCKE'; // tabla oficial
+    const letraCalculada = letras.charAt(numero % 23); // letra según módulo 23
     
     // Compara la letra calculada con la introducida
-    return letraIntroducida === letraCalculada;
+    return letraIntroducida === letraCalculada; // true si coincide
 }
 
 /**
@@ -43,9 +44,9 @@ export function validarDNI(dni) {
  */
 export function validarEmail(email) {
     // Comprobación de formato básico de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // patrón general simple
     // Asegura que cumple el patrón y contiene una @
-    return emailRegex.test(email.trim()) && email.includes('@');
+    return emailRegex.test(email.trim()) && email.includes('@'); // comprobación doble
 }
 
 /**
@@ -56,7 +57,7 @@ export function validarEmail(email) {
  */
 export function validarPasswordsIguales(password1, password2) {
     // Deben ser idénticas y no estar vacías
-    return password1 === password2 && password1.length > 0;
+    return password1 === password2 && password1.length > 0; // true si coinciden y no vacías
 }
 
 /**
@@ -74,7 +75,7 @@ export function obtenerMensajeError(tipoValidacion) {
     };
     
     // Devuelve el mensaje correspondiente o uno genérico por defecto
-    return mensajes[tipoValidacion] || 'El valor introducido no es válido';
+    return mensajes[tipoValidacion] || 'El valor introducido no es válido'; // fallback genérico
 }
 
 /**
@@ -88,21 +89,21 @@ export function ejecutarValidacion(tipoValidacion, valor, $campo = null) {
     // Despacha la validación según el tipo indicado
     switch (tipoValidacion) {
         case 'obligatorio':
-            return validarObligatorio(valor);
+            return validarObligatorio(valor); // campo no vacío
         
         case 'dni':
-            return validarDNI(valor);
+            return validarDNI(valor); // validación de DNI
         
         case 'email':
-            return validarEmail(valor);
+            return validarEmail(valor); // validación básica email
         
         case 'passwordMatch':
             // Recupera la primera contraseña para compararla con el valor actual
-            const password1 = $('#password1').val();
-            return validarPasswordsIguales(password1, valor);
+            const password1 = $('#password1').val(); // usa jQuery para leer el campo
+            return validarPasswordsIguales(password1, valor); // compara ambas
         
         default:
             // Si no hay validación definida, se considera válido
-            return true;
+            return true; // no se aplica ninguna restricción
     }
 }
