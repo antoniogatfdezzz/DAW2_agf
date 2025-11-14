@@ -1,0 +1,122 @@
+/* Estética inspirada en LinkedIn (sin copiar código propietario) */
+:root {
+  --ln-blue: #0a66c2;
+  --ln-blue-hover: #004182;
+  --ln-bg: #f3f2ef;
+  --ln-card-bg: #ffffff;
+  --ln-border: #dcdcdc;
+  --ln-text: #1d2226;
+  --ln-secondary: #5e5e5e;
+  --radius: 8px;
+  --transition: .15s ease-in-out;
+}
+
+body {
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background: var(--ln-bg);
+  color: var(--ln-text);
+}
+
+/* Navbar */
+.navbar { font-size: .9rem; }
+.navbar .nav-link { color: var(--ln-secondary); transition: var(--transition); }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--ln-text); }
+.search-bar .form-control { min-width: 180px; background:#eef3f8; border-color:#eef3f8; }
+.search-bar .form-control:focus { background:#fff; box-shadow: 0 0 0 .15rem rgba(10,102,194,.15); }
+
+/* Cover */
+.cover-header { background: linear-gradient(135deg,#cce0f5,#eef3f8); border-bottom:1px solid var(--ln-border); }
+/* Banner dentro de tarjeta (fidelidad estilo LinkedIn) */
+.profile-card-wrapper { margin-top:1rem; overflow:hidden; border-radius:12px; box-shadow:0 0 0 1px var(--ln-border); max-width:1300px; margin-left:auto; margin-right:auto; }
+.banner-wrapper { height:196px; background:#0a66c2; position:relative; z-index:2; }
+.banner-wrapper::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 50%); pointer-events:none; z-index:0; }
+.banner-overlay { position:absolute; left:0; right:0; bottom: 24px; z-index:3; padding-left: calc(152px + 36px); padding-right: 16px; }
+.banner-overlay .title { text-shadow:0 2px 6px rgba(0,0,0,.45); font-size:1.4rem; }
+.banner-overlay .bi-patch-check-fill { color:#fff; }
+.banner-overlay a.link-light { opacity:.95; }
+.banner-overlay .institution-badge { position:absolute; top:12px; right:12px; }
+.cover-banner { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.profile-inner { margin-top:-84px; position:relative; z-index:1; }
+.profile-photo-wrapper { width:152px; }
+.cover-photo { object-fit:cover; width:152px; height:152px; border:4px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,.25); }
+.profile-card-wrapper h5 { font-size:1.25rem; line-height:1.25; }
+.banner-edit, .profile-edit { box-shadow:0 2px 4px rgba(0,0,0,.15); }
+.institution-badge { align-self:flex-start; }
+
+/* Cards */
+.card { border:1px solid var(--ln-border); border-radius: var(--radius); background: var(--ln-card-bg); }
+.card-header { background: var(--ln-card-bg); border-bottom:1px solid var(--ln-border); }
+.card-header h2,.card-header h5,.card-header h6 { color: var(--ln-text); font-weight:600; }
+.card-body { font-size:.85rem; }
+
+/* Acción tipo pill */
+.btn-pill { border-radius:999px; padding:.35rem .9rem; font-weight:500; }
+.action-buttons .btn { font-size:.7rem; }
+.action-buttons .btn-outline-secondary { border-color:#ccc; }
+
+/* Feed / actividad */
+.feed-item img.img-fluid { background:#fff; }
+.feed-item { border-bottom:1px solid var(--ln-border); padding-bottom:1rem; }
+.feed-item:last-child { border-bottom:0; }
+.feed .small { line-height:1.3; }
+
+/* Experiencia */
+.exp-item { border-bottom:1px solid var(--ln-border); padding-bottom:1rem; }
+.exp-item:last-child { border-bottom:0; }
+.exp-icon { width:48px; height:48px; background:#f3f2ef; font-size:1.2rem; color:var(--ln-secondary); }
+.exp-roles { list-style:none; padding-left:0; margin:0 0 .25rem; }
+.exp-roles li { position:relative; padding-left:1rem; }
+.exp-roles li:before { content:""; position:absolute; left:0; top:.45rem; width:6px; height:6px; background:var(--ln-blue); border-radius:50%; }
+
+/* Educación / Certificaciones */
+.edu-item, .cert-item { border-bottom:1px solid var(--ln-border); padding-bottom:.9rem; }
+.edu-item:last-child, .cert-item:last-child { border-bottom:0; }
+.edu-logo, .cert-logo { width:48px; height:48px; background:#f3f2ef; font-size:1.1rem; color:var(--ln-secondary); }
+
+/* Chips de aptitudes */
+.skills-chips { --chip-bg:#eef3f8; }
+.skill-chip { background:var(--chip-bg); border:1px solid #d0d7de; padding:.35rem .6rem; border-radius:999px; font-size:.7rem; line-height:1; display:inline-flex; align-items:center; gap:.25rem; }
+.skill-chip:hover { background:#e3e9ee; }
+
+/* Analytics */
+.analytics p { line-height:1.2; }
+
+/* Timeline estilo punto vertical */
+.timeline-item { position: relative; padding-left: 1.25rem; }
+.timeline-item:before { content:""; position:absolute; left:.25rem; top:.4rem; width:8px; height:8px; background:var(--ln-blue); border-radius:50%; box-shadow:0 0 0 3px rgba(10,102,194,.25); }
+
+/* Badges */
+.badge { font-weight:500; }
+
+/* Botones */
+.btn-primary { background:var(--ln-blue); border-color:var(--ln-blue); }
+.btn-primary:hover,.btn-primary:focus { background:var(--ln-blue-hover); border-color:var(--ln-blue-hover); }
+.btn-outline-primary { color:var(--ln-blue); border-color:var(--ln-blue); }
+.btn-outline-primary:hover { background:var(--ln-blue); color:#fff; }
+.btn-outline-secondary { color:#404040; border-color:#c7c7c7; }
+.btn-outline-secondary:hover { background:#f2f2f2; color:#222; border-color:#bdbdbd; }
+
+/* Modo oscuro básico */
+.theme-dark { --ln-bg:#1d2226; --ln-card-bg:#24292e; --ln-border:#3a3f43; --ln-text:#f0f6f9; --ln-secondary:#b0b8bd; }
+.theme-dark body { background:var(--ln-bg); }
+.theme-dark .navbar { background:#1d2226 !important; }
+.theme-dark .card, .theme-dark .card-header { background:var(--ln-card-bg); border-color:var(--ln-border); }
+.theme-dark .search-bar .form-control { background:#2e3438; border-color:#2e3438; color:var(--ln-text); }
+.theme-dark .search-bar .form-control:focus { background:#24292e; }
+.theme-dark .timeline-item:before { box-shadow:0 0 0 3px rgba(10,102,194,.4); }
+.theme-dark footer { background:#1d2226; }
+
+/* Form contacto */
+#contacto form input,#contacto form textarea { background:#eef3f8; border-color:#d0d7de; }
+#contacto form input:focus,#contacto form textarea:focus { background:#fff; box-shadow:0 0 0 .15rem rgba(10,102,194,.25); }
+
+footer { font-size:.7rem; }
+
+@media (max-width: 991.98px) {
+  .navbar .nav-link { padding:.5rem .75rem; }
+  .profile-card-wrapper { margin-top:.5rem; border-radius:10px; }
+  .banner-wrapper { height:160px; }
+  .profile-inner { margin-top:-64px; }
+  .banner-overlay { bottom: 16px; padding-left: 12px; padding-right: 12px; }
+  .profile-card-wrapper h5 { font-size:1.1rem; }
+}
