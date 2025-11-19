@@ -5,7 +5,7 @@ applyTo: '**'
 
 - La Estructura del Proyecto debe ser la siguiente:
   -sql
-    - viogen.sql - script de la base de datos
+    - viogen.sql - script de la base de datos (no lo modifiques)
     - datos.sql - script con datos de ejemplo
   - www
     - controladores - todos los controladores del proyecto
