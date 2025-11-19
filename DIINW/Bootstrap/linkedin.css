@@ -17,6 +17,8 @@ body {
   color: var(--ln-text);
 }
 
+html { scroll-behavior: smooth; }
+
 /* Navbar */
 .navbar { font-size: .9rem; }
 .navbar .nav-link { color: var(--ln-secondary); transition: var(--transition); }
@@ -29,14 +31,18 @@ body {
 /* Banner dentro de tarjeta (fidelidad estilo LinkedIn) */
 .profile-card-wrapper { margin-top:1rem; overflow:hidden; border-radius:12px; box-shadow:0 0 0 1px var(--ln-border); max-width:1300px; margin-left:auto; margin-right:auto; }
 .banner-wrapper { height:196px; background:#0a66c2; position:relative; z-index:2; }
-.banner-wrapper::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 50%); pointer-events:none; z-index:0; }
-.banner-overlay { position:absolute; left:0; right:0; bottom: 24px; z-index:3; padding-left: calc(152px + 36px); padding-right: 16px; }
+/* Gradiente un poco más marcado para asegurar contraste del texto */
+.banner-wrapper::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0) 100%); pointer-events:none; z-index:0; }
+/* Overlay del encabezado: forzamos z-index alto y color de texto */
+.banner-overlay { position:absolute; left:0; right:0; bottom: 24px; z-index:5; padding-left: calc(152px + 36px); padding-right: 16px; color:#fff; }
 .banner-overlay .title { text-shadow:0 2px 6px rgba(0,0,0,.45); font-size:1.4rem; }
+/* Título en zona blanca (fuera del banner) */
+.title { font-size:1.4rem; }
 .banner-overlay .bi-patch-check-fill { color:#fff; }
 .banner-overlay a.link-light { opacity:.95; }
 .banner-overlay .institution-badge { position:absolute; top:12px; right:12px; }
 .cover-banner { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-.profile-inner { margin-top:-84px; position:relative; z-index:1; }
+.profile-inner { margin-top:-84px; position:relative; z-index:10; }
 .profile-photo-wrapper { width:152px; }
 .cover-photo { object-fit:cover; width:152px; height:152px; border:4px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,.25); }
 .profile-card-wrapper h5 { font-size:1.25rem; line-height:1.25; }
@@ -112,6 +118,36 @@ body {
 
 footer { font-size:.7rem; }
 
+/* Menú lateral fijo */
+.side-menu { position: sticky; top: 84px; }
+.side-menu .list-group-item { padding:.5rem .75rem; }
+.side-menu .side-link { color: var(--ln-text); text-decoration: none; display:block; }
+.side-menu .side-link:hover { color: var(--ln-blue); }
+
+/* Botón flotante subir */
+.to-top-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ln-blue);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(10,102,194,.35);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition), background var(--transition);
+  z-index: 1040;
+}
+.to-top-btn:hover { background: var(--ln-blue-hover); }
+.to-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
 @media (max-width: 991.98px) {
   .navbar .nav-link { padding:.5rem .75rem; }
   .profile-card-wrapper { margin-top:.5rem; border-radius:10px; }
@@ -119,4 +155,19 @@ footer { font-size:.7rem; }
   .profile-inner { margin-top:-64px; }
   .banner-overlay { bottom: 16px; padding-left: 12px; padding-right: 12px; }
   .profile-card-wrapper h5 { font-size:1.1rem; }
+  .profile-photo-wrapper { width:128px; }
+  .cover-photo { width:128px; height:128px; }
+}
+
+@media (max-width: 767.98px) {
+  .banner-wrapper { height:148px; }
+  .title { font-size:1.25rem; }
+}
+
+@media (max-width: 575.98px) {
+  .banner-wrapper { height:140px; }
+  .profile-inner { margin-top:-56px; }
+  .profile-photo-wrapper { width:104px; }
+  .cover-photo { width:104px; height:104px; border-width:3px; }
+  .title { font-size:1.15rem; }
 }

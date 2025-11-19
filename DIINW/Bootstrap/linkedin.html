@@ -9,84 +9,31 @@
   <link rel="stylesheet" href="linkedin.css" />
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
-        <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPerfil" aria-controls="navPerfil" aria-expanded="false" aria-label="Menú">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navPerfil">
-            <form class="d-flex ms-auto my-2 my-lg-0 search-bar" role="search">
-            <span class="input-group input-group-sm">
-                <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
-                <input class="form-control border-start-0" type="search" placeholder="Buscar" aria-label="Buscar" />
-            </span>
-            </form>
-            <ul class="navbar-nav ms-3 mb-2 mb-lg-0 align-items-lg-center">
-            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mí</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
-            <li class="nav-item"><a class="nav-link" href="#educacion">Educación</a></li>
-            <li class="nav-item"><a class="nav-link" href="#aptitudes">Aptitudes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-        </div>
-    </nav>
 
     <section class="profile-card card shadow-sm profile-card-wrapper" aria-label="Tarjeta principal del perfil">
         <div class="banner-wrapper position-relative">
             <img src="portada.jpg" alt="Imagen de portada" class="cover-banner" loading="lazy" />
-            <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 banner-edit" aria-label="Editar banner"><i class="bi bi-pencil"></i></button>
-            <!-- Overlay con nombre y descripción sobre el banner -->
-            <div class="banner-overlay container">
-                <h1 class="h5 mb-1 fw-semibold text-white title">Antonio Gat Fernández <i class="bi bi-patch-check-fill" aria-label="Verificado" title="Verificado"></i></h1>
-                <p class="mb-1 small text-white-50">Estudiante en IES Castelar | Árbitro de Voleibol para la FedexVB | Árbitro de VoleyPlaya para la FedexVB</p>
-                <p class="small mb-0 text-white-50"><i class="bi bi-geo-alt"></i> Badajoz y alrededores · <a href="#contacto" class="link-light text-decoration-underline">Información de contacto</a></p>
-                <span class="badge text-bg-light border fw-normal institution-badge">IES Castelar</span>
-            </div>
         </div>
         <div class="profile-inner px-3 px-md-4 pb-3 pb-md-4">
         <div class="d-flex flex-column flex-md-row gap-3">
             <div class="profile-photo-wrapper position-relative">
                 <img src="foto.jpg" alt="Foto de perfil" class="rounded-circle cover-photo" width="152" height="152" loading="lazy" />
             </div>
-                <div class="flex-grow-1 pt-2 pt-md-0">
-                    <p class="small mb-2 mt-2 mt-md-0"><strong>16 contactos</strong></p>
-                <div class="d-flex flex-wrap gap-2 action-buttons mt-1">
-                    <!---<button class="btn btn-primary btn-pill btn-sm" type="button">Tengo interés en...</button>
-                    <button class="btn btn-outline-primary btn-pill btn-sm" type="button">Añadir sección</button>
-                    <button class="btn btn-outline-primary btn-pill btn-sm" type="button">Mejorar perfil</button>
-                    <button class="btn btn-outline-secondary btn-pill btn-sm" type="button">Recursos</button>--->
-                </div>
+            <div class="flex-grow-1 pt-2 pt-md-0">
+                <h1 class="h5 mb-1 fw-semibold title">Antonio Gat Fernández <i class="bi bi-patch-check-fill" aria-label="Verificado" title="Verificado"></i></h1>
+                <p class="mb-1 small text-secondary">Estudiante en IES Castelar | Árbitro de Voleibol para la FedexVB | Árbitro de VoleyPlaya para la FedexVB</p>
+                <p class="small mb-2 text-secondary"><i class="bi bi-geo-alt"></i> Badajoz y alrededores · <a href="#contacto" class="link-primary text-decoration-underline">Información de contacto</a></p>
+                <p class="small mb-0 mt-2 mt-md-1"><strong>16 contactos</strong></p>
             </div>
-                <div class="d-none d-md-flex align-items-start"></div>
+            <div class="d-none d-md-flex align-items-start"></div>
         </div>
         </div>
     </section>
 
     <main class="container main-layout" id="inicio">
-        <div class="row g-4 flex-lg-row-reverse">
-        <aside class="col-12 col-lg-4 col-xl-3">
-            <section class="card shadow-sm mb-4" aria-labelledby="sugerenciaHeading">
-                <div class="card-header"><h2 class="h6 m-0" id="sugerenciaHeading">Sugerencia para ti</h2></div>
-                <div class="card-body small text-secondary">Solo para ti<br><hr class="my-2"><p class="mb-0">(Contenido de recomendación personalizada)</p></div>
-            </section>
-            <section class="card shadow-sm mb-4" aria-labelledby="analisisHeading">
-                <div class="card-header"><h2 class="h6 m-0" id="analisisHeading">Análisis</h2></div>
-                <div class="card-body small">
-                    <div class="row g-3 analytics">
-                    <div class="col-12">
-                        <p class="mb-1 fw-semibold">15 visualizaciones del perfil</p>
-                        <p class="text-secondary mb-0">Descubre quién ha visto tu perfil.</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="mb-1 fw-semibold">4 impresiones de tu publicación</p>
-                        <p class="text-secondary mb-0">Interacciones últimos 7 días.</p>
-                    </div>
-                    </div>
-                    <div class="mt-3"><a href="#" class="small link-primary">Mostrar todos los análisis →</a></div>
-                </div>
-            </section>
-
+        <div class="row g-4">
+        <aside class="col-12 col-lg-3 col-xl-3 order-3 order-lg-3">
+            
             <section class="card shadow-sm mb-4" aria-labelledby="infoDestacadaHeading">
             <div class="card-header"><h2 class="h6 m-0" id="infoDestacadaHeading">Información destacada</h2></div>
             <div class="card-body small">
@@ -98,48 +45,46 @@
             </div>
             </section>
 
-            <section class="card shadow-sm" aria-labelledby="idiomasHeading">
-            <div class="card-header"><h2 class="h6 m-0" id="idiomasHeading">Idiomas</h2></div>
+            <section class="card shadow-sm mb-4" aria-labelledby="interesesHeading">
+            <div class="card-header"><h2 class="h6 m-0" id="interesesHeading">Intereses</h2></div>
             <div class="card-body small">
                 <ul class="list-unstyled mb-0">
-                <li>Español (Nativo)</li>
-                <li>Inglés (Profesional)</li>
-                <li>Otro idioma (Nivel)</li>
+                <li>Arquitectura de Software</li>
+                <li>Accesibilidad Web</li>
+                <li>Clean Code & Testing</li>
+                <li>DevOps y Observabilidad</li>
                 </ul>
             </div>
             </section>
+
         </aside>
 
-        <!-- Columna central: Contenido principal -->
-        <div class="col-12 col-lg-8 col-xl-9">
-            <section class="card shadow-sm mb-4" id="sobre" aria-labelledby="sobreHeading">
-            <div class="card-header"><h2 class="h5 m-0" id="sobreHeading">Sobre mí</h2></div>
-            <div class="card-body">
-                <p>Resumen profesional breve: añade una introducción clara que describa tu especialidad, valores y objetivos. Evita párrafos demasiado largos (3-4 líneas max por párrafo).</p>
-                <p>Ejemplo: Desarrollador web con foco en soluciones accesibles y escalables, combinando buenas prácticas, pruebas automatizadas y mejora continua.</p>
-            </div>
-            </section>
+        <div class="col-12 col-lg-6 col-xl-6 order-2 order-lg-2">
 
             <section class="card shadow-sm mb-4" id="actividad" aria-labelledby="actividadHeading">
             <div class="card-header d-flex justify-content-between align-items-center"><h2 class="h5 m-0" id="actividadHeading">Actividad</h2><span class="small text-secondary">16 seguidores</span></div>
             <div class="card-body feed">
                 <div class="feed-item mb-4">
                 <div class="d-flex gap-3">
-                    <img src="https://via.placeholder.com/48" alt="Avatar" class="rounded-circle flex-shrink-0" width="48" height="48" />
+                    <img src="foto.jpg" alt="Avatar" class="rounded-circle flex-shrink-0" width="48" height="48" />
                     <div class="flex-grow-1">
                     <p class="small mb-1"><strong>Antonio Gat Fernández</strong> ha compartido esto · <span class="text-secondary">3 semanas</span></p>
-                    <p class="mb-2 small">Descripción resumida de la publicación realizada, destacando el tema central y posible métrica.</p>
-                    <img src="https://via.placeholder.com/320x180?text=Imagen+Publicacion" alt="Imagen publicación" class="img-fluid rounded border" />
+                    <p class="mb-2 small">Durante el mes de Mayo tuve la oportunidad de participar en el Campeonato de España de Voleibol Cadete como Arbitro de la Federación Española de Voleibol. Una gran oportunidad para compartir tiempo con personas que comparten la misma Pasión y Visión por este deporte, además de Aprender.
+
+Soy una persona a la que le cuesta abrirse y confiar en los demás, algo que puede limitar mi desempeño como Árbitro, donde la comunicación es esencial. A pesar de ello, el Delegado Federativo y el Juez Árbitro, además de la Federación Extremeña, confiaron en mí y me dieron la oportunidad de estar allí.
+
+Durante esos días intensos viví momentos de alta tensión y otros más distendidos, pero todos igual de valiosos. Compartí pista con personas que respiran la misma pasión por el voleibol, y de cada situación extraje un aprendizaje.
+
+Al finalizar el campeonato, el Delegado nos reunió para dar feedback. Fue entonces cuando comprendí su verdadera misión conmigo durante esos días: "Que hablara". Conocían mi punto débil y, en lugar de ignorarlo, decidieron trabajarlo. 
+
+Por ello estoy agradecido por esta oportunidad y por quienes invirtieron su tiempo en ayudarme a ser mejor Árbitro y PERSONA.</p>
                     <div class="mt-2 d-flex gap-3 small text-secondary">
-                        <span><i class="bi bi-hand-thumbs-up"></i> 38</span>
-                        <span><i class="bi bi-chat"></i> 6</span>
+                        <span><i class="bi bi-hand-thumbs-up"></i> 15</span>
+                        <span><i class="bi bi-chat"></i> 2</span>
                         <span><i class="bi bi-arrow-repeat"></i> 2</span>
                     </div>
                     </div>
                 </div>
-                </div>
-                <div class="feed-item mb-2 text-center">
-                <a href="#" class="small link-primary">Mostrar toda la actividad →</a>
                 </div>
             </div>
             </section>
@@ -152,7 +97,6 @@
                 <div class="flex-grow-1">
                     <h3 class="h6 mb-1">Freelance <span class="text-secondary fw-normal">· Autónomo</span></h3>
                     <p class="small text-secondary mb-1">may. 2025 – actualidad · 7 meses</p>
-                    <p class="small mb-2">Descripción breve del trabajo freelance y tipo de proyectos realizados.</p>
                 </div>
                 </div>
                 <div class="exp-item d-flex gap-3 mb-4">
@@ -198,6 +142,14 @@
                     <p class="small mb-0">Certificación de competencia lingüística internacional.</p>
                 </div>
                 </div>
+                <div class="edu-item d-flex gap-3 mb-3">
+                <div class="edu-logo rounded border d-flex align-items-center justify-content-center"><i class="bi bi-building"></i></div>
+                <div>
+                    <h3 class="h6 mb-1">IES Melendez Valdés</h3>
+                    <p class="small text-secondary mb-1">Bachillerato · sept. 2022 – may. 2024</p>
+                    <p class="small mb-0">Obtención del título de Bachillerato.</p>
+                </div>
+                </div>
                 <div class="text-center"><a href="#" class="small link-primary">Mostrar todos los estudios →</a></div>
             </div>
             </section>
@@ -210,7 +162,7 @@
                 <div class="flex-grow-1">
                     <h3 class="h6 mb-1">Python desde cero · OpenWebinars</h3>
                     <p class="small text-secondary mb-1">Expedición: sept. 2025</p>
-                    <button class="btn btn-outline-secondary btn-sm btn-pill" type="button">Mostrar credencial ↗</button>
+                    <a href="https://openwebinars.net/certificacion/LG2dkWGb" target="_blank" rel="noopener" class="btn btn-outline-secondary btn-sm btn-pill">Mostrar credencial ↗</a>
                 </div>
                 </div>
                 <div class="cert-item d-flex gap-3 mb-3">
@@ -218,7 +170,7 @@
                 <div class="flex-grow-1">
                     <h3 class="h6 mb-1">Curso Fundamentos de JavaScript · OpenWebinars</h3>
                     <p class="small text-secondary mb-1">Expedición: jun. 2025</p>
-                    <button class="btn btn-outline-secondary btn-sm btn-pill" type="button">Mostrar credencial ↗</button>
+                    <a href="https://openwebinars.net/cert/RpzG" target="_blank" rel="noopener" class="btn btn-outline-secondary btn-sm btn-pill">Mostrar credencial ↗</a>
                 </div>
                 </div>
                 <div class="text-center"><a href="#" class="small link-primary">Mostrar todo (17) →</a></div>
@@ -255,86 +207,68 @@
                     <span class="skill-chip">SQL</span>
                 </div>
                 </div>
-                <div class="text-center mt-3"><a href="#" class="small link-primary">Mostrar todas las aptitudes →</a></div>
             </div>
             </section>
 
-            <section class="card shadow-sm mb-4" id="proyectos" aria-labelledby="proyectosHeading">
-            <div class="card-header"><h2 class="h5 m-0" id="proyectosHeading">Proyectos Destacados</h2></div>
+            <section class="card shadow-sm mb-4" id="idiomas" aria-labelledby="idiomasHeading">
+            <div class="card-header"><h2 class="h5 m-0" id="idiomasHeading">Idiomas</h2></div>
             <div class="card-body">
                 <article class="mb-3">
-                <h3 class="h6 mb-1">Nombre del Proyecto</h3>
-                <p class="small mb-1">Descripción breve del objetivo y resultado.</p>
-                <a href="#" class="small link-primary" target="_blank" rel="noopener">Ver repositorio</a>
+                <h3 class="h6 mb-1">Inglés</h3>
+                <p class="small mb-1">Título B1 - Intermediate</p>
                 </article>
                 <article class="mb-3">
-                <h3 class="h6 mb-1">Otro Proyecto</h3>
-                <p class="small mb-1">Impacto / Métrica principal lograda.</p>
-                <a href="#" class="small link-primary" target="_blank" rel="noopener">Demo</a>
+                <h3 class="h6 mb-1">Español</h3>
+                <p class="small mb-1">Nativo</p>
                 </article>
             </div>
             </section>
         </div>
 
         <!-- Columna derecha: Extras -->
-        <aside class="col-12 col-lg-3">
-            <section class="card shadow-sm mb-4" aria-labelledby="interesesHeading">
-            <div class="card-header"><h2 class="h6 m-0" id="interesesHeading">Intereses</h2></div>
-            <div class="card-body small">
-                <ul class="list-unstyled mb-0">
-                <li>Arquitectura de Software</li>
-                <li>Accesibilidad Web</li>
-                <li>Clean Code & Testing</li>
-                <li>DevOps y Observabilidad</li>
+        <aside class="col-12 col-lg-3 col-xl-3 order-1 order-lg-1">
+            <nav class="card shadow-sm mb-4 side-menu" aria-labelledby="navSeccionesHeading">
+            <div class="card-header"><h2 class="h6 m-0" id="navSeccionesHeading">Navegación</h2></div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush small">
+                <li class="list-group-item"><a class="side-link" href="#actividad">Actividad</a></li>
+                <li class="list-group-item"><a class="side-link" href="#experiencia">Experiencia</a></li>
+                <li class="list-group-item"><a class="side-link" href="#educacion">Educación</a></li>
+                <li class="list-group-item"><a class="side-link" href="#licencias">Licencias y certificaciones</a></li>
+                <li class="list-group-item"><a class="side-link" href="#aptitudes">Aptitudes</a></li>
+                <li class="list-group-item"><a class="side-link" href="#proyectos">Idiomas</a></li>
                 </ul>
             </div>
-            </section>
-            <section class="card shadow-sm mb-4" aria-labelledby="recomendacionesHeading">
-            <div class="card-header"><h2 class="h6 m-0" id="recomendacionesHeading">Recomendaciones (placeholder)</h2></div>
-            <div class="card-body small">
-                <p>Aquí podrías añadir testimonios o recomendaciones breves de colegas.</p>
-            </div>
-            </section>
-            <section class="card shadow-sm" id="contacto" aria-labelledby="contactoHeading">
-            <div class="card-header"><h2 class="h6 m-0" id="contactoHeading">Contacto</h2></div>
-            <div class="card-body small">
-                <form novalidate>
-                <div class="mb-2">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" id="nombre" class="form-control form-control-sm" placeholder="Tu nombre" />
-                </div>
-                <div class="mb-2">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" id="correo" class="form-control form-control-sm" placeholder="tu@correo.com" />
-                </div>
-                <div class="mb-2">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea id="mensaje" rows="3" class="form-control form-control-sm" placeholder="Tu mensaje"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-sm w-100">Enviar</button>
-                </form>
-            </div>
-            </section>
+            </nav>
         </aside>
         </div>
     </main>
 
   <footer class="border-top py-3 small bg-white mt-4">
     <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
-      <span>&copy; 2025 Perfil profesional inspirado (no copia) de LinkedIn.</span>
-      <span class="text-muted">Este diseño usa Bootstrap y contenido editable.</span>
+      <span>&copy; 2025 Antonio Gat Fernández.</span>
     </div>
   </footer>
 
+    <!-- Botón flotante para volver al inicio -->
+    <button id="btnSubir" class="to-top-btn" type="button" aria-label="Subir al inicio" title="Subir al inicio">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
   <script>
-    // Toggle de modo oscuro/claro sencillo
-    const btnToggle = document.getElementById('toggleTema');
-    btnToggle?.addEventListener('click', () => {
-      document.documentElement.classList.toggle('theme-dark');
-      btnToggle.innerHTML = document.documentElement.classList.contains('theme-dark')
-        ? '<i class="bi bi-sun"></i>'
-        : '<i class="bi bi-moon"></i>';
-    });
+        const btnSubir = document.getElementById('btnSubir');
+        const showAt = 240;
+        const onScroll = () => {
+            if (window.scrollY > showAt) {
+                btnSubir.classList.add('show');
+            } else {
+                btnSubir.classList.remove('show');
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        btnSubir?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
