@@ -2,7 +2,9 @@
 // Dependencias
 //--------------------------------------------------------------
 import * as moduloTabla from "../../js/componentes/tabla.mjs";
-
+import * as moduloPaginador from "../../js/componentes/paginador.mjs";
+import * as moduloBuscador from "../../js/componentes/buscador.mjs";
+import * as moduloToast from "../../js/componentes/toast.mjs";
 
 //--------------------------------------------------------------
 // Constantes
@@ -18,21 +20,29 @@ const JSON2HTML_PLANTILLA_TABLA = {
 };
 
 const TABLA_CONTACTOS = new moduloTabla.Tabla(URL_CONTACTOS, "#contactos", JSON2HTML_PLANTILLA_TABLA);
+const PAGINADOR = new moduloPaginador.Paginador(
+    "#paginador", 
+    () => TABLA_CONTACTOS.navegarPaginaSiguiente(), 
+    () => TABLA_CONTACTOS.navegarPaginaAnterior(), 
+);
+const BUSCADOR = new moduloBuscador.Buscador(
+    "#buscador",
+    (filtro) => { TABLA_CONTACTOS.añadirFiltro(filtro); }
+);
+const TOAST = new moduloToast.Toast();
 
 //--------------------------------------------------------------
 // Inicialización
 //--------------------------------------------------------------
 $(document).ready(() => {
-    mostrarContactos();
+    renderizarComponentes();
     
     $("#btAnadir").on("click", () => window.location = "contactos_edit.html");
 });
 
-
 //--------------------------------------------------
 // Eventos
 //-------------------------------------------------
-
 
 //--------------------------------------------------------------
 // Funciones de utilidad
@@ -41,8 +51,12 @@ $(document).ready(() => {
 /**
  * Muestra el listado de contactos.
  */
-function mostrarContactos() {
+function renderizarComponentes() {
   TABLA_CONTACTOS.renderizar();
+  PAGINADOR.renderizar();
+  BUSCADOR.renderizar();
+
+  TOAST.mostrar("Mensade de PRUEBA");
 }
 
   
