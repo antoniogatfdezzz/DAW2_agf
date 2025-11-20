@@ -1,0 +1,15 @@
+services:
+  uptime-kuma:
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - ./uptime-kuma:/app/data
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    networks:
+      - interna
+
+networks:
+  interna:
+    external: true

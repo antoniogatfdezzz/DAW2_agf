@@ -1,0 +1,21 @@
+services:
+  uptime-kuma:
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - ./uptime-kuma:/app/data
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    networks:
+      - interna
+      - caddy
+    labels:
+      caddy: monitor.antonio.luisferreira.top
+      caddy.reverse_proxy: "{{upstreams 3001}}"
+
+networks:
+  interna:
+    external: true
+  caddy:
+    external: true

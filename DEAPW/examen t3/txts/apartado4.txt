@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Alt-Svc: h3=":443"; ma=2592000
+Content-Length: 231
+Content-Type: text/html
+Date: Thu, 20 Nov 2025 18:15:58 GMT
+Etag: "e7-644093d9b6cb9"
+Last-Modified: Thu, 20 Nov 2025 16:32:19 GMT
+Server: Apache/2.4.65 (Unix)
+Via: 1.1 Caddy
+

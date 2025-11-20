@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Antonio Gat Fernández</title>
+</head>
+<body>
+	<h1>EC2 de AWS</h1>
+	<h2>antoniogatfdezzz.duckdns.org</h2>
+	<p>Antonio Gat Fernández</p>
+</body>
+</html>

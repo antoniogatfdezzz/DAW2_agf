@@ -1,0 +1,23 @@
+services:
+  apache:
+    stdin_open: true
+    tty: true
+    container_name: apache
+    volumes:
+      - ./web:/usr/local/apache2/htdocs
+      - ./config/vhost.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
+      - ./httpd.conf:/usr/local/apache2/conf/extra/httpd.conf
+      - ./claves/digest.txt:/usr/local/apache2/conf/digest.txt
+    image: httpd:2.4
+    labels:
+      caddy: apache.antoniogatfdezzz.duckdns.org
+      caddy.reverse_proxy: "{{upstreams 80}}"
+    networks:
+      - caddy
+      - interna
+
+networks:
+  caddy:
+    external: true
+  interna:
+    external: true
