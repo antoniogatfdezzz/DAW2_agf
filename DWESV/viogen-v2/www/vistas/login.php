@@ -1,30 +1,10 @@
 <?php
 // Vista de login
-session_start();
+// Iniciar sesión sólo si no hay ninguna sesión activa para evitar warnings
+// "Ignoring session_start() because a session is already active".
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
-?>
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Login - Viogen</title>
-</head>
-<body>
-    <h1>Iniciar sesión</h1>
-    <?php if ($flash): ?>
-        <p style="color: red"><?= htmlspecialchars($flash) ?></p>
-    <?php endif; ?>
-    <form method="post" action="index.php?action=do_login">
-        <label>Nombre de usuario:<br>
-            <input type="text" name="nombre" required minlength="4">
-        </label>
-        <br>
-        <label>Clave:<br>
-            <input type="password" name="clave" required minlength="4">
-        </label>
-        <br>
-        <button type="submit">Entrar</button>
-    </form>
-</body>
-</html>
+require __DIR__ . '/html/login.html';

@@ -5,6 +5,10 @@ class AuthController
 {
     public static function loginForm($msg = null)
     {
+        // Asegurar sesión activa antes de usar 
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
         if ($msg) {
             $_SESSION['flash'] = $msg;
         }
@@ -20,6 +24,11 @@ class AuthController
         if (strlen($nombre) < 4 || strlen($clave) < 4) {
             self::loginForm('El nombre de usuario y la clave deben tener al menos 4 caracteres.');
             return;
+        }
+
+        // Asegurar sesión activa antes de modificarla
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
         }
 
         $pdo = get_db();

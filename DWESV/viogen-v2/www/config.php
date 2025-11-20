@@ -7,7 +7,13 @@ define('DB_USER', 'uviogen');
 define('DB_PASS', 'cviogen');
 
 // Tiempo de sesión (opcional)
-ini_set('session.cookie_httponly', 1);
+// Sólo aplicar cambios a las directivas de sesión si no hay una sesión activa.
+// Algunos scripts pueden arrancar la sesión antes de incluir este fichero; en ese
+// caso no intentamos cambiar opciones relacionadas con la sesión para evitar
+// warnings como "Session ini settings cannot be changed when a session is active".
+if (session_status() === PHP_SESSION_NONE) {
+	ini_set('session.cookie_httponly', 1);
+}
 
 /**
  * Obtiene una conexión PDO configurada
