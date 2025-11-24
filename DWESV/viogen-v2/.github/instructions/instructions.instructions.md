@@ -1,6 +1,7 @@
 ---
 applyTo: '**'
 ---
+- El proyecto tiene que cumplir las reglas de Codigo Limpio (Clean Code).
 - Sigue los pasos analizando el proyecto lentamente.
 
 - La Estructura del Proyecto debe ser la siguiente:

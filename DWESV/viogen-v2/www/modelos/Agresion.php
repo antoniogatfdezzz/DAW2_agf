@@ -1,7 +1,17 @@
 <?php
+/**
+ * Modelo de agresiones (persistencia).
+ * @package Modelos
+ */
 class Agresion
 {
-    public static function create(PDO $pdo, array $data)
+    /**
+     * Crea una agresión.
+     * @param PDO $pdo Conexión
+     * @param array $data Datos sanitizados
+     * @return int|string ID generado
+     */
+    public static function crear(PDO $pdo, array $data)
     {
         $sql = 'INSERT INTO Agresion (id_victima, agresor, tipo_agresion, fecha_hora, observaciones) VALUES (:id_victima, :agresor, :tipo_agresion, :fecha_hora, :observaciones)';
         $stmt = $pdo->prepare($sql);
@@ -15,7 +25,13 @@ class Agresion
         return $pdo->lastInsertId();
     }
 
-    public static function search(PDO $pdo, string $term)
+    /**
+     * Busca agresiones por término libre.
+     * @param PDO $pdo Conexión
+     * @param string $term Término ya sanitizado
+     * @return array Resultados
+     */
+    public static function buscar(PDO $pdo, string $term)
     {
         $like = '%' . $term . '%';
         $sql = "SELECT A.id, V.nombre, V.apellidos, A.tipo_agresion, A.fecha_hora, A.observaciones AS obs_agresion
