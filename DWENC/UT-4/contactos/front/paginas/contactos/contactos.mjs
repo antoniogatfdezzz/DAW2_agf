@@ -5,6 +5,7 @@ import * as moduloTabla from "../../js/componentes/tabla.mjs";
 import * as moduloPaginador from "../../js/componentes/paginador.mjs";
 import * as moduloBuscador from "../../js/componentes/buscador.mjs";
 import * as moduloToast from "../../js/componentes/toast.mjs";
+import { Modal } from "../../js/componentes/modal.js";
 
 //--------------------------------------------------------------
 // Constantes
@@ -30,6 +31,7 @@ const BUSCADOR = new moduloBuscador.Buscador(
     (filtro) => { TABLA_CONTACTOS.añadirFiltro(filtro); }
 );
 const TOAST = new moduloToast.Toast();
+const MODAL = new Modal();
 
 //--------------------------------------------------------------
 // Inicialización
@@ -38,6 +40,10 @@ $(document).ready(() => {
     renderizarComponentes();
     
     $("#btAnadir").on("click", () => window.location = "contactos_edit.html");
+    
+    $("#btnModal").on("click", () => {
+        MODAL.mostrar("Este es un mensaje de prueba del modal", "Información");
+    });
 });
 
 //--------------------------------------------------
