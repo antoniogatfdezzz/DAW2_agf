@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Menú principal - Viogen</title>
+</head>
+<body>
+    <h1>Menú principal</h1>
+    <p>Usuario: <?= htmlspecialchars($_SESSION['user_nombre'] ?? 'Anónimo') ?></p>
+    <?php if ($flash): ?>
+        <p style="color: green"><?= htmlspecialchars($flash) ?></p>
+    <?php endif; ?>
+
+    <nav>
+        <ul>
+            <li><a href="index.php?action=victima_formulario">Registrar víctima</a></li>
+            <li><a href="index.php?action=agresion_formulario">Registrar agresión</a></li>
+            <li><a href="index.php?action=cerrar_sesion">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <section aria-labelledby="buscar-agresiones-title">
+        <h2 id="buscar-agresiones-title">Buscar agresiones</h2>
+        <form method="post" action="index.php?action=menu" accept-charset="utf-8">
+
+            <label for="q">Texto a buscar:</label>
+            <input type="text" id="q" name="busqueda" maxlength="255" placeholder="Ej. nombre, dirección, observaciones" value="<?= htmlspecialchars($currentQuery ?? '') ?>" />
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+
+    <section aria-labelledby="resultados-agresiones-title">
+        <h2 id="resultados-agresiones-title">Resultados</h2>
+        <?php if (!empty($results)): ?>
+            <table border="1" cellpadding="4" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nombre víctima</th>
+                        <th>Tipo de agresión</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($results as $r): ?>
+                        <tr>
+                            <td><?= htmlspecialchars(($r['victima_nombre'] ?? '') . ' ' . ($r['victima_apellidos'] ?? '')) ?></td>
+                            <td><?= htmlspecialchars($r['tipo_agresion'] ?? '') ?></td>
+                            <td><?= htmlspecialchars($r['fecha_hora'] ?? '') ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>No hay resultados o no se ha realizado búsqueda.</p>
+        <?php endif; ?>
+    </section>
+
+</body>
+</html>

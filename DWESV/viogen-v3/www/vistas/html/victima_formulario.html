@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Registrar víctima - Viogen</title>
+</head>
+<body>
+    <h1>Registrar víctima</h1>
+    <?php if ($flash): ?>
+        <p style="color: red"><?= htmlspecialchars($flash) ?></p>
+    <?php endif; ?>
+    <form method="post" action="index.php?action=victima_guardar">
+        <label>Nombre:<br><input type="text" name="nombre"></label><br>
+        <label>Apellidos:<br><input type="text" name="apellidos"></label><br>
+        <label>Tipo documento:<br>
+            <select name="tipo_documento">
+                <option value="">--</option>
+                <option value="NIF">NIF</option>
+                <option value="NIE">NIE</option>
+                <option value="Pasaporte">Pasaporte</option>
+            </select>
+        </label><br>
+        <label>Documento:<br><input type="text" name="documento"></label><br>
+        <label>Teléfono:<br><input type="text" name="telefono"></label><br>
+        <label>Observaciones:<br><textarea name="observaciones"></textarea></label><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <p><a href="index.php?action=menu">Volver al menú</a></p>
+</body>
+</html>
