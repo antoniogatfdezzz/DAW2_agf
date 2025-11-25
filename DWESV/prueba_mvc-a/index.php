@@ -16,8 +16,8 @@ try{
 	}
 
 	//Identifica el controlador y el método pedidos creando las variables $controlador y $metodo
-	$controlador = isset($_REQUEST['controlador']) && $_REQUEST['controlador'] !== '' ? htmlspecialchars($_REQUEST['controlador']) : 'ControladorCalificacion';
-	$metodo = isset($_REQUEST['metodo']) && $_REQUEST['metodo'] !== '' ? htmlspecialchars($_REQUEST['metodo']) : 'listar';
+	$controlador = $_GET['controlador'] ?? $_POST['controlador'] ?? 'ControladorCalificacion';				
+	$metodo = $_GET['metodo'] ?? $_POST['metodo'] ?? 'listar'; 
 
 	//Creación de controlador
 	require_once($config['path_controladores'].strtolower($controlador).'.php');

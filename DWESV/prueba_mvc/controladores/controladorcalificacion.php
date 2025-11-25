@@ -17,34 +17,42 @@
 		}
 
 		public function registrar(){
-			//Sanitización de parámetros
-			//$sanitize = []
-			//	if (isset($_POST['nombre'])) {
-			//		$_POST['nombre'] = htmlspecialchars($_POST['nombre']);
-			//	}
-			//	if (isset($_POST['calificacion'])) {
-			//		$_POST['calificacion'] = htmlspecialchars($_POST['calificacion']);
-			//	}
+			// Sanitización de parámetros
+			$alumnoOriginal = $_POST['nombre'] ?? '';
+			$calificacionOriginal = $_POST['calificacion'] ?? '';
+			$alumno = htmlspecialchars(trim($alumnoOriginal));
+			$calificacionStr = htmlspecialchars(trim($calificacionOriginal));
 
-			//Validación de parámetros
+			// Validación de parámetros
+			$errores = [];
+			if(strlen($alumno) <= 2){
+				$errores[] = 'El nombre del alumno debe tener más de 2 caracteres.';
+			}
+			if($calificacionStr === '' || !ctype_digit($calificacionStr)){
+				$errores[] = 'La calificación debe ser un número entero.';
+			}else{
+				$calificacion = (int)$calificacionStr;
+				if($calificacion < 1 || $calificacion > 10){
+					$errores[] = 'La calificación debe estar entre 1 y 10.';
+				}
+			}
 
-			//	if (string($_POST['alumno']) <= 2) {
-			//		$sanitize[] = "El nombre del alumno tiene que tener almenos 2 letras."
-			//	}
-			//	if (is_int($_POST['calificacion']) >= 1 ?? ($_POST['calificacion']) <= 10) {
-			//		$sanitize[] = "La calificacion tiene que ser entre 1 y 10."
-			//	}
+			if(!empty($errores)){
+				$this->verRegistrar(implode('<br>', $errores));
+				return;
+			}
 
-			$alumno = $_POST['nombre'];
-			$calificacion = $_POST['calificacion'];
-
-			$this->modelo->registrar($alumno, $calificacion);
-			$this->verRegistrar("El registro de la calificación se realizó con éxito");
+			try{
+				$this->modelo->registrar($alumno, $calificacion);
+				$this->verRegistrar('El registro de la calificación se realizó con éxito.');
+			}catch(Throwable $e){
+				$this->verRegistrar('Error al registrar en la base de datos: '.htmlspecialchars($e->getMessage()));
+			}
 		}
 
 		public function verRegistrar($mensaje = null){
 			require_once($this->config['path_vistas'].'vistaregistrar.php');
 			$vista = new VistaRegistrar($this->config['path_html']);
-			$vista->mostrar();
+			$vista->mostrar($mensaje);
 		}
 	}

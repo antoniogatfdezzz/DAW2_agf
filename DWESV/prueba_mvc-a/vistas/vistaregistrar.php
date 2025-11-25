@@ -8,7 +8,7 @@
 		}
 
 		public function mostrar(){
-			$mensaje = func_num_args() > 0 ? func_get_arg(0) : null;
+			$flash = !empty($this->mensaje) ? $this->mensaje : $this->error;
 			require_once($this->path_html.'registrar.html');
 		}
 	}
