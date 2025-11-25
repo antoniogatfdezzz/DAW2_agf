@@ -1,94 +1,36 @@
-body {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 1s ease-in-out;
-}
+/* Modernización estilo login usando Bootstrap como base */
+/* Paleta verde lima */
+:root {--accent:#6EE76B;--accent-hover:#4CCB47;--danger:#34A853;--danger-hover:#2F8F45;--bg-gradient:radial-gradient(circle at 20% 20%,#13271d 0%,#0d1c16 55%,#06100c 100%);--glass-bg:rgba(24,38,30,.55);--border-color:rgba(255,255,255,.14);--text-light:#f1f5f9;--text-muted:#9fb3a5;--focus-ring:rgba(110,231,107,.35);} 
+body {min-height:100vh;background:var(--bg-gradient);background-size:cover;background-position:center;background-repeat:no-repeat;transition:background-image 1s ease-in-out,filter .6s ease;color:var(--text-light);position:relative;overflow:hidden;}
+body::before {content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(110,231,107,.18),rgba(52,168,83,.20) 55%,rgba(0,0,0,.35));mix-blend-mode:screen;animation:drift 16s linear infinite;pointer-events:none;}
+@keyframes drift {0%{transform:translate3d(0,0,0) scale(1);}50%{transform:translate3d(2%,-2%,0) scale(1.05);}100%{transform:translate3d(0,0,0) scale(1);}}
 
-.login-wrapper {
-    min-height: 100vh;
-}
+.login-wrapper {min-height:100vh;display:flex;justify-content:center;align-items:center;padding:10px;}
 
-.avatar-circle {
-    width: 100px;
-    height: 100px;
-    background: white;
-    border-radius: 50%;
-    margin-bottom: -50px;
-    z-index: 10;
-}
+.avatar-circle {width:100px;height:100px;background:linear-gradient(135deg,#ffffff 0%,#e2e8f0 100%);border-radius:50%;margin-bottom:-50px;z-index:10;position:relative;box-shadow:0 10px 30px -10px rgba(0,0,0,.5),0 0 0 6px rgba(255,255,255,.08);display:flex;justify-content:center;align-items:center;}
+.avatar-circle::after {content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.65),rgba(255,255,255,0));pointer-events:none;}
+.avatar-circle img {width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1;}
 
-.login-card {
-    background: rgba(55, 65, 81, 0.85);
-    border: none;
-    border-radius: 0;
-    padding-top: 50px;
-}
+.login-card {background:var(--glass-bg);backdrop-filter:blur(20px) saturate(170%);-webkit-backdrop-filter:blur(20px) saturate(170%);border:1px solid var(--border-color);border-radius:28px;padding-top:60px;box-shadow:0 8px 32px -8px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05) inset;overflow:hidden;position:relative;}
+.login-card::before {content:"";position:absolute;top:-40%;left:-30%;width:250px;height:250px;background:radial-gradient(circle at center,rgba(110,231,107,.55),transparent 70%);filter:blur(50px);opacity:.5;animation:pulse 9s ease-in-out infinite;}
+@keyframes pulse {0%,100%{transform:scale(.85) translateY(0);opacity:.45;}50%{transform:scale(1.15) translateY(8%);opacity:.7;}}
 
-.form-label {
-    color: white;
-    font-size: 15px;
-}
+.form-label {color:var(--text-muted);font-size:14px;letter-spacing:.5px;font-weight:500;transition:color .3s ease;}
+.form-control {border:none;border-radius:14px;text-align:center;padding:14px 16px;background:rgba(255,255,255,.08);color:var(--text-light);border:2px solid rgba(255,255,255,.12);transition:border-color .35s ease,box-shadow .35s ease,background .4s ease;font-size:15px;}
+.form-control::placeholder {color:#64748b;letter-spacing:.3px;}
+.form-control:focus {background:rgba(255,255,255,.16);border-color:var(--accent);box-shadow:0 0 0 .2rem var(--focus-ring);color:var(--text-light);}
 
-.form-control {
-    border: none;
-    border-bottom: 3px solid #a855f7;
-    border-radius: 0;
-    text-align: center;
-    padding: 12px;
-}
+.btn-entrar {background:linear-gradient(135deg,var(--danger) 0%,var(--accent) 100%);border:none;padding:15px 18px;font-size:16px;border-radius:18px;font-weight:600;letter-spacing:.6px;box-shadow:0 6px 20px -6px rgba(52,168,83,.55),0 3px 10px -2px rgba(110,231,107,.4);transition:box-shadow .4s ease,transform .25s ease;}
+.btn-entrar:hover {background:linear-gradient(135deg,var(--danger-hover) 0%,var(--accent-hover) 100%);transform:translateY(-3px);box-shadow:0 10px 28px -6px rgba(52,168,83,.65),0 6px 16px -4px rgba(110,231,107,.55);}
+.btn-entrar:active {transform:translateY(0);}
 
-.form-control:focus {
-    box-shadow: none;
-    border-bottom-color: #c084fc;
-}
+.forgot-link {color:var(--text-muted);text-decoration:underline;font-size:14px;transition:color .3s ease;}
+.forgot-link:hover {color:var(--text-light);}
 
-.btn-entrar {
-    background: #d66d8e;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 0;
-}
+.btn-google {background:rgba(255,255,255,.92);border:1px solid #d6e9d6;color:#1f4f25;padding:11px 24px;font-size:14px;border-radius:14px;font-weight:500;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 18px -6px rgba(52,168,83,.25);transition:background .35s ease,box-shadow .35s ease,transform .25s ease;}
+.btn-google:hover {background:#fff;box-shadow:0 6px 22px -6px rgba(52,168,83,.35);transform:translateY(-2px);}
+.google-icon {width:18px;height:18px;}
 
-.btn-entrar:hover {
-    background: #c45a7b;
-}
+.bg-credit {position:fixed;bottom:14px;right:18px;color:var(--text-muted);font-size:12px;letter-spacing:.5px;backdrop-filter:blur(6px) saturate(150%);background:rgba(0,0,0,.35);padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);}
 
-.forgot-link {
-    color: #9ca3af;
-    text-decoration: underline;
-    font-size: 14px;
-}
-
-.forgot-link:hover {
-    color: white;
-}
-
-.btn-google {
-    background: white;
-    border: 1px solid #ddd;
-    color: #555;
-    padding: 10px 25px;
-    font-size: 14px;
-    border-radius: 2px;
-}
-
-.btn-google:hover {
-    background: #f5f5f5;
-}
-
-.google-icon {
-    width: 18px;
-    height: 18px;
-}
-
-.bg-credit {
-    position: fixed;
-    bottom: 15px;
-    right: 20px;
-    color: white;
-    font-size: 12px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-}
+@media (max-width:480px){.login-card{padding-top:54px;border-radius:22px;}.avatar-circle{width:80px;height:80px;margin-bottom:-40px;}.btn-entrar{font-size:15px;}}

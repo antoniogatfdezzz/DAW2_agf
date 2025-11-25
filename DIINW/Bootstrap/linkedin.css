@@ -42,8 +42,8 @@ html { scroll-behavior: smooth; }
 .banner-overlay a.link-light { opacity:.95; }
 .banner-overlay .institution-badge { position:absolute; top:12px; right:12px; }
 .cover-banner { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-.profile-inner { margin-top:-84px; position:relative; z-index:10; }
-.profile-photo-wrapper { width:152px; }
+.profile-inner { margin-top:0; padding-top:16px; position:relative; z-index:10; }
+.profile-photo-wrapper { width:152px; margin-top:-76px; }
 .cover-photo { object-fit:cover; width:152px; height:152px; border:4px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,.25); }
 .profile-card-wrapper h5 { font-size:1.25rem; line-height:1.25; }
 .banner-edit, .profile-edit { box-shadow:0 2px 4px rgba(0,0,0,.15); }
@@ -152,10 +152,10 @@ footer { font-size:.7rem; }
   .navbar .nav-link { padding:.5rem .75rem; }
   .profile-card-wrapper { margin-top:.5rem; border-radius:10px; }
   .banner-wrapper { height:160px; }
-  .profile-inner { margin-top:-64px; }
+  .profile-inner { margin-top:0; padding-top:14px; }
   .banner-overlay { bottom: 16px; padding-left: 12px; padding-right: 12px; }
   .profile-card-wrapper h5 { font-size:1.1rem; }
-  .profile-photo-wrapper { width:128px; }
+  .profile-photo-wrapper { width:128px; margin-top:-64px; }
   .cover-photo { width:128px; height:128px; }
 }
 
@@ -166,8 +166,8 @@ footer { font-size:.7rem; }
 
 @media (max-width: 575.98px) {
   .banner-wrapper { height:140px; }
-  .profile-inner { margin-top:-56px; }
-  .profile-photo-wrapper { width:104px; }
+  .profile-inner { margin-top:0; padding-top:12px; }
+  .profile-photo-wrapper { width:104px; margin-top:-52px; }
   .cover-photo { width:104px; height:104px; border-width:3px; }
   .title { font-size:1.15rem; }
 }
