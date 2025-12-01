@@ -1,0 +1,19 @@
+/* Navbar (solo para variantes oscuras) */
+.navbar.navbar-dark .nav-link { color: rgba(255,255,255,.8); }
+.navbar.navbar-dark .nav-link:hover { color: #fff; }
+
+/* Carrusel inicio */
+#mainCarousel .carousel-item img { max-height: 60vh; object-fit: cover; }
+@media (min-width: 992px){
+	#mainCarousel .carousel-item img { max-height: 65vh; }
+}
+
+/* Tarjetas de características */
+.card .display-5 { line-height: 1; }
+
+/* Precios */
+#precios .card { border-width: 1px; }
+#precios .card-title { margin-bottom: .25rem; }
+
+/* Footer */
+footer i { font-size: 1.1rem; }
