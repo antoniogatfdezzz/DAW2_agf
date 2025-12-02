@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Menú principal - Viogen</title>
+</head>
+<body>
+    <h1>Menú principal</h1>
+    <p>Usuario: <?= htmlspecialchars($_SESSION['user_nombre'] ?? 'Anónimo') ?></p>
+    <?php if ($flash): ?>
+        <p style="color: green"><?= htmlspecialchars($flash) ?></p>
+    <?php endif; ?>
+
+    <nav>
+        <ul>
+            <li><a href="index.php?action=victim_form">Registrar víctima</a></li>
+            <li><a href="index.php?action=agresion_form">Registrar agresión</a></li>
+            <li><a href="index.php?action=report">Informe / Buscar agresiones</a></li>
+            <li><a href="index.php?action=logout">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- Buscador de agresiones: caja de texto + botón -->
+    <section aria-labelledby="buscar-agresiones-title">
+        <h2 id="buscar-agresiones-title">Buscar agresiones</h2>
+        <form method="get" action="index.php" accept-charset="utf-8">
+            <!-- Mantener action en index.php y usar el parámetro action=report -->
+            <input type="hidden" name="action" value="report">
+
+            <label for="q">Texto a buscar:</label>
+            <input type="text" id="q" name="q" maxlength="255" placeholder="Ej. nombre, dirección, observaciones" />
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+
+</body>
+</html>

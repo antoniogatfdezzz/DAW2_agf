@@ -1,0 +1,34 @@
+openapi: 3.0.4
+info:
+    title: API Armagedon
+    version: 1.0.0
+    contact:
+      name: Desarrollos Apocalípticos, S.A
+      email: programadores_daw@apocalipsis.com
+
+servers:
+  - url: https://telearmagedon.com/api/v1
+    description: Servidor de producción
+  - url: https://desarrollo.telearmagedon.com/api/v1
+    description: Servidor de desarrollo
+
+paths:
+  /armagedon/:
+    get:
+      summary: Obtener la lista completa de Armagedones
+      responses:
+        '200':
+          description: Lista obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Identificador de la entidad
+                    titulo:
+                      type: string
+                      description: Titulo de la entidad

@@ -1,0 +1,47 @@
+<?php /* Plantilla de listado de autores */ ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Listado de autores</title>
+	<style>
+		body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; }
+		table { border-collapse: collapse; width: 100%; }
+		th, td { border: 1px solid #ddd; padding: 8px; }
+		th { background: #f3f4f6; text-align: left; }
+		tr:nth-child(even) { background: #fafafa; }
+	</style>
+	</head>
+<body>
+	<h1>Autores</h1>
+
+	<?php if (!empty($autores)): ?>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Fecha nacimiento</th>
+					<th>Fecha muerte</th>
+					<th>Nacionalidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($autores as $a): ?>
+					<tr>
+						<td><?php echo htmlspecialchars($a['id'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($a['nombre'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($a['fecha_nacimiento'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($a['fecha_muerte'] ?? ''); ?></td>
+						<td><?php echo htmlspecialchars($a['nacionalidad'] ?? ''); ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	<?php else: ?>
+		<p>No hay autores para mostrar.</p>
+	<?php endif; ?>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba MVC</title>
+</head>
+<body>
+    <h1>Registro de Calificaciones</h1>
+    <?php if(isset($mensaje) && $mensaje){ echo '<p style="color:#006400;">'.$mensaje.'</p>'; } ?>
+    
+    <form method="post">
+		<input type=hidden name=controlador value=ControladorCalificacion /> 
+		<input type=hidden name=metodo value=registrar />
+
+        <label for="nombre">Nombre del Alumno: </label>
+        <br>
+        <input type="text" id="nombre" name="nombre" />
+        <br>
+        <label for="calificacion">Calificación: </label>
+        <br>
+        <input type="text" id="calificacion" name="calificacion" />
+        <br><br>
+        <button type="submit">Registrar</button>
+    </form>
+	<p><a href=?controlador=ControladorCalificacion&metodo=listar >Listar</a></p>
+</body>
+</html>
