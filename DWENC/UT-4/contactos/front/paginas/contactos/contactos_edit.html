@@ -23,8 +23,11 @@
 
     <!-- Carga los parámetros de configuración -->
     <script src="../../js/environment.js" defer></script>
+    <script src="../../js/app.js" defer></script>
 
     <script type="module" src="contactos_edit.mjs"></script>    
+
+    <link rel="stylesheet" href="../../css/app.css">
 </head>
 <body>
 
@@ -33,13 +36,23 @@
 
         <form id="formularioContactos" action="#">
             
-            <input name="nombre" placeholder="Nombre" class="form-control" /><br>
-            <input name="apellidos" placeholder="Apellidos" class="form-control" /><br>
-            <input name="empresa" placeholder="Empresa" class="form-control" /><br>
+            <input name="nombre" placeholder="Nombre" class="form-control" 
+                data-validacion="nombre" 
+                data-ayuda="Introduce un nombre válido"/><br>
+            <div id="nombre-ayuda"></div>
+            <input name="apellidos" placeholder="Apellidos" class="form-control" 
+                data-validacion="nombre" 
+                data-ayuda="Introduce un apellido válido"/><br>
+            <div id="apellidos-ayuda"></div>
+            <input name="empresa" placeholder="Empresa" class="form-control" 
+                data-validacion="nombre" 
+                data-ayuda="Introduce una empresa valida"/><br>
+            <div id="empresa-ayuda"></div>
 
             <button id="btnVolver" type="button" class="btn btn-primary">Volver</button>
             <button id="btnGuardar" type="submit" class="btn btn-success">Guardar</button>
 
+            <div id="ayuda"></div>
         </form>
     </div>
     

@@ -5,14 +5,6 @@ export class Toast {
      * Inicializa el toast. Permite a partir de ahora mostrar mensajes
      */
     constructor() {
-
-        // Añade al body un div con el contenido cargado desde el documento
-        // html indicado
-        $('body').append(
-            $('<div>').load(
-                getUrlComponenteHtml("toast")
-            )
-        );                
     }
 
 
@@ -23,11 +15,26 @@ export class Toast {
      */
     mostrar(texto) {
         
+        // Si el toast está insertado en la página
+        if($("#toast").length) {
+            this.#mostrarToast(texto);
+        } else {
+            $('body').append(
+                $('<div>').load(
+                    getUrlComponenteHtml("toast"),
+                () => this.#mostrarToast(texto)
+                )
+            );                
+        }
+
+    }
+
+    #mostrarToast(mensaje) {
         // Asignamos el texto al toast 
-        $("#toast .toast-body").text(texto);
+        $("#toast .toast-body").text(mensaje);
 
         // Muestra el toast
-        $("#toast").toast("show");
+        $("#toast").toast("show");        
     }
 
 }

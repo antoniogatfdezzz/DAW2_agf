@@ -1,3 +1,4 @@
+import * as http from "../lib/http.mjs";
 
 /**
  * Renderiza una tabla pasados los datos
@@ -52,8 +53,9 @@ export class Tabla {
      * Renderiza la tabla en el elemento objetivo
      */
     renderizar() {
+        
         // Carga los contactos
-        fetch(this.#urlRecurso)
+        http.get(this.#urlRecurso)
             .then(response => response.json())
             .then(datos => {              
 
