@@ -1,0 +1,14 @@
+Host Examen
+  HostName 18.211.187.62
+  IdentityFile ~/.ssh/deapw.pem
+  User ubuntu
+
+Host Clase
+  HostName 54.87.209.231
+  IdentityFile ~/.ssh/deapw.pem
+  User ubuntu
+
+Host Privado
+  HostName 18.213.6.191
+  IdentityFile ~/.ssh/practicas.pem
+  User ubuntu
