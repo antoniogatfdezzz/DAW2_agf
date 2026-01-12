@@ -1,0 +1,16 @@
+services:
+  flaskapp:
+    build: .
+    container_name: flaskapp
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+    labels:
+      caddy:  flask.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 5000}}"
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

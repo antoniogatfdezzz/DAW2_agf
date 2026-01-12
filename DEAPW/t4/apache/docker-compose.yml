@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  apache:
+    image: httpd:alpine
+    container_name: apache
+    networks:
+      - caddy
+      - interna
+    volumes:
+      - ./www:/usr/local/apache2/htdocs:ro
+    labels:
+      caddy: apache.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+networks:
+  caddy:
+    external: true
+  interna:
+    external: true

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  laravel:
+    build: .
+    container_name: laravel-app
+    ports:
+      - "9800:8000"   # host:container (HTTP de Laravel)
+    restart: unless-stopped
+    # Conectamos el contenedor a la red "caddy" para que el
+    # proxy inverso lucaslorentz/caddy-docker-proxy pueda verlo.
+    networks:
+      - caddy
+    # Configuración de Caddy vía labels (caddy-docker-proxy)
+    labels:
+      caddy: laravel.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 8000}}"
+
+networks:
+  caddy:
+    external: true

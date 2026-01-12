@@ -1,0 +1,18 @@
+services:
+  silverbullet:
+    image: zefhemel/silverbullet:latest
+    container_name: silverbullet
+    restart: unless-stopped
+    environment:
+      - SB_USER=antoniogatfdez:1234
+    volumes:
+      - ./space:/space
+    labels:
+      caddy: silver.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+networks:
+  caddy:
+    external: true
+  interna:
+    external: true

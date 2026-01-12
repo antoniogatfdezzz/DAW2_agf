@@ -1,0 +1,18 @@
+services:
+  hola-mundo:
+    image: my-rust-app:latest
+    build:
+      context: ./holaMundo
+    container_name: rust-hola-mundo
+    stdin_open: true
+    tty: true
+    restart: "no"
+    networks:
+      - caddy
+    labels:
+      caddy: rust.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 8080}}"
+
+networks:
+  caddy:
+    external: true

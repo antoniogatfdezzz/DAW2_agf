@@ -1,0 +1,17 @@
+services:
+  nodeapp:
+    build: .
+    container_name: nodeapp
+    restart: unless-stopped
+    environment: []
+    ports:
+      - "3000:3000"
+    networks:
+      - caddy
+    labels:
+      caddy: node.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 3000}}"
+
+networks:
+  caddy:
+    external: true

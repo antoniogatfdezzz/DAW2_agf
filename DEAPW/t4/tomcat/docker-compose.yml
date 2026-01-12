@@ -1,0 +1,20 @@
+services:
+  tomcat:
+      image: tomcat:10
+      container_name: tomcat
+      ports:
+        - 8888:8080
+      volumes:
+        - ./aplicaciones:/usr/local/tomcat/webapps
+      networks:
+        - caddy
+        - interna
+      labels:
+        caddy: tomcat.antoniogatfdezpruebas.es
+        caddy.reverse_proxy: "{{upstreams 8080}}"
+        
+networks:
+  caddy:
+    external: true
+  interna:
+    external: true

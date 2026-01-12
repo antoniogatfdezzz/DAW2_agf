@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - kuma_data:/app/data
+    networks:
+      - caddy
+      - interna
+    labels:
+      caddy: kuma.antoniogatfdezpruebas.es
+      caddy.reverse_proxy: "{{upstreams 3001}}"
+
+networks:
+  caddy:
+    external: true
+  interna:
+    external: true
+
+volumes:
+  kuma_data: {}

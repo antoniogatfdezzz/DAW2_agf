@@ -1,0 +1,4 @@
+silver.antoniogatfdezpruebas.es {
+    # Redirige el tráfico al servicio de silverbullet en el puerto 3000 interno
+    reverse_proxy silverbullet:3000
+}
