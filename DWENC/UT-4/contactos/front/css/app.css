@@ -2,3 +2,13 @@
 .error {
     border: 2px solid red;
 }
+
+ .login-card {
+            max-width: 380px;
+            margin: auto;
+            margin-top: 8%;
+            padding: 2rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}

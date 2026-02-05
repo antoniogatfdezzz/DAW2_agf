@@ -1,6 +1,7 @@
 /* Navbar (solo para variantes oscuras) */
-.navbar.navbar-dark .nav-link { color: rgba(255,255,255,.8); }
-.navbar.navbar-dark .nav-link:hover { color: #fff; }
+.navbar { background-color: #000000dd; }
+.navbar.navbar-dark .nav-link { color: #ffffffcc; }
+.navbar.navbar-dark .nav-link:hover { color: #000000; }
 
 /* Carrusel inicio */
 #mainCarousel .carousel-item img { max-height: 60vh; object-fit: cover; }

@@ -25,7 +25,7 @@
     <script src="../../js/environment.js" defer></script>
     <script src="../../js/app.js" defer></script>
 
-    <script type="module" src="contactos_edit.mjs"></script>    
+    <script type="module" src="contactos_modificar.mjs"></script>    
 
     <link rel="stylesheet" href="../../css/app.css">
 </head>
@@ -35,18 +35,15 @@
     <div id="contactos_edit">
 
         <form id="formularioContactos" action="#">
+            <input type="hidden" name="id" value="-1">
             
             <input name="nombre" placeholder="Nombre" class="form-control" 
                 data-validacion="nombre" 
                 data-ayuda="Introduce un nombre válido"/><br>
             <div id="nombre-ayuda"></div>
-            <input name="apellidos" placeholder="Apellidos" class="form-control" 
-                data-validacion="nombre" 
-                data-ayuda="Introduce un apellido válido"/><br>
+            <input name="apellidos" placeholder="Apellidos" class="form-control" /><br>
             <div id="apellidos-ayuda"></div>
-            <input name="empresa" placeholder="Empresa" class="form-control" 
-                data-validacion="nombre" 
-                data-ayuda="Introduce una empresa valida"/><br>
+            <input name="empresa" placeholder="Empresa" class="form-control" /><br>
             <div id="empresa-ayuda"></div>
 
             <button id="btnVolver" type="button" class="btn btn-primary">Volver</button>

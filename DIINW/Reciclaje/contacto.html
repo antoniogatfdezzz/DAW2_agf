@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - EcoReciclaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="images/logos/logoBlanco.png" alt="EcoReciclaje Logo" class="logo-img">
+            <h1>EcoReciclaje</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="unete.html">Únete</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Contacto</h2>
+        <p>¿Tienes dudas, propuestas o quieres colaborar con nosotros?</p>
+    </section>
+
+    <section class="info-section">
+        <h2 class="section-title">Escríbenos</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; max-width: 900px; margin: 0 auto; align-items: flex-start;">
+            <form style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 10px;" action="#" method="post">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; resize: vertical;"></textarea>
+
+                <button type="submit" style="margin-top: 10px; padding: 10px 20px; background: var(--color-principal); color: white; border: none; border-radius: 5px; cursor: pointer;">Enviar mensaje</button>
+            </form>
+
+            <!-- Información de contacto -->
+            <div style="flex: 1 1 260px;">
+                <h3>También puedes encontrarnos en</h3>
+                <p><strong>Email:</strong> contacto@ecoreciclaje.org</p>
+                <p><strong>Teléfono:</strong> +34 600 000 000</p>
+                <p><strong>Ubicación:</strong> Badajoz 06010</p>
+                <br>
+                <p>
+                    Si eres parte de una organización, centro educativo o colectivo vecinal y quieres poner en marcha
+                    una iniciativa de reciclaje, cuéntanos tu idea y te responderemos lo antes posible.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <img src="images/logos/logoBlanco.png" alt="EcoReciclaje Logo" class="logo-footer">
+        <p>&copy; 2026 Proyecto Reciclaje. Mario, Antonio, Abel, y Alberto.</p>
+    </footer>
+
+</body>
+</html>

@@ -42,7 +42,9 @@ const MODAL_MENSAJE = new moduloModalMensaje.ModalMensaje();
 $(document).ready(() => {
     renderizarComponentes();
     
-    $("#btAnadir").on("click", () => window.location = "contactos_edit.html");
+    $("#btAnadir").on("click", () => window.location = "contactos_crear.html");
+
+    $("#btCerrarSesion").on("click", onCerrarSesion);
 
     // Asigna los eventos asociados a botones de los registros en la tabla
     $("#contactos").on("click", "[name=btEditar]", onEditarContacto);
@@ -61,7 +63,8 @@ function onEditarContacto() {
   // Obtiene el identificador del contacto a editar
   const id = $(this).val();
 
-
+  // Carga la página para modificar un contacto
+  window.location = "contactos_modificar.html?id="+id;
 }
 
 /**
@@ -86,6 +89,12 @@ function onEliminarContacto() {
   console.log("eliminar contacto" + id);
 }
 
+/**
+ * Cierra la sesión en la aplicación
+ */
+function onCerrarSesion() {
+  cerrarSesion();
+}
 
 //--------------------------------------------------------------
 // Funciones de utilidad

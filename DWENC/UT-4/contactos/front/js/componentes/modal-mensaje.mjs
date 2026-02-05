@@ -13,7 +13,7 @@ export class ModalMensaje {
      * @param {} titulo Titulo a mostrar en el cuadro de diálogo
      * @param {} cuerpo Mensaje a mostrar dentro del modal
      */
-    preguntar(titulo, cuerpo) {
+    mostrarMensaje(titulo, cuerpo) {
 
         // Si el cuadro de diálogo está insertado en la página
         if($("#modal-mensaje").length) {

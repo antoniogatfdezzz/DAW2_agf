@@ -2,81 +2,25 @@
   "contactos": [
     {
       "id": 1,
-      "nombre": "Paco",
-      "apellidos": "García Fuentes",
-      "empresa": "IES Castelar",
-      "puesto": "Estudiante",
-      "web": "http://www.google.es",
-      "notas": "No le gusta que le llamen",
-      "direccion": "C/Mi calle",
-      "Poblacion": "Badajoz",
-      "Provincia": "Badajoz",
-      "CP": "06006"
+      "nombre": "Pacosadsadsa",
+      "apellidos": "García Fuentessasad",
+      "empresa": "IES Castelar"
     },
     {
       "nombre": "Miguel",
       "apellidos": "Sanchez",
-      "id": 5
+      "id": 3
     },
     {
-      "nombre": "zzzz",
-      "apellidos": "zz",
-      "empresa": "zz",
-      "id": 27
+      "nombre": "Miguel",
+      "apellidos": "Sanchez",
+      "id": 4
     },
     {
-      "nombre": "a1",
-      "apellidos": "a2",
-      "empresa": "a3",
-      "id": 28
-    },
-    {
-      "nombre": "a2",
-      "apellidos": "a1",
-      "empresa": "a3",
-      "id": 29
-    },
-    {
-      "nombre": "Antonio",
-      "apellidos": "Gat",
-      "empresa": "IES CAs",
-      "id": 33
-    },
-    {
-      "nombre": "agat",
-      "apellidos": "f",
-      "empresa": "02",
-      "id": 48
-    },
-    {
-      "nombre": "agatf",
-      "apellidos": "02",
-      "empresa": "1",
-      "id": 49
-    },
-    {
-      "nombre": "antonio",
-      "apellidos": "antonio",
-      "empresa": "ies",
-      "id": 50
-    },
-    {
-      "nombre": "Antonio",
-      "apellidos": "Gat Fernandez",
-      "empresa": "AUT",
-      "id": 51
-    },
-    {
-      "nombre": "Antonio",
-      "apellidos": "Gat Fernandez",
-      "empresa": "AUT",
-      "id": 58
-    },
-    {
-      "nombre": "antonio",
-      "apellidos": "gatfdezzz",
-      "empresa": "iescas",
-      "id": 59
+      "nombre": "gghgf",
+      "apellidos": "gfhgf",
+      "empresa": "gfhgf",
+      "id": 8
     }
   ],
   "telefonos": [
@@ -103,6 +47,11 @@
       "email": "paco@mail.com",
       "password": "$2a$10$NtByBEzddWZ9bW4TQbX2xe/HGduULQu6c.j2OyVZOjyEm.MH7HpQO",
       "id": 2
+    },
+    {
+      "email": "juanjo@mail.com",
+      "password": "$2a$10$T5bovzkN4zy8UthpQfSg9OfJ2bU2Hs3PDZTpdl.ufdcg5DBphIzeS",
+      "id": 3
     }
   ]
 }

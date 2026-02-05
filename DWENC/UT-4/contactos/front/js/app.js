@@ -11,3 +11,15 @@
 function getUrlComponenteHtml(pagina) {
     return `${URL_BASE_COMPONENTES}/${pagina}.html`; 
 }
+
+/**
+ * Cierra sesión
+ */
+function cerrarSesion() {
+
+    // Limpia todas las claves en el almacenamiento
+    localStorage.clear();
+
+    // Redirige a la página de login
+    window.location.href = "/paginas/login/login.html";
+}

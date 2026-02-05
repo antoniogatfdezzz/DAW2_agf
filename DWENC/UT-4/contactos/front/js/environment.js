@@ -10,6 +10,7 @@ const URL_BACKEND="http://localhost:3000";
 // Direcciones de recursos
 //-------------------------------------------------------------
 const URL_CONTACTOS = `${URL_BACKEND}/contactos`;
+const URL_LOGIN = `${URL_BACKEND}/login`;
 
 
 //-------------------------------------------------------------

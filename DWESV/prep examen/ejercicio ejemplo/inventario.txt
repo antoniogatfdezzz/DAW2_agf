@@ -1,0 +1,4 @@
+Manzanas;1.25;50
+Peras;1.5;30
+Leche;0.99;100
+Huevos;2.1;80

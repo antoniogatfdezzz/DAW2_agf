@@ -36,6 +36,20 @@ export class Formulario {
         this.#inicializarEventosFormulario(this.#elementoFormulario);        
     }
 
+    /**
+     * Copia los valores en el objeto a el formulario
+     * 
+     * @param {*} objeto 
+     */
+    inicializarCampos(objeto) {
+        for(let name in objeto) {
+            const campo = $(this.#elementoFormulario).find(`[name=${name}]`)
+            if(campo.length) {
+                campo.val(objeto[name]);
+            }             
+        }
+    }
+
     //--------------------------------------------------
     // Eventos
     //-------------------------------------------------
