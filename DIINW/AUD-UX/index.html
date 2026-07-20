@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seguimiento en tiempo real de comparsas durante el Carnaval de Badajoz.">
+    <meta name="theme-color" content="#D32F2F">
+    <title>Seguimiento en Vivo — Carnaval de Badajoz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header" role="banner">
+        <div class="brand-container">
+            <div class="logo-text">
+                <span>Ayuntamiento</span>
+                <span>de Badajoz</span>
+            </div>
+            <div class="divider" aria-hidden="true"></div>
+            <div class="logo-text highlight">
+                <span>Carnaval</span>
+                <span>de Badajoz</span>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+            <button aria-label="Abrir menú principal" aria-expanded="false" class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="live-banner" role="status" aria-live="polite">
+            <span class="live-dot" aria-hidden="true"></span>
+            En directo — Desfile en curso
+        </div>
+
+        <article class="card info-card">
+            <h1>Comparsa X</h1>
+            <dl class="info-details">
+                <div class="detail-row">
+                    <dt>Orden de Salida</dt>
+                    <dd>3º</dd>
+                </div>
+                <div class="detail-row">
+                    <dt>Hora Estimada</dt>
+                    <dd><time datetime="19:00">19:00</time></dd>
+                </div>
+                <div class="detail-row">
+                    <dt>Nº de Componentes</dt>
+                    <dd>45</dd>
+                </div>
+            </dl>
+        </article>
+
+        <section class="map-container" aria-label="Mapa interactivo del recorrido">
+            <div class="map-placeholder">
+                <span class="map-icon" aria-hidden="true">📍</span>
+                <p>Toca para ampliar el mapa</p>
+            </div>
+        </section>
+
+        <section class="card route-card">
+            <h2 class="section-title">Recorrido</h2>
+            <ol class="route-timeline" aria-label="Puntos del recorrido de la comparsa">
+                <li class="past">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <div class="route-text">
+                        <span class="label">Anterior:</span> Calle Sevilla
+                    </div>
+                </li>
+                <li class="current" aria-current="step">
+                    <span class="status-dot pulse" aria-hidden="true"></span>
+                    <div class="route-text">
+                        <span class="label">Actual:</span>
+                        <strong>Avenida de la Paz</strong>
+                    </div>
+                </li>
+                <li class="future">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <div class="route-text">
+                        <span class="label">Siguiente:</span> Calle De Borja
+                    </div>
+                </li>
+                <li class="future">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <div class="route-text">
+                        Rotonda de España
+                    </div>
+                </li>
+                <li class="future">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <div class="route-text">
+                        Calle Escuelas
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+    <footer class="action-footer" role="contentinfo">
+        <button class="btn btn-primary btn-mapa" aria-label="Ver la ubicación actual en la aplicación de mapas">
+            <span class="btn-icon" aria-hidden="true">🗺️</span> Ver Mapa
+        </button>
+        <button class="btn btn-secondary" aria-label="Descargar el recorrido en formato PDF">
+            <span class="btn-icon" aria-hidden="true">📄</span> Descargar PDF
+        </button>
+    </footer>
+
+</body>
+</html>
